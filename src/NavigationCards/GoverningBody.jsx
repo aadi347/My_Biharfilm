@@ -18,13 +18,13 @@ const topImages = [
 
 const bodyMembers = [
   {
-    img: "https://static.toiimg.com/thumb/msid-72050900,width-1070,height-580,imgsize-60422,resizemode-75,overlay-toi_sw,pt-32,y_pad-40/photo.jpg",
+    img: "https://www.northblocksouthblock.com/wp-content/uploads/2025/01/u-6.jpg",
     name: "Sri Pranav Kumar, IAS",
     role: "Managing Director Cum Secretary (Art,Culture & Youth Dept.)",
     description: "0612-2219213",
   },
   {
-    img: "https://img.mensxp.com/media/content/2023/Mar/image-7-credit--IMDB_641950eb0fb3f.jpeg?w=780&h=1272&cc=1",
+    img: "https://static.wixstatic.com/media/cd3dbe_8f26ba759b334abc94aa6f69dd36f2cc~mv2.jpeg/v1/fill/w_667,h_375,al_c,q_80,enc_avif,quality_auto/cd3dbe_8f26ba759b334abc94aa6f69dd36f2cc~mv2.jpeg",
     name: "Sri Arvind Ranjan Das",
     role: "Consultant(Film)",
     description: "0612-2219213",
@@ -36,13 +36,13 @@ const bodyMembers = [
     description: "7482075777",
   },
   {
-    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Pankaj_Tripathi_World_Premiere_Newton_Zoopalast_Berlinale_2017_06.jpg/640px-Pankaj_Tripathi_World_Premiere_Newton_Zoopalast_Berlinale_2017_06.jpg",
+    img: "https://i.filecdn.in/328vijethaias/sonikakumarai-1714804578768.jpg",
     name: "	Sonika Kumari",
     role: "Assistant Section Officer",
     description: "",
   },
   {
-    img: "https://m.media-amazon.com/images/M/MV5BMjExOTEyNDcwMl5BMl5BanBnXkFtZTgwMjM3NzM0OTE@._V1_.jpg",
+    img: "https://pbs.twimg.com/profile_images/1265915625513324544/hEdFjW9L_400x400.jpg",
     name: "Moniza Hafizee",
     role: "Junior Consultant (Communication and Networking)",
     description: "",

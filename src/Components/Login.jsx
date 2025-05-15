@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Bgpatter from "/Users/manishmilando/Desktop/Biharfilm/src/assets/Bgpatter.svg";
-import Bg from "/Users/manishmilando/Desktop/Biharfilm/src/assets/Bg.svg";
+import Bgpatter from "../assets/Bgpatter.svg";
+import Bg from "../assets/Bg.jpg";
 
 import { MdEmail } from "react-icons/md";
 import { IoIosLock } from "react-icons/io";
@@ -23,7 +23,7 @@ const LoginPage = () => {
         <img
           src={Bg}
           alt="Background Pattern"
-          className="absolute z-[-10] top-0 left-0 w-full h-full object-cover opacity-40"
+          className="absolute z-[-10] top-0 left-0 w-full h-full object-cover opacity-60"
         />
       </div>
       <div className="flex max-w-5xl w-full h-[39rem] rounded-3xl bg-white shadow-2xl overflow-hidden">

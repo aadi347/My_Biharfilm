@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Signupimg from "/Users/manishmilando/Desktop/Biharfilm/src/assets/Signupimg.svg";
-import Bg from "/Users/manishmilando/Desktop/Biharfilm/src/assets/Bg.svg";
+import Signupimg from "../assets/Signupimg.svg";
+import Bg from "../assets/Bg.jpg"
 const SignupPage = () => {
   const navigate = useNavigate();
 
@@ -20,7 +20,7 @@ const SignupPage = () => {
                 <img
                   src={Bg}
                   alt="Background Pattern"
-                  className="absolute z-[-10] top-0 left-0 w-full h-full object-cover opacity-40"
+                  className="absolute z-[-10] top-0 left-0 w-full h-full object-cover opacity-60"
                 />
               </div>
       <div className="flex max-w-5xl w-full h-[39rem] rounded-3xl bg-white shadow-2xl overflow-hidden">

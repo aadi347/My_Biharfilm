@@ -1,14 +1,15 @@
 // App.js
 import React, { useState, useEffect } from "react";
 import Navbar from "../Components/Navbar";
-import Mtrain from "/src/assets/Mtrain.mp4";
-import Snow from "/src/assets/Snow.mp4";
-import Snowtrain from "/src/assets/Snowtrain.mp4";
-import Mountain from "/src/assets/mountain.mp4";
-import Watertemp from "/src/assets/watertemp.mp4";
+// import Mtrain from "/Mtrain.mp4";
+import Snow from "/Snow.mp4";
+import Snowtrain from "/Snowtrain.mp4";
+import Mountain from "/mountain.mp4";
+import Watertemp from "/watertemp.mp4";
+import Vrvideo from "/src/assets/Vrvideo.mp4";
 import { motion } from "framer-motion";
 import "../app.css";
-const videos = [Mtrain, Snow, Snowtrain, Mountain, Watertemp];
+const videos = [Snowtrain,Snow,Watertemp, Mountain,  Vrvideo];
 
 const textOverlays = [
   [

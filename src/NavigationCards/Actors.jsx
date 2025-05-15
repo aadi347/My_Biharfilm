@@ -27,7 +27,7 @@ const people = [
     id: 4,
     name: "Shatrughan Sinha",
     occupation: "Actor",
-    img: "https://sm.mashable.com/t/mashable_in/photo/default/ss-cvr_2agn.1248.png",
+    img: "https://sm.mashable.com/mashable_in/seo/8/88864/88864_trrd.png",
   },
   {
     id: 5,
@@ -51,7 +51,7 @@ const people = [
     id: 8,
     name: "Pawan Sigh",
     occupation: "Actor",
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqCKuE21Iw0ceFmzEp117cqgEZS_nZUyUm-g&s",
+    img: "https://i.pinimg.com/736x/fd/80/34/fd80344df5e7deb28076b37ad39f8ff0.jpg",
   },
   {
     id: 9,
@@ -75,7 +75,7 @@ const people = [
     id: 12,
     name: "Chandan Tiwari",
     occupation: "Folk Singer",
-    img: "https://i1.sndcdn.com/artworks-000088489163-208oxp-t500x500.jpg",
+    img: "https://chandantiwari.in/wp-content/uploads/2024/11/PHOTO-2024-03-27-16-07-40-1.jpg",
   },
   {
     id: 13,
