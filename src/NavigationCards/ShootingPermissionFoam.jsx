@@ -32,13 +32,7 @@ const ShootingPermissionForm = () => {
   const renderInput = (label, name, type = "text", isTextarea = false) => {
   return (
     <div className="mb-4">
-      <div>
-              <img
-                src={Bg}
-                alt="Background Pattern"
-                className="absolute z-[-10] top-0 left-0 w-full h-full object-cover opacity-20"
-              />
-            </div>
+     
       <label className="block text-m font-medium text-gray-700 mb-1">
         {label}
       </label>
