@@ -6,7 +6,7 @@ import FilmSubsidy from "../Budget/FilmSubsidy.jsx";
 
 export default function FilmPolicyNOC() {
   return (
-    <div className="min-h-screen w-full bg-gradient-to-b from-white to-gray-100 px-4 xl:px-16 py-16">
+    <div className="min-h-screen w-full bg-gradient-to-b from-white to-gray-100 px-4 xl:px-16 py-16" id="FilmPolicy">
       {/* Header */}
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-gray-800 mb-2">🎬 Film Policy & NOC</h1>

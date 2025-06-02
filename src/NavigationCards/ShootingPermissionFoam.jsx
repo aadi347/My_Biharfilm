@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Bg from "../assets/Bg.jpg";
+
 const ShootingPermissionForm = () => {
   const [formData, setFormData] = useState({});
   const [showAnnexureA, setShowAnnexureA] = useState(false);

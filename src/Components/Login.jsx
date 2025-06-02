@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Bgpatter from "../assets/Bgpatter.svg";
 import Bg from "../assets/Bg.jpg";
+import Adminsvgg from "../assets/Adminsvgg.svg";
 
 import { MdEmail } from "react-icons/md";
 import { IoIosLock } from "react-icons/io";
@@ -9,38 +10,56 @@ import { FaEye } from "react-icons/fa";
 
 const LoginPage = () => {
   const navigate = useNavigate();
+  const [isAdmin, setIsAdmin] = useState(false);
 
   const handleLogin = (e) => {
     e.preventDefault();
-    const fakeToken = "loginToken123";
-    localStorage.setItem("authToken", fakeToken);
-    navigate("/noc-form");
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    if (isAdmin) {
+      // Simulate admin credentials check
+      if (email === "admin@gmail.com" && password === "admin") {
+        localStorage.setItem("authToken", "adminToken123");
+        navigate("/dashboard"); 
+      } else {
+        alert("Invalid admin credentials");
+      }
+    } else {
+      localStorage.setItem("authToken", "userToken123");
+      navigate("/apply-noc"); 
+    }
   };
 
   return (
-    <div className="flex h-screen w-full items-center justify-center px-4">
-      <div>
-        <img
-          src={Bg}
-          alt="Background Pattern"
-          className="absolute z-[-10] top-0 left-0 w-full h-full object-cover opacity-60"
-        />
-      </div>
+    <div className="flex h-screen w-full items-center justify-center px-4 relative">
+      <img
+        src={Bg}
+        alt="Background"
+        className="absolute z-[-10] top-0 left-0 w-full h-full object-cover opacity-60"
+      />
+
       <div className="flex max-w-5xl w-full h-[39rem] rounded-3xl bg-white shadow-2xl overflow-hidden">
-        {/* Left side image */}
+        {/* Left image */}
         <div className="hidden w-1/2 bg-zinc-100 p-10 md:flex items-center justify-center">
-          <img src={Bgpatter} alt="Meditation" className="w-full h-auto" />
+          <img src={isAdmin ? Adminsvgg : Bgpatter}
+            alt="Pattern"
+            className="w-full h-auto transition-all duration-300" />
         </div>
 
-        {/* Right side form */}
+        {/* Right form */}
         <div className="w-full md:w-1/2 p-8 md:p-14">
-          <div className="flex justify-end mb-4">
-            <Link
-              to="/signup"
-              className="rounded-full border border-gray-300 px-4 py-1 text-sm font-medium text-gray-700 hover:bg-gray-100"
+          <div className="flex justify-between items-center mb-4">
+            <span className="text-sm font-medium text-gray-700">
+              {isAdmin ? "Admin" : "User"} Login
+            </span>
+            <button
+              type="button"
+              onClick={() => setIsAdmin(!isAdmin)}
+              className="text-sm px-4 py-1 border rounded-full text-gray-700 border-gray-300 hover:bg-gray-100"
             >
-              Sign up
-            </Link>
+              Switch to {isAdmin ? "User" : "Admin"}
+            </button>
           </div>
 
           <h2 className="text-2xl font-bold text-gray-800">Welcome back!</h2>
@@ -55,8 +74,9 @@ const LoginPage = () => {
                 <input
                   type="email"
                   id="email"
+                  name="email"
                   className="w-full rounded-md border border-gray-300 bg-gray-50 px-4 py-2 pl-10 text-sm text-gray-700 focus:border-[#a43f5c] focus:outline-none"
-                  placeholder="annyghosh3@gmail.com"
+                  placeholder="example@gmail.com"
                   required
                 />
                 <span className="absolute text-lg left-3 top-1/2 -translate-y-1/2 text-gray-400">
@@ -73,6 +93,7 @@ const LoginPage = () => {
                 <input
                   type="password"
                   id="password"
+                  name="password"
                   className="w-full rounded-md border border-gray-300 bg-gray-50 px-4 py-2 pl-10 text-sm text-gray-700 focus:border-[#a43f5c] focus:outline-none"
                   placeholder="********"
                   required
@@ -105,6 +126,13 @@ const LoginPage = () => {
             >
               Login
             </button>
+
+            <p className="text-center text-sm text-gray-600 mb-6">
+              Don't have an account?{" "}
+              <Link to="/signup" className="text-[#802d44] hover:underline">
+                Sign up
+              </Link>
+            </p>
 
             <div className="mb-6 flex items-center justify-between text-sm text-gray-400">
               <hr className="w-1/3" />
