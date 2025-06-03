@@ -30,13 +30,13 @@ const Dashboard = () => {
                                 <span className="ml-6">Settings</span>
                             </a>
                         </li>
-                        
+
                     </ul>
                     <div className='pl-8'>
-                    <button className=" pl-6 mt-[32rem] w-35 bg-[#a92b43] flex gap-3 text-white py-2 font-semibold rounded-lg hover:bg-[#802d44] transition-colors">
-                        <IoIosLogOut className='py-1 size-7' />
-                        Logout
-                    </button>
+                        <button className=" pl-6 mt-[32rem] w-35 bg-[#a92b43] flex gap-3 text-white py-2 font-semibold rounded-lg hover:bg-[#802d44] transition-colors">
+                            <IoIosLogOut className='py-1 size-7' />
+                            Logout
+                        </button>
                     </div>
                 </nav>
             </div>
@@ -47,7 +47,7 @@ const Dashboard = () => {
                 <div className=" absolute top-0 left-0 w-full flex items-center justify-between px-8 py-2  bg-white shadow-sm">
                     {/* Logo Section */}
                     <div className="text-xl font-bold text-[#a92b43]">
-                       <img src={Logo1} alt="logo" className="h-12 w-18" />
+                        <img src={Logo1} alt="logo" className="h-12 w-18" />
                     </div>
 
                     {/* Avatar Section */}
@@ -61,10 +61,10 @@ const Dashboard = () => {
                     </div>
                 </div>
 
-                
+
                 <header className="mb-8 mt-20">
                     <h2 className="text-3xl font-semibold text-gray-800">Overview</h2>
-                   
+
                 </header>
 
                 {/* Metrics Cards */}
@@ -114,15 +114,15 @@ const Dashboard = () => {
 
                         }
                     />
-                        
+
                 </div>
-                                <Dashboardactivity />
-                
+                <Dashboardactivity />
+
             </div>
-           
-            
-                
-              
+
+
+
+
         </div>
     );
 };

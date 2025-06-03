@@ -16,7 +16,7 @@ const categories = {
     {
       id: 2,
       title: "Sabhyata Dwar",
-      img: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/b4/c9/00/caption.jpg?w=300&h=300&s=1",
+      img: "https://d34vm3j4h7f97z.cloudfront.net/original/4X/0/e/f/0eff8ccd6a5c2badce42ea5c330ff4a41449fd0f.jpeg",
       description:
         "“Sabhyata Dwar” is a monumental gate in Vaishali that celebrates the ancient heritage...",
     },

@@ -18,6 +18,7 @@ import SignupPage from "./Components/Signup";
 import ShootingPermissionForm from "./NavigationCards/ShootingPermissionFoam";
 import DashboardMM from "./Dashboard/DashboardMM";
 import LocationDetail from "./NavigationCards/LocationDetail";
+import DasboardUser from "./Dashboard/DashboardUser";
 function Home() {
   return (
     <>
@@ -48,6 +49,7 @@ export default function App() {
       <Route path="/signup" element={<SignupPage />} />
       <Route path="/apply-noc" element={<ShootingPermissionForm />} />
       <Route path="/dashboard" element={<DashboardMM />} />
+      <Route path="/dashboard-user" element={<DasboardUser />} />
     </Routes>
   );
 }
