@@ -49,9 +49,9 @@ const people = [
   },
   {
     id: 8,
-    name: "Pawan Sigh",
+    name: "Gurmeet Choudhary",
     occupation: "Actor",
-    img: "https://i.pinimg.com/736x/fd/80/34/fd80344df5e7deb28076b37ad39f8ff0.jpg",
+    img: "https://www.gethucinema.com/tmdb/eCeElyYgPm1ZvV1NWlBeQbUCp8c.jpg",
   },
   {
     id: 9,

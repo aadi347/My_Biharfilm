@@ -18,30 +18,47 @@ const Footer = () => {
           </div>
 
           {/* Important Links */}
-          <div className="lg:w-1/3 grid grid-cols-2 sm:grid-cols-1 gap-4">
-            <div>
-              <h3 className="text-xl font-bold mb-2">Important Links</h3>
-              <ul className="space-y-2 text-sm">
-                {["Shooting Location","Film Club","Youth and Culture","Bihar Tourism"].map(link => (
-                  <li key={link} className="hover:text-red-500 transition-colors">{link}</li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold mb-2">&nbsp;</h3>
-              <ul className="space-y-2 text-sm">
-                {["Environment and Forest","Transport"].map(link => (
-                  <li key={link} className="hover:text-red-500 transition-colors">{link}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
+<div className="lg:w-1/3 grid grid-cols-2 sm:grid-cols-1 gap-4">
+  <div>
+    <h3 className="text-xl font-bold mb-2">Important Links</h3>
+    <ul className="space-y-2 text-sm">
+      {[
+        { label: "Shooting Location", href: "#Shooting-location" },
+        { label: "Film Club", href: "#FilmClub" },
+        { label: "Film Policy", href: "#FilmPolicy" },
+        { label: "Bihar Tourism", href: "https://tourism.bihar.gov.in/" }
+      ].map(link => (
+        <li key={link.label}>
+          <a href={link.href} className="hover:text-red-500 transition-colors">
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+  <div>
+    <h3 className="text-xl font-bold mb-2">&nbsp;</h3>
+    <ul className="space-y-2 text-sm">
+      {[
+        { label: "Environment and Forest", href: "https://state.bihar.gov.in/forest/CitizenHome.html" },
+        { label: "Transport", href: "https://state.bihar.gov.in/transport/CitizenHome.html" }
+      ].map(link => (
+        <li key={link.label}>
+          <a href={link.href} className="hover:text-red-500 transition-colors">
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</div>
+
 
           {/* Contact */}
           <div className="lg:w-1/3">
             <h3 className="text-xl font-bold mb-2">Contact</h3>
             <ul className="space-y-2 text-sm">
-              <li>Bihar State Film Development and Finance Corporation Limited</li>
+              <li> <a href="https://film.bihar.gov.in/">Bihar State Film Development and Finance Corporation Limited</a></li>
               <li>0612-2219213</li>
               <li>biharfilmnigam@gmail.com</li>
               <li className="hover:text-red-500 transition-colors cursor-pointer">Get Location</li>
@@ -61,7 +78,7 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-3">Newsletter</h4>
             <button className="flex items-center space-x-2 bg-red-500 text-white text-sm sm:text-base font-medium py-2 px-4 sm:px-6 rounded-full hover:bg-red-600 transition">
               <CiMail className="text-xl" />
-              <span>Register for Newsletter</span>
+              <span>film's Actor regestration</span>
             </button>
           </div>
 

@@ -48,19 +48,22 @@ function Cinemaecosystem() {
       >
         <Longcards
           imageUrl="https://www.tbsnews.net/sites/default/files/styles/big_3/public/images/2022/04/17/shooting_village_bhadun_1.jpg"
-          title="Ready to fly"
-          description="This is a description of the image."
+          title="Village Set in Action"
+          description="Capturing raw storytelling from the heart of Bhadun village during an on-location shoot."
         />
+
         <Longcards
           imageUrl="https://img.freepik.com/premium-photo/hengdian-world-studio-shooting-film-studio-ancient-village-chinese-screen_1048944-4451696.jpg"
-          title="Ancient Shoots"
-          description="This is a description of the image."
+          title="Timeless Heritage Scenes"
+          description="A historical film set blending traditional architecture with cinematic creativity."
         />
+
         <Longcards
           imageUrl="https://www.gramvikas.org/wp-content/uploads/2021/05/WhatsApp-Image-2021-05-03-at-10.23.14-PM.jpeg"
-          title="Rural Frames"
-          description="This is a description of the image."
+          title="Filming in the Heartland"
+          description="Documenting cultural narratives from rural India — real stories, real locations."
         />
+
       </motion.div>
     </div>
   );

@@ -22,7 +22,7 @@ export default function ButtonNOC() {
     <div className="absolute flex right-10 bottom-6 z-10">
       <button
         onClick={handleApplyClick}
-        className="px-6 py-2 flex items-center text-white rounded-xl font-bold shadow-md hover:bg-blue-800 bg-black/90 outline-2 outline-white transition"
+        className="px-6 py-2 flex items-center text-white rounded-xl font-bold shadow-md hover:bg-[#a92b43] bg-black/90 outline-2 outline-white transition"
       >
         Apply for NOC
         <HiArrowLongRight className="ml-4 w-10 scale-x-200 text-2xl" />

@@ -13,23 +13,23 @@ const LoginPage = () => {
   const [isAdmin, setIsAdmin] = useState(false);
 
   const handleLogin = (e) => {
-    e.preventDefault();
+  e.preventDefault();
+
+  if (isAdmin) {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    if (isAdmin) {
-      // Simulate admin credentials check
-      if (email === "admin@gmail.com" && password === "admin") {
-        localStorage.setItem("authToken", "adminToken123");
-        navigate("/dashboard"); 
-      } else {
-        alert("Invalid admin credentials");
-      }
+    if (email === "admin@gmail.com" && password === "admin") {
+      localStorage.setItem("authToken", "adminToken123");
+      navigate("/dashboard");
     } else {
-      localStorage.setItem("authToken", "userToken123");
-      navigate("/apply-noc"); 
+      alert("Invalid admin credentials");
     }
-  };
+  } else {
+    navigate("/apply-noc"); // Skip validation for users
+  }
+};
+
 
   return (
     <div className="flex h-screen w-full items-center justify-center px-4 relative">

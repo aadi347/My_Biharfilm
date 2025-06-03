@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { motion } from "framer-motion";
@@ -43,7 +44,7 @@ const categories = {
     {
       id: 6,
       title: "Glass Bridge",
-      img: "https://im.indiatimes.in/content/2020/Dec/9twitter_5fe07db422a7d.jpg?w=720&h=1280&cc=1&webp=1&q=50",
+      img: "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202012/glsi_1200x768.jpeg?size=1200:675",
       description: "A thrilling glass bridge offering panoramic views of the valley...",
     },
     {
@@ -53,18 +54,7 @@ const categories = {
       description:
         "Kakolat Waterfall is a popular spot for picnics and trekking, known for its natural beauty...",
     },
-    {
-      id: 8,
-      title: "Sabhyata Dwar",
-      img: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/b4/c9/00/caption.jpg?w=300&h=300&s=1",
-      description: "Duplicate entry—feel free to remove or replace.",
-    },
-    {
-      id: 9,
-      title: "Glass Bridge",
-      img: "https://im.indiatimes.in/content/2020/Dec/9twitter_5fe07db422a7d.jpg?w=720&h=1280&cc=1&webp=1&q=50",
-      description: "Duplicate entry—feel free to remove or replace.",
-    },
+    
   ],
   "Religious Places": [
     {
@@ -116,18 +106,7 @@ const categories = {
       description:
         "Shanti Stupa is a Buddhist monument symbolizing peace; although the image is Wardha’s Stupa, replace if needed.",
     },
-    {
-      id: 8,
-      title: "Kundalpur",
-      img: "https://tourism.bihar.gov.in/content/dam/bihar-tourism/images/category_a/nalanda/kundalpur/jainism_nalanda_a_kundalpur_pic_02.jpg/jcr:content/renditions/cq5dam.web.1280.765.jpeg",
-      description: "Duplicate entry—feel free to remove or replace.",
-    },
-    {
-      id: 9,
-      title: "Mundeshwari",
-      img: "https://tourism.bihar.gov.in/content/dam/bihar-tourism/images/category_a/kaimur/mundeshwari_devi_temple/mundishwaridevi-tn.png/jcr:content/renditions/cq5dam.web.1280.765.jpeg",
-      description: "A second Mundeshwari Temple image if desired.",
-    },
+    
   ],
   "Wildlife": [
     {
@@ -176,18 +155,7 @@ const categories = {
       description:
         "Patna Zoo (Sanjay Gandhi Biological Park) has tigers, lions, elephants, and more.",
     },
-    {
-      id: 8,
-      title: "Wildlife",
-      img: "https://static.toiimg.com/photo/msid-106921990,width-96,height-65.cms",
-      description: "A generic wildlife image—replace if needed.",
-    },
-    {
-      id: 9,
-      title: "Valmiki",
-      img: "https://hindi.cdn.zeenews.com/hindi/sites/default/files/2024/03/09/2681300-valmiki-tiger-reserve.jpg?im=Resize=(1200,900)",
-      description: "Duplicate entry—feel free to remove or replace.",
-    },
+    
   ],
   "Historical Monuments": [
     {
@@ -239,18 +207,7 @@ const categories = {
       description:
         "The Mahabodhi Temple Complex at Bodh Gaya is a UNESCO World Heritage site...",
     },
-    {
-      id: 8,
-      title: "Vaishali Stupa",
-      img: "https://media.istockphoto.com/id/937177718/photo/vaishali-ancient-stupa-in-india.jpg?s=612x612&w=0&k=20&c=F7E_NTGWlcUQvs2LO_NuBFFxXLs2TWRE_k1mnDzkVdM=",
-      description: "Duplicate entry—feel free to remove or replace.",
-    },
-    {
-      id: 9,
-      title: "Kesariya Stupa",
-      img: "https://media.istockphoto.com/id/1128850736/photo/kesaria-stupa-champaran-district-of-bihar-india.jpg?s=612x612&w=0&k=20&c=7TV49EV6EiDZ6FJG9MD4xy11JA5WgRqHr8X5rEl0o3M=",
-      description: "Duplicate entry—feel free to remove or replace.",
-    },
+    
   ],
 };
 

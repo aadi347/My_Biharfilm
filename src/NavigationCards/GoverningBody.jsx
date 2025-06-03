@@ -17,12 +17,7 @@ const topImages = [
 ];
 
 const bodyMembers = [
-  {
-    img: "https://www.northblocksouthblock.com/wp-content/uploads/2025/01/u-6.jpg",
-    name: "Sri Pranav Kumar, IAS",
-    role: "Managing Director Cum Secretary (Art,Culture & Youth Dept.)",
-    description: "0612-2219213",
-  },
+  
   {
     img: "https://static.wixstatic.com/media/cd3dbe_8f26ba759b334abc94aa6f69dd36f2cc~mv2.jpeg/v1/fill/w_667,h_375,al_c,q_80,enc_avif,quality_auto/cd3dbe_8f26ba759b334abc94aa6f69dd36f2cc~mv2.jpeg",
     name: "Sri Arvind Ranjan Das",
@@ -48,13 +43,13 @@ const bodyMembers = [
     description: "",
   },
   {
-    img: "https://hindi.cdn.zeenews.com/hindi/sites/default/files/2024/07/21/3069269-bihar-top-actors-4.jpeg",
+    img: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
     name: "Leela Kumari Prasad",
     role: "Data Entry Operator",
     description: "",
   },
   {
-    img: "https://hindi.cdn.zeenews.com/hindi/sites/default/files/2024/07/21/3069269-bihar-top-actors-4.jpeg",
+    img: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
     name: "Amit Ranjan",
     role: "Data Entry Operator",
     description: "",
@@ -66,7 +61,7 @@ const GoverningComponent = () => {
     <div className="px-4 sm:px-6 lg:px-20 pt-10 pb-20 bg-[#190108] w-full" id="GoverningBody">
       {/* Title */}
       <p className="text-white text-3xl sm:text-4xl md:text-5xl font-bold pb-12">
-        Governing Bodies of Bihar Films
+        Governing Bodie of Bihar Films
       </p>
 
       {/* Top Leaders */}

@@ -51,8 +51,8 @@ const UserDashboard = () => {
         </nav>
 
         {/* Logout Button at Bottom */}
-        <div className="p-4 pl-13 border-gray-200">
-          <button className="w-35 bg-[#a92b43] flex items-center justify-center gap-2 text-white py-2 font-semibold rounded-lg hover:bg-[#802d44] transition-colors">
+        <div className="p-4 mb-3 pl-13 border-gray-200">
+          <button className="w-35 bg-[#a92b43] flex items-center justify-center gap-2 text-white py-3 font-semibold rounded-lg hover:bg-[#802d44] transition-colors">
             <IoIosLogOut className="text-xl" />
             Logout
           </button>
@@ -94,7 +94,7 @@ const UserDashboard = () => {
           */}
           <div className="h-full flex items-center justify-center text-gray-400 italic">
             {/* e.g. “Select a category from the sidebar” */}
-            Select “Applied NOC”, “Pending NOC”, or “Success NOC” to view your forms.
+            Apply For NOC to see your applications here.
           </div>
         </div>
 
