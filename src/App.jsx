@@ -17,6 +17,7 @@ import LoginPage from "./Components/Login";
 import SignupPage from "./Components/Signup";
 import ShootingPermissionForm from "./NavigationCards/ShootingPermissionFoam";
 import DashboardMM from "./Dashboard/DashboardMM";
+import LocationDetail from "./NavigationCards/LocationDetail";
 function Home() {
   return (
     <>
@@ -38,6 +39,10 @@ function Home() {
 export default function App() {
   return (
     <Routes>
+      <Route
+          path="/location/:category/:id"
+          element={<LocationDetail />}
+        />
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignupPage />} />
