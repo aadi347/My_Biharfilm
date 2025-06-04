@@ -26,7 +26,7 @@ const LoginPage = () => {
       alert("Invalid admin credentials");
     }
   } else {
-    navigate("/apply-noc"); // Skip validation for users
+    navigate("/apply-noc"); 
   }
 };
 
@@ -40,14 +40,14 @@ const LoginPage = () => {
       />
 
       <div className="flex max-w-5xl w-full h-[39rem] rounded-3xl bg-white shadow-2xl overflow-hidden">
-        {/* Left image */}
+      
         <div className="hidden w-1/2 bg-zinc-100 p-10 md:flex items-center justify-center">
           <img src={isAdmin ? Adminsvgg : Bgpatter}
             alt="Pattern"
             className="w-full h-auto transition-all duration-300" />
         </div>
 
-        {/* Right form */}
+  
         <div className="w-full md:w-1/2 p-8 md:p-14">
           <div className="flex justify-between items-center mb-4">
             <span className="text-sm font-medium text-gray-700">

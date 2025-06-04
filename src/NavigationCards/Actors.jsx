@@ -3,7 +3,7 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import "../app.css";
 
 
-// Data: Actors and Directors from Bihar
+
 const people = [
   {
     id: 1,
@@ -141,7 +141,7 @@ const CarouselOfCelebs = () => {
         Celebrities of Bihar
       </h2>
 
-      {/* Carousel Cards */}
+  
       <div className="w-full flex justify-center px-4">
         <div className="flex gap-4 sm:gap-6 transition-transform duration-500 ease-in-out flex-wrap justify-center">
           {people.slice(index, index + itemsPerPage).map((person) => (
@@ -149,7 +149,7 @@ const CarouselOfCelebs = () => {
               key={person.id}
               className="w-64 sm:w-72 h-96 bg-white/40 backdrop-blur-3xl text-white rounded-2xl shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-700 relative"
             >
-              {/* Image */}
+            
               <div className="w-full h-full overflow-hidden relative">
                 <img
                   src={person.img}
@@ -159,7 +159,7 @@ const CarouselOfCelebs = () => {
                 <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/70 to-transparent z-10" />
               </div>
 
-              {/* Text */}
+              
               <div className="absolute bottom-4 left-4 z-20">
                 <h3 className="text-xl font-semibold">{person.name}</h3>
                 <p className="text-sm text-white">{person.occupation}</p>
@@ -169,7 +169,7 @@ const CarouselOfCelebs = () => {
         </div>
       </div>
 
-      {/* Arrows BELOW the cards */}
+
       <div className="flex justify-center gap-4 mt-6">
         <button onClick={prevSlide} className="p-3 bg-gray-800 text-white rounded-full hover:bg-gray-600">
           <IoIosArrowBack size={30} />

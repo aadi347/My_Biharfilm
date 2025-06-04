@@ -8,7 +8,7 @@ const topImages = [
     namee: "Hon'ble Minister"
   },
   {
-    src: "https://www.northblocksouthblock.com/wp-content/uploads/2025/01/u-6.jpg",
+    src: "https://firebasestorage.googleapis.com/v0/b/gatishaktibihar.firebasestorage.app/o/biharfilm%2Fhome_secy.jpeg?alt=media&token=2f9b010e-0fed-4627-949d-a4779308a995",
     alt: "Leader 2",
     name: "Sri Pranav Kumar,I.A.S",
     namee: "Managing Director",

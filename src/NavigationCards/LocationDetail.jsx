@@ -53,7 +53,7 @@ const LocationDetail = () => {
   const navigate = useNavigate();
   const numericId = parseInt(id, 10);
 
-  // Safety checks: is category valid?
+ 
   const categoryList = categories[category];
   if (!categoryList) {
     return (
@@ -69,7 +69,7 @@ const LocationDetail = () => {
     );
   }
 
-  // Find the item whose id matches
+ 
   const item = categoryList.find((c) => c.id === numericId);
   if (!item) {
     return (

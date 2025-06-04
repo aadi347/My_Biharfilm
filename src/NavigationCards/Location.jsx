@@ -4,7 +4,7 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
-// Sample Data with Image URLs + descriptions (you can add a `description` field if you want)
+
 const categories = {
   "Film Locations": [
     {
@@ -262,25 +262,25 @@ const Location = () => {
         ))}
       </div>
 
-      {/* Cards Carousel */}
+  
       <div className="overflow-hidden mt-4 w-full md:w-[90%] relative px-2">
         <div className="flex gap-6 transition-transform duration-500 ease-in-out justify-center">
           {cards.slice(index, index + itemsPerPage).map((card) => {
-            // Build a URL-safe category string
+  
             const encodedCategory = encodeURIComponent(selectedCategory);
             const detailPath = `/location/${encodedCategory}/${card.id}`;
 
             return (
               <Link to={detailPath} key={card.id}>
                 <div className="w-[270px] sm:w-72 h-80 border-1 rounded-2xl overflow-hidden bg-transparent transform transition-transform duration ease-in-out hover:scale-95 group relative cursor-pointer">
-                  {/* Image */}
+                
                   <img
                     src={card.img}
                     alt={card.title}
                     className="w-full h-full object-cover transition-transform duration-[2000ms] ease-in-out group-hover:scale-110"
                   />
 
-                  {/* Location Name */}
+               
                   <div className="absolute text-base sm:text-xl font-bold bg-gradient-to-t from-black/40 to-transparent bottom-0 left-0 w-full text-white text-start p-4">
                     {card.title}
                   </div>
@@ -291,7 +291,7 @@ const Location = () => {
         </div>
       </div>
 
-      {/* Navigation Arrows */}
+   
       <div className="flex mt-6 gap-4">
         <button
           onClick={prevSlide}

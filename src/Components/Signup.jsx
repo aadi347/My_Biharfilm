@@ -22,12 +22,12 @@ const SignupPage = () => {
       />
 
       <div className="flex max-w-5xl w-full h-[39rem] rounded-3xl bg-white shadow-2xl overflow-hidden">
-        {/* Left Side Image */}
+       
         <div className="hidden md:flex w-1/2 bg-zinc-100 p-10 items-center justify-center">
           <img src={Signupimg} alt="Signup Illustration" className="w-full h-auto" />
         </div>
 
-        {/* Right Side Form */}
+
         <div className="w-full md:w-1/2 p-8 md:p-14">
           <div className="flex justify-end mb-4">
             <Link
@@ -42,7 +42,7 @@ const SignupPage = () => {
           <p className="mb-6 text-gray-500">Fill the details to sign up</p>
 
           <form className="space-y-4" onSubmit={handleSignup}>
-            {/* Email */}
+        
             <div>
               <label htmlFor="email" className="text-sm font-medium text-gray-700">
                 Email
@@ -59,7 +59,7 @@ const SignupPage = () => {
               </div>
             </div>
 
-            {/* Password */}
+          
             <div>
               <label htmlFor="password" className="text-sm font-medium text-gray-700">
                 Password
@@ -76,7 +76,7 @@ const SignupPage = () => {
               </div>
             </div>
 
-            {/* Confirm Password */}
+      
             <div>
               <label htmlFor="confirm" className="text-sm font-medium text-gray-700">
                 Confirm Password
