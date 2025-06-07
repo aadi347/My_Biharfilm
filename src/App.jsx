@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useParams } from "react-router-dom";
 
 // Components
 import VideoSection from "./Components/VideoSection";
@@ -19,6 +19,9 @@ import ShootingPermissionForm from "./NavigationCards/ShootingPermissionFoam";
 import DashboardMM from "./Dashboard/DashboardMM";
 import LocationDetail from "./NavigationCards/LocationDetail";
 import DasboardUser from "./Dashboard/DashboardUser";
+import DistrictDashboard from "./Dashboard/DistrictDashboard";
+
+// Home Page
 function Home() {
   return (
     <>
@@ -37,19 +40,23 @@ function Home() {
   );
 }
 
+// Wrapper for District Dashboard with dynamic route
+const DistrictDashboardWrapper = () => {
+  const { districtName } = useParams();
+  return <DistrictDashboard districtName={districtName} />;
+};
+
 export default function App() {
   return (
     <Routes>
-      <Route
-          path="/location/:category/:id"
-          element={<LocationDetail />}
-        />
+      <Route path="/location/:category/:id" element={<LocationDetail />} />
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignupPage />} />
       <Route path="/apply-noc" element={<ShootingPermissionForm />} />
       <Route path="/dashboard" element={<DashboardMM />} />
       <Route path="/dashboard-user" element={<DasboardUser />} />
+      <Route path="/district/:districtName" element={<DistrictDashboardWrapper />} />
     </Routes>
   );
 }
