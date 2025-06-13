@@ -1,79 +1,87 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Reel from "/src/assets/Reel.svg";
+import { useNavigate } from "react-router-dom";
+import Filmclub from "/Filmclub.mp4";
 import { CiCoffeeCup } from "react-icons/ci";
 import { RiFilmAiFill, RiMovie2Line } from "react-icons/ri";
 
 const FilmClubUI = () => {
+  const navigate = useNavigate();
+
   const cards = [
     {
       title: "Coffee With Film",
-      description: "Engage in deep discussions about cinema over a cup of coffee.",
-      icon: <CiCoffeeCup />,
+      description: "Let's think critically to improve the young peoples' imagination and creativity skills",
+      icon: <CiCoffeeCup className="text-white text-3xl" />,
+      slug: "coffee-with-film",
     },
     {
       title: "Cine Samvad",
       description: "Let's explore engaging content and film industry of Bihar.",
-      icon: <RiFilmAiFill />,
+      icon: <RiFilmAiFill className="text-white text-3xl" />,
+      slug: "cine-samvad",
     },
     {
       title: "Chatarpatar",
-      description: "Brief discussions with clips, presentations, and worksheets.",
-      icon: <RiMovie2Line />,
+      description: "Let's have a brief discussion over movies with resource like powerpoint presentation with embedded clip and worksheets.",
+      icon: <RiMovie2Line className="text-white text-3xl" />,
+      slug: "chatarpatar",
     },
   ];
 
   return (
     <div
-      className="relative w-full h-screen flex items-center justify-center bg-[#190108] overflow-hidden max-w-screen overflow-x-hidden"
       id="FilmClub"
+      className="relative w-full min-h-screen bg-[#190108] flex items-center justify-center px-4 py-16 overflow-hidden"
     >
-      {/* Background Image with slight movement */}
-      <motion.img
-        src={Reel}
-        alt="Background"
-        className="absolute top-0 left-0 w-full h-full object-cover opacity-20"
-        animate={{ x: ["-2%", "2%", "-2%"] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+      {/* Background Video */}
+      <video
+        className="absolute top-0 left-0 w-full h-full object-cover opacity-20 z-0"
+        src={Filmclub}
+        autoPlay
+        loop
+        muted
+        playsInline
       />
 
-      {/* Header Description */}
-      <div className="absolute top-[clamp(2.5rem,5vw,5rem)] text-white text-center z-10 px-2">
-        <h1 className="text-[clamp(1.25rem,3.5vw,2.5rem)] font-serif">Welcome to the Film Club</h1>
-        <p className="text-[clamp(0.75rem,1.75vw,1.1rem)] mt-2">
+      {/* Header */}
+      <div className="absolute top-10 text-center text-white z-10 px-4">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold">
+          Welcome to the Film Club
+        </h1>
+        <p className="mt-3 text-sm sm:text-base max-w-xl mx-auto">
           Discover and explore amazing films with us.
         </p>
       </div>
 
-      {/* Floating Cards using Grid */}
-      <div
-        className="absolute top-1/2 transform -translate-y-1/2 z-10 px-4 w-full max-w-screen
-        grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center"
-      >
+      {/* Cards Grid */}
+      <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-32 w-full max-w-6xl">
         {cards.map((card, index) => (
-          <div
+          <motion.div
             key={index}
-            className="relative 
-              w-[clamp(8rem,20vw,13rem)] 
-              h-[clamp(11rem,22vw,16rem)] 
-              bg-white/20 backdrop-blur-md 
-              p-[clamp(0.5rem,1.5vw,1rem)] 
-              rounded-xl border border-white/30 shadow-lg 
-              transition-transform hover:scale-105 hover:shadow-2xl 
-              overflow-hidden"
+            whileHover={{ translateY: 10 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            className="bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl p-6 w-full h-80 shadow-lg hover:shadow-2xl flex flex-col justify-between"
           >
-            {/* Sticker */}
-            <div className="absolute top-4 left-4 bg-red-600 text-white text-[clamp(1.25rem,2.5vw,2rem)] p-2 rounded-full shadow-md">
+            {/* Icon */}
+            <div className="w-12 h-12 bg-red-600 text-white flex items-center justify-center rounded-full shadow-md">
               {card.icon}
             </div>
-            {/* Description */}
-            <div className="mt-20 text-white text-center px-2 overflow-y-auto scrollbar-hidden">
-              <h2 className="text-[clamp(0.9rem,1.5vw,1.2rem)] font-semibold">{card.title}</h2>
-              <p className="text-[clamp(0.65rem,1.25vw,0.95rem)] mt-2">
-                {card.description}
-              </p>
+
+            {/* Content */}
+            <div className="text-white text-center mt-6 flex-1">
+              <h2 className="text-lg font-semibold">{card.title}</h2>
+              <p className="mt-2 text-sm">{card.description}</p>
             </div>
-          </div>
+
+            {/* Button */}
+            <button
+              onClick={() => navigate(`/filmclub/${card.slug}`)}
+              className="mt-4 bg-[#a92b43] text-white px-4 py-2 rounded-lg text-sm hover:bg-[#891737] transition"
+            >
+              Learn More
+            </button>
+          </motion.div>
         ))}
       </div>
     </div>

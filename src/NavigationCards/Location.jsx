@@ -218,20 +218,43 @@ const Location = () => {
   const cards = categories[selectedCategory];
   const totalCards = cards.length;
   const itemsPerPage = 4;
+  const categoryList = Object.keys(categories);
 
   const nextSlide = () => {
-    setIndex((prevIndex) =>
-      prevIndex + itemsPerPage >= totalCards ? 0 : prevIndex + itemsPerPage
-    );
-  };
+  const cards = categories[selectedCategory];
+  const totalCards = cards.length;
 
-  const prevSlide = () => {
-    setIndex((prevIndex) =>
-      prevIndex - itemsPerPage < 0
-        ? totalCards - itemsPerPage
-        : prevIndex - itemsPerPage
-    );
-  };
+  if (index + itemsPerPage >= totalCards) {
+    // Move to next category
+    const currentCategoryIndex = categoryList.indexOf(selectedCategory);
+    const nextCategoryIndex = (currentCategoryIndex + 1) % categoryList.length;
+    setSelectedCategory(categoryList[nextCategoryIndex]);
+    setIndex(0);
+  } else {
+    setIndex(index + itemsPerPage);
+  }
+};
+
+
+ const prevSlide = () => {
+  if (index - itemsPerPage < 0) {
+    // Move to previous category
+    const currentCategoryIndex = categoryList.indexOf(selectedCategory);
+    const prevCategoryIndex =
+      (currentCategoryIndex - 1 + categoryList.length) % categoryList.length;
+
+    const newCategory = categoryList[prevCategoryIndex];
+    const newCards = categories[newCategory];
+    const newTotal = newCards.length;
+    const newIndex = Math.max(0, newTotal - itemsPerPage);
+
+    setSelectedCategory(newCategory);
+    setIndex(newIndex);
+  } else {
+    setIndex(index - itemsPerPage);
+  }
+};
+
 
   return (
     <motion.div

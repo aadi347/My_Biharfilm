@@ -25,7 +25,7 @@ const bodyMembers = [
     description: "0612-2219213",
   },
   {
-    img: "https://img.mensxp.com/media/content/2023/Mar/main-image-credit--Manoj-Bajpayee_6419b0388bfdd.png",
+    img: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
     name: "V.D.Mishra",
     role: "	Consultant (Fin. & Account)",
     description: "7482075777",
@@ -61,7 +61,7 @@ const GoverningComponent = () => {
     <div className="px-4 sm:px-6 lg:px-20 pt-10 pb-20 bg-[#190108] w-full" id="GoverningBody">
       {/* Title */}
       <p className="text-white text-3xl sm:text-4xl md:text-5xl font-bold pb-12">
-        Governing Bodie of Bihar Films
+        Governing Body
       </p>
 
       {/* Top Leaders */}

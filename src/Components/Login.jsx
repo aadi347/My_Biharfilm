@@ -28,6 +28,46 @@ const LoginPage = () => {
   } else {
     navigate("/apply-noc"); 
   }
+  const districtAccounts = [
+  { email: "patna@gmail.com", password: "patna", district: "Patna" },
+  { email: "gaya@gmail.com", password: "gaya", district: "Gaya" },
+  { email: "bhagalpur@gmail.com", password: "bhagalpur", district: "Bhagalpur" },
+  { email: "muzaffarpur@gmail.com", password: "muzaffarpur", district: "Muzaffarpur" },
+  // Add more if needed
+];
+
+const handleLogin = (e) => {
+  e.preventDefault();
+  const email = e.target.email.value;
+  const password = e.target.password.value;
+
+  if (isAdmin) {
+    // Admin Login
+    if (email === "admin@gmail.com" && password === "admin") {
+      localStorage.setItem("authToken", "adminToken123");
+      navigate("/dashboard");
+      return;
+    }
+
+    // Check District Login
+    const districtUser = districtAccounts.find(
+      (acc) => acc.email === email && acc.password === password
+    );
+
+    if (districtUser) {
+      localStorage.setItem("authToken", `${districtUser.district}_token`);
+      navigate(`/district/${districtUser.district.toLowerCase()}`);
+      return;
+    }
+
+    // If neither admin nor district
+    alert("Invalid Admin or District Credentials");
+  } else {
+    // Normal User
+    navigate("/apply-noc");
+  }
+};
+
 };
 
 

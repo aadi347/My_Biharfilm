@@ -8,3 +8,5 @@ const DistrictDashboardWrapper = () => {
     />
   );
 };
+
+export default DistrictDashboardWrapper;

@@ -10,16 +10,17 @@ function Cinemaecosystem() {
       <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold">Cinema Ecosystem</h2>
 
       {/* Learn More Row */}
-      <div className="flex items-center mt-2 space-x-2">
-        <p className="text-white text-base sm:text-lg font-semibold">Learn more</p>
-        <IoIosArrowRoundForward className="text-[#a92b4e] text-3xl sm:text-4xl scale-x-150" />
-      </div>
+     
 
       {/* Description */}
       <div className="pt-6 max-w-3xl">
         <p className="text-white text-sm sm:text-base leading-relaxed text-justify">
           Cinema Ecosystem in Bihar — Bihar’s cinema culture is a dynamic mix of tradition and modernity. From the popularity of Bhojpuri and Maithili films to the growing presence of multiplexes and digital platforms, cinema remains a major source of entertainment across the state.
         </p>
+         <div className="flex items-center mt-2 space-x-2">
+        <p className="text-white text-base sm:text-lg font-semibold">Learn more</p>
+        <IoIosArrowRoundForward className="text-[#a92b4e] text-3xl sm:text-4xl scale-x-150" />
+      </div>
       </div>
 
       {/* Cards Section */}
