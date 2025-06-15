@@ -21,7 +21,7 @@ import LocationDetail from "./NavigationCards/LocationDetail";
 import DasboardUser from "./Dashboard/DashboardUser";
 import DistrictDashboard from "./Dashboard/DistrictDashboard";
 // import DistrictList from "./Dashboard/DistrictList"
-
+import CineSamvad from "./NavigationCards/pages/CineSamvad";
 // Home Page
 function Home() {
   return (
@@ -50,6 +50,7 @@ const DistrictDashboardWrapper = () => {
 export default function App() {
   return (
     <Routes>
+      {/* <Route path="/FilmClubUI" element={<FilmClubUI />} /> */}
       <Route path="/location/:category/:id" element={<LocationDetail />} />
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<LoginPage />} />
@@ -60,6 +61,8 @@ export default function App() {
       {/* <Route path="/districts" element={<DistrictList />} /> */}
 
       <Route path="/district/:districtName" element={<DistrictDashboardWrapper />} />
+      <Route path="/filmclub/cine-samvad" element={<CineSamvad />} />
+
     </Routes>
   );
 }

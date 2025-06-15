@@ -1,7 +1,6 @@
 // App.js
 import React, { useState, useEffect } from "react";
 import Navbar from "../Components/Navbar";
-// import Mtrain from "/Mtrain.mp4";
 import Snow from "/Snow.mp4";
 import Snowtrain from "/Snowtrain.mp4";
 import Mountain from "/mountain.mp4";
@@ -9,7 +8,8 @@ import Watertemp from "/watertemp.mp4";
 import Vrvideo from "/Vrvideo.mp4";
 import { motion } from "framer-motion";
 import "../app.css";
-const videos = [Snowtrain,Snow,Watertemp, Mountain,  Vrvideo];
+
+const videos = [Snowtrain, Snow, Watertemp, Mountain, Vrvideo];
 
 const textOverlays = [
   [
@@ -89,7 +89,6 @@ function App() {
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [visibleTexts, setVisibleTexts] = useState([false, false]);
-  const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseMove = (e) => {
     const { clientX, clientY, currentTarget } = e;
@@ -121,18 +120,6 @@ function App() {
     setTimeout(() => setVisibleTexts([true, false]), 1000);
     setTimeout(() => setVisibleTexts([true, true]), 5000);
   }, [currentVideoIndex]);
-
-  const handleMouseEnter = () => {
-    const videoElement = document.getElementById("videoPlayer");
-    if (videoElement) videoElement.pause();
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    const videoElement = document.getElementById("videoPlayer");
-    if (videoElement) videoElement.play();
-    setIsHovered(false);
-  };
 
   const handleVideoEnd = () => {
     setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videos.length);
@@ -174,8 +161,6 @@ function App() {
               transform: `translate(${offset.x}px, ${offset.y}px)`,
               transition: "transform 0.2s ease-out",
             }}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
           >
             {item.title}
             <div className="absolute left-1/2 -translate-x-1/2 mt-2 w-48 p-2 bg-black/70 text-xs sm:text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-gray-300">

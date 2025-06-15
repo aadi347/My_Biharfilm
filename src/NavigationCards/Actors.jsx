@@ -218,7 +218,7 @@ const CarouselOfCelebs = () => {
 
   return (
     <div className="w-full flex flex-col items-center justify-center bg-[#190108] py-10">
-      <h2 className="text-white text-3xl sm:text-4xl md:text-5xl mb-10 pt-10 pb-8 text-center">
+      <h2 className="text-white playwrite-mx-guides-regular text-3xl sm:text-4xl md:text-5xl mb-10 pt-10 pb-8 text-center">
         Celebrities of Bihar
       </h2>
 
