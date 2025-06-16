@@ -52,3 +52,48 @@
 .rotate-y-180 {
   transform: rotateY(180deg);
 }
+
+
+.card-animated-border {
+  position: relative;
+  border-radius: 1rem;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.card-animated-border::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  background: conic-gradient(
+    from 0deg,
+    #170007 0deg,
+    #170007 90deg,
+    transparent 90deg,
+    transparent 360deg
+  );
+  animation: spin 2s linear infinite;
+  z-index: 1;
+  border-radius: 1.5rem;
+  pointer-events: none;
+  filter: brightness(1.5) saturate(2);
+}
+
+.card-animated-border > * {
+  position: relative;
+  z-index: 2;
+  border-radius: 1rem;
+  background: #1e1e1e;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -216,20 +216,23 @@ const CarouselOfCelebs = () => {
     setIndex((prev) => (prev - itemsPerPage < 0 ? total - itemsPerPage : prev - itemsPerPage));
   };
 
-  return (
-    <div className="w-full flex flex-col items-center justify-center bg-[#190108] py-10">
-      <h2 className="text-white playwrite-mx-guides-regular text-3xl sm:text-4xl md:text-5xl mb-10 pt-10 pb-8 text-center">
-        Celebrities of Bihar
-      </h2>
+return (
+  <div className="w-full flex flex-col items-center justify-center bg-[#190108] py-10">
+    <h2 className="text-white playwrite-mx-guides-regular text-3xl sm:text-4xl md:text-5xl mb-10 pt-10 pb-8 text-center">
+      Celebrities of Bihar
+    </h2>
 
-      <div className="w-full flex justify-center px-4">
-        <div className="flex gap-4 sm:gap-6 transition-transform duration-500 ease-in-out flex-wrap justify-center">
-          {people.slice(index, index + itemsPerPage).map((person) => (
-            <div
-              key={person.id}
-              className="w-64 sm:w-72 h-96 perspective transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
-              onClick={() => setFlippedCard(flippedCard === person.id ? null : person.id)}
-            >
+    <div className="w-full flex justify-center px-4">
+      <div className="flex gap-4 sm:gap-6 transition-transform duration-500 ease-in-out flex-wrap justify-center">
+        {people.slice(index, index + itemsPerPage).map((person) => (
+          <div
+            key={person.id}
+            className="w-64 sm:w-72 h-96 perspective"
+            onClick={() => setFlippedCard(flippedCard === person.id ? null : person.id)}
+          >
+            {/* Animated border wraps the whole card */}
+            <div className="card-animated-border w-full h-full">
+              {/* Flipping logic happens inside */}
               <div
                 className={`relative w-full h-full transition-transform duration-700 transform-style preserve-3d ${
                   flippedCard === person.id ? "rotate-y-180" : ""
@@ -252,44 +255,49 @@ const CarouselOfCelebs = () => {
 
                 {/* Back Side */}
                 <div className="absolute w-full h-full backface-hidden rotate-y-180 bg-[#282828] text-white rounded-2xl p-4 flex flex-col justify-center items-start text-left">
-  <h3 className="text-xl font-bold mb-2">{person.name}</h3>
-  <p className="text-sm mb-1 italic">{person.occupation}</p>
-  <p className="text-sm mb-1">Date of Birth: {person.dob}</p>
-  <p className="text-sm mb-1">District: {person.district}</p>
-  <p className="text-sm mb-2">{person.description}</p>
-  <p className="text-sm font-semibold mb-1">Best Film: {person.bestWork}</p>
-  <a
-    href={person.imdb}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-blue-400 underline text-sm"
-  >
-    IMDb Profile
-  </a>
-</div>
-
+                  <h3 className="text-xl font-bold mb-2">{person.name}</h3>
+                  <p className="text-sm mb-1 italic">{person.occupation}</p>
+                  <p className="text-sm mb-1">Date of Birth: {person.dob}</p>
+                  <p className="text-sm mb-1">District: {person.district}</p>
+                  <p className="text-sm mb-2">{person.description}</p>
+                  <p className="text-sm font-semibold mb-1">Best Film: {person.bestWork}</p>
+                  <a
+                    href={person.imdb}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-400 underline text-sm"
+                  >
+                    IMDb Profile
+                  </a>
+                </div>
               </div>
             </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="flex justify-center gap-4 mt-6">
-        <button
-          onClick={prevSlide}
-          className="p-3 bg-gray-800 text-white rounded-full hover:bg-gray-600"
-        >
-          <IoIosArrowBack size={30} />
-        </button>
-        <button
-          onClick={nextSlide}
-          className="p-3 bg-gray-800 text-white rounded-full hover:bg-gray-600"
-        >
-          <IoIosArrowForward size={30} />
-        </button>
+          </div>
+        ))}
       </div>
     </div>
-  );
+
+    <div className="flex justify-center gap-4 mt-6">
+      <button
+        onClick={prevSlide}
+        className="p-3 bg-gray-800 text-white rounded-full hover:bg-gray-600"
+      >
+        <IoIosArrowBack size={30} />
+      </button>
+      <button
+        onClick={nextSlide}
+        className="p-3 bg-gray-800 text-white rounded-full hover:bg-gray-600"
+      >
+        <IoIosArrowForward size={30} />
+      </button>
+    </div>
+  </div>
+);
+
+
+
+
+ 
 };
 
 export default CarouselOfCelebs;
