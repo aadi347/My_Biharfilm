@@ -218,7 +218,7 @@ const CarouselOfCelebs = () => {
 
 return (
   <div className="w-full flex flex-col items-center justify-center bg-[#190108] py-10">
-    <h2 className="text-white playwrite-mx-guides-regular text-3xl sm:text-4xl md:text-5xl mb-10 pt-10 pb-8 text-center">
+    <h2 className="text-white text-3xl sm:text-4xl md:text-5xl mb-10 pt-10 pb-8 text-center">
       Celebrities of Bihar
     </h2>
 
@@ -239,13 +239,13 @@ return (
                 }`}
               >
                 {/* Front Side */}
-                <div className="absolute w-full h-full backface-hidden bg-white/40 backdrop-blur-3xl text-white rounded-2xl overflow-hidden border border-white/20 ">
+                <div className="absolute w-full h-full backface-hidden bg-white/40 backdrop-blur-3xl text-white rounded-2xl overflow-hidden border border-white/20">
                   <img
                     src={person.img}
                     alt={person.name}
                     className="w-full h-full object-cover rounded-2xl"
                   />
-                  <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/70 to-transparent z-10 " />
+                  <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/70 to-transparent z-10" />
                   <div className="absolute bottom-4 left-4 z-20">
                     <h3 className="text-xl font-semibold">{person.name}</h3>
                     <p className="text-sm">{person.occupation}</p>
@@ -254,22 +254,48 @@ return (
                 </div>
 
                 {/* Back Side */}
-                <div className="absolute w-full h-full backface-hidden rotate-y-180 bg-[#282828] text-white rounded-2xl p-4 flex flex-col justify-center items-start text-left border border-white/20">
-                  <h3 className="text-xl font-bold mb-2">{person.name}</h3>
-                  <p className="text-sm mb-1 italic">{person.occupation}</p>
-                  <p className="text-sm mb-1">Date of Birth: {person.dob}</p>
-                  <p className="text-sm mb-1">District: {person.district}</p>
-                  <p className="text-sm mb-2">{person.description}</p>
-                  <p className="text-sm font-semibold mb-1">Best Film: {person.bestWork}</p>
-                  <a
-                    href={person.imdb}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-400 underline text-sm"
-                  >
-                    IMDb Profile
-                  </a>
-                </div>
+
+
+{/* Back Side */}
+<div className="absolute w-full h-full backface-hidden rotate-y-180 bg-[#282828] text-white rounded-2xl p-4 flex flex-col justify-start items-center text-left border outline-2 outline-white ">
+
+  {/* Ultra-Thin Colored Ring */}
+  <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-[132px] h-[132px] rounded-full bg-white/90 flex items-center justify-center shadow-md">
+    <img
+      src={person.img}
+      alt={person.name}
+      className="w-32 h-32 rounded-full object-cover "
+    />
+  </div>
+
+  {/* Content starts below image */}
+  <div className="mt-40 w-full px-2">
+    
+    <p className="text-sm mb-1 italic">{person.occupation}</p>
+    <p className="text-sm mb-1">Date of Birth: {person.dob}</p>
+    <p className="text-sm mb-1">District: {person.district}</p>
+    <p className="text-sm mb-2">{person.description}</p>
+    <p className="text-sm font-semibold mb-1">Best Film: {person.bestWork}</p>
+    <a
+      href={person.imdb}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="mt-2"
+    >
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/6/69/IMDB_Logo_2016.svg"
+        alt="IMDb"
+        className="w-16 h-auto mt-4"
+      />
+    </a>
+  </div>
+</div>
+
+
+
+
+
+
               </div>
             </div>
           </div>
