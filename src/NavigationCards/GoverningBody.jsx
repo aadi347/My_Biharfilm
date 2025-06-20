@@ -58,7 +58,7 @@ const bodyMembers = [
 
 const GoverningComponent = () => {
   return (
-    <div className="px-4 sm:px-6 lg:px-20 pt-10 pb-20 bg-[#190108] w-full" id="GoverningBody">
+    <div className="px-4 sm:px-6 lg:px-20 pt-10 pb-20 bg-[#190108] w-full  rounded-tl-4xl rounded-tr-4xl -mt-10 relative z-10" id="GoverningBody">
       {/* Title */}
       <p className="text-white text-3xl sm:text-4xl md:text-5xl font-bold pb-12">
         Governing Body

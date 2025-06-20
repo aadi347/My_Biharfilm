@@ -239,13 +239,13 @@ return (
                 }`}
               >
                 {/* Front Side */}
-                <div className="absolute w-full h-full backface-hidden bg-white/40 backdrop-blur-3xl text-white rounded-2xl overflow-hidden">
+                <div className="absolute w-full h-full backface-hidden bg-white/40 backdrop-blur-3xl text-white rounded-2xl overflow-hidden border border-white/20 ">
                   <img
                     src={person.img}
                     alt={person.name}
                     className="w-full h-full object-cover rounded-2xl"
                   />
-                  <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/70 to-transparent z-10" />
+                  <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/70 to-transparent z-10 " />
                   <div className="absolute bottom-4 left-4 z-20">
                     <h3 className="text-xl font-semibold">{person.name}</h3>
                     <p className="text-sm">{person.occupation}</p>
@@ -254,7 +254,7 @@ return (
                 </div>
 
                 {/* Back Side */}
-                <div className="absolute w-full h-full backface-hidden rotate-y-180 bg-[#282828] text-white rounded-2xl p-4 flex flex-col justify-center items-start text-left">
+                <div className="absolute w-full h-full backface-hidden rotate-y-180 bg-[#282828] text-white rounded-2xl p-4 flex flex-col justify-center items-start text-left border border-white/20">
                   <h3 className="text-xl font-bold mb-2">{person.name}</h3>
                   <p className="text-sm mb-1 italic">{person.occupation}</p>
                   <p className="text-sm mb-1">Date of Birth: {person.dob}</p>

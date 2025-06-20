@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Filmclub from "/Filmclub.mp4";
 import { CiCoffeeCup } from "react-icons/ci";
 import { RiFilmAiFill, RiMovie2Line } from "react-icons/ri";
+import "../App.css"; // Ensure you have the correct path to your CSS file
 
 const FilmClubUI = () => {
   const navigate = useNavigate();
@@ -46,10 +47,15 @@ const FilmClubUI = () => {
 
       {/* Header */}
       <div className="absolute top-10 text-center text-white z-10 px-4">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold">
-          Welcome to the Film Club
+        <div className="flex ">
+        <h1 className="text-3xl pt-10 sm:text-4xl md:text-5xl great-vibes-regular  ">
+          Welcome to 
         </h1>
-        <p className="mt-3 text-sm sm:text-base max-w-xl mx-auto">
+        <h1 className="text-3xl sm:text-4xl md:text-8xl great-vibes-regular">
+          FilmClub
+        </h1>
+        </div>
+        <p className=" text-sm sm:text-base max-w-xl mx-auto">
           Discover and explore amazing films with us.
         </p>
       </div>

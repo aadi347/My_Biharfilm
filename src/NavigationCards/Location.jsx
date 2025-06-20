@@ -258,7 +258,7 @@ const Location = () => {
 
   return (
     <motion.div
-      className="w-full flex flex-col items-center justify-center bg-[#190108] py-6 px-4 sm:px-8 md:px-12 lg:px-16 pb-20"
+      className="w-full h-screen  flex flex-col items-center justify-center bg-[#190108] py-6 px-4 sm:px-8 md:px-12 lg:px-16 pb-20"
       id="Shooting-location"
     >
       <h1 className="text-3xl sm:text-4xl font-bold mb-12 sm:mb-16 pt-24 text-white text-center">

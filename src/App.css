@@ -1,3 +1,13 @@
+html {
+  scroll-behavior: auto; /* or just remove scroll-behavior */
+}
+
+
+
+
+
+
+
 .playwrite-mx-guides-regular {
     font-family: "Playwrite MX Guides", cursive;
     font-weight: 400;
@@ -96,4 +106,41 @@
   100% {
     transform: rotate(360deg);
   }
+}
+
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-fade {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.7s ease-in-out both;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+
+.ruthie-regular {
+  font-family: "Ruthie", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.great-vibes-regular {
+  font-family: "Great Vibes", cursive;
+  font-weight: 400;
+  font-style: normal;
 }

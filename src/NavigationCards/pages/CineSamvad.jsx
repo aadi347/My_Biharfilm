@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
-import Filmclub from "/Filmclub.mp4"; // make sure this path is valid
+import Filmclub from "/Filmclub.mp4";
+import Navbar from "../../components/Navbar";
 
 const imageData = [
   {
@@ -49,13 +49,13 @@ const imageData = [
 const CineSamvad = () => {
   const navigate = useNavigate();
 
-  // Scroll to top when the component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <div className="relative w-full min-h-screen bg-black text-white px-4 py-16 overflow-hidden flex items-center justify-center">
+    <div className="relative w-full min-h-screen bg-black text-white overflow-hidden pt-20">
+      <Navbar />
       {/* Background Video */}
       <video
         className="absolute top-0 left-0 w-full h-full object-cover opacity-20 z-0"
@@ -66,51 +66,43 @@ const CineSamvad = () => {
         playsInline
       />
 
-      {/* Motion Card Container */}
-      <motion.div
-        whileHover={{ translateY: 10 }}
-        transition={{ duration: 0.4, ease: "easeInOut" }}
-        className="relative z-10 bg-white/5 backdrop-blur-md border border-white/30 rounded-2xl p-8 w-full max-w-8xl shadow-lg hover:shadow-2xl flex flex-col justify-between pl-24 gap-y-6"
-      >
+      {/* Overlay */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 py-16">
         {/* Back Button */}
         <button
           onClick={() => navigate(-1)}
-          className="mb-6 px-4 py-2 bg-[#a92b43] text-white rounded hover:bg-[#891737] w-fit"
+          className="mb-6 px-5 py-2 bg-[#a92b43] text-white rounded-md hover:bg-[#891737] transition duration-300"
         >
           ← Back to Film Club
         </button>
 
         {/* Title */}
-        <h1 className="text-3xl sm:text-4xl font-bold text-center mb-10">
-          Cine-Samvad
+        <h1 className="text-4xl  md:text-5xl font-extrabold text-center mb-20 bg-gradient-to-r from-red-500 via-pink-300 to-yellow-300 bg-clip-text text-transparent tracking-wide drop-shadow-md">
+          Cine-Samvad Sessions
         </h1>
 
-        {/* Image Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+        {/* Card Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {imageData.map((item, index) => (
             <div
               key={index}
-              className="mt-4 w-[22rem] h-[28rem] group relative overflow-hidden rounded-2xl bg-[#190108] shadow-lg transform transition duration-300 hover:scale-95 hover:bg-[#38242a] outline-1 outline-white outline-offset-1"
+              className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl overflow-hidden transition-transform duration-300 hover:scale-105 shadow-xl"
             >
-              {/* Image Section */}
-              <div className="group relative h-[70%] overflow-hidden">
+              <div className="h-48 overflow-hidden">
                 <img
                   src={item.src}
                   alt={item.title}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                 />
               </div>
-
-              {/* Text Section */}
-              <div className="h-[30%] p-4 flex flex-col justify-center">
-                <h2 className="text-lg font-bold text-gray-300">{item.title}</h2>
-                <p className="text-sm text-gray-400 mt-2">{item.description}</p>
-                <div className="absolute inset-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+              <div className="p-4">
+                <h3 className="text-lg font-semibold text-white mb-1">{item.title}</h3>
+                <p className="text-sm text-gray-300">{item.description}</p>
               </div>
             </div>
           ))}
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };
