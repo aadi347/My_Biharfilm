@@ -8,6 +8,8 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
   const [navbarVisible, setNavbarVisible] = useState(true);
+  const [hasScrolled, setHasScrolled] = useState(false);
+
 
   const navigate = useNavigate();
 
@@ -50,21 +52,30 @@ const Navbar = () => {
     }
   };
 
-  useEffect(() => {
-    setTimeout(() => setShowNavbar(true), 2000); // Delay show
+useEffect(() => {
+  setTimeout(() => setShowNavbar(true), 2000); // Delay show
 
-    const handleScroll = () => {
-      const currentScrollPos = window.pageYOffset;
-      setNavbarVisible(prevScrollPos > currentScrollPos);
-      setPrevScrollPos(currentScrollPos);
-    };
+  const handleScroll = () => {
+    const currentScrollPos = window.pageYOffset;
+    const isScrollingUp = prevScrollPos > currentScrollPos;
 
-    window.addEventListener("scroll", handleScroll);
+    // If at top of the page
+    if (currentScrollPos === 0) {
+      setNavbarVisible(true);
+      setHasScrolled(false); // back to top, remove background
+    } else {
+      setNavbarVisible(isScrollingUp);
+      setHasScrolled(true); // user has scrolled
+    }
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [prevScrollPos]);
+    setPrevScrollPos(currentScrollPos);
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, [prevScrollPos]);
+
+
 
   const menuItems = [
     { id: "home", label: "Home" },
@@ -83,7 +94,13 @@ const Navbar = () => {
         showNavbar ? "opacity-100" : "opacity-0"
       } ${navbarVisible ? "transform-none" : "-translate-y-full"} group`}
     >
-      <div className="bg-transparent px-4 sm:px-6 lg:px-16 py-3 relative">
+     <div className={`px-4 sm:px-6 lg:px-16 py-3 relative transition-colors duration-300 ${
+      navbarVisible && hasScrolled ? "bg-white" : "bg-transparent"
+      }`}
+     >
+
+
+
         {/* Background hover bar */}
         <div className="absolute top-0 left-0 w-full h-full bg-white opacity-0 group-hover:opacity-100 z-0 transition-opacity duration-300"></div>
 
@@ -94,7 +111,9 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Menu */}
-          <ul className="hidden md:flex items-center gap-10 text-white text-lg group-hover:text-black relative z-10">
+          <ul className={`hidden md:flex items-center gap-10 text-lg relative z-10 transition-colors duration-300 ${ navbarVisible && hasScrolled ? "text-black" : "text-white"} group-hover:text-black`}
+          >
+
             {menuItems.map((item) => (
               <li
                 key={item.id}

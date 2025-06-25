@@ -23,6 +23,7 @@ import DistrictDashboard from "./Dashboard/DistrictDashboard";
 // import DistrictList from "./Dashboard/DistrictList"
 import CineSamvad from "./NavigationCards/pages/CineSamvad";
 import Notice from "./NavigationCards/Notice";
+import CoffeeWithFilm from "./NavigationCards/pages/CoffeeWithFilm";
 // Home Page
 function Home() {
   return (
@@ -63,6 +64,8 @@ export default function App() {
 
       <Route path="/district/:districtName" element={<DistrictDashboardWrapper />} />
       <Route path="/filmclub/cine-samvad" element={<CineSamvad />} />
+     <Route path="/filmclub/coffee-with-film" element={<CoffeeWithFilm />} />
+
       <Route path="/notice" element={<Notice />} />
 
     </Routes>
