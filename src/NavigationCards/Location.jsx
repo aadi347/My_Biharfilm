@@ -221,58 +221,51 @@ const Location = () => {
   const categoryList = Object.keys(categories);
 
   const nextSlide = () => {
-  const cards = categories[selectedCategory];
-  const totalCards = cards.length;
+    if (index + itemsPerPage >= totalCards) {
+      const currentCategoryIndex = categoryList.indexOf(selectedCategory);
+      const nextCategoryIndex = (currentCategoryIndex + 1) % categoryList.length;
+      setSelectedCategory(categoryList[nextCategoryIndex]);
+      setIndex(0);
+    } else {
+      setIndex(index + itemsPerPage);
+    }
+  };
 
-  if (index + itemsPerPage >= totalCards) {
-    // Move to next category
-    const currentCategoryIndex = categoryList.indexOf(selectedCategory);
-    const nextCategoryIndex = (currentCategoryIndex + 1) % categoryList.length;
-    setSelectedCategory(categoryList[nextCategoryIndex]);
-    setIndex(0);
-  } else {
-    setIndex(index + itemsPerPage);
-  }
-};
+  const prevSlide = () => {
+    if (index - itemsPerPage < 0) {
+      const currentCategoryIndex = categoryList.indexOf(selectedCategory);
+      const prevCategoryIndex =
+        (currentCategoryIndex - 1 + categoryList.length) % categoryList.length;
 
+      const newCategory = categoryList[prevCategoryIndex];
+      const newCards = categories[newCategory];
+      const newTotal = newCards.length;
+      const newIndex = Math.max(0, newTotal - itemsPerPage);
 
- const prevSlide = () => {
-  if (index - itemsPerPage < 0) {
-    // Move to previous category
-    const currentCategoryIndex = categoryList.indexOf(selectedCategory);
-    const prevCategoryIndex =
-      (currentCategoryIndex - 1 + categoryList.length) % categoryList.length;
-
-    const newCategory = categoryList[prevCategoryIndex];
-    const newCards = categories[newCategory];
-    const newTotal = newCards.length;
-    const newIndex = Math.max(0, newTotal - itemsPerPage);
-
-    setSelectedCategory(newCategory);
-    setIndex(newIndex);
-  } else {
-    setIndex(index - itemsPerPage);
-  }
-};
-
+      setSelectedCategory(newCategory);
+      setIndex(newIndex);
+    } else {
+      setIndex(index - itemsPerPage);
+    }
+  };
 
   return (
     <motion.div
-      className="w-full h-screen  flex flex-col items-center justify-center bg-[#190108] py-6 px-4 sm:px-8 md:px-12 lg:px-16 pb-20"
+      className="w-full min-h-screen flex flex-col items-center justify-center bg-[#190108] px-4 sm:px-6 md:px-12 lg:px-20 py-12"
       id="Shooting-location"
     >
-      <h1 className="text-3xl sm:text-4xl font-bold mb-12 sm:mb-16 pt-24 text-white text-center">
+      <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold mb-10 text-white text-center leading-tight">
         Top Shooting Locations
       </h1>
 
       {/* Filter Buttons */}
-      <div className="flex flex-wrap justify-center gap-4 mb-6 px-2">
+      <div className="flex flex-wrap justify-center gap-3 mb-10 px-2">
         {Object.keys(categories).map((category) => (
           <button
             key={category}
-            className={`px-4 py-2 rounded-lg text-sm sm:text-base ${
+            className={`px-4 py-2 rounded-full text-sm sm:text-base font-medium transition-all duration-300 ${
               selectedCategory === category
-                ? "bg-red-600 text-white"
+                ? "bg-red-600 text-white shadow-md"
                 : "bg-gray-700 text-gray-300 hover:bg-gray-600"
             }`}
             onClick={() => {
@@ -285,27 +278,24 @@ const Location = () => {
         ))}
       </div>
 
-  
-      <div className="overflow-hidden mt-4 w-full md:w-[90%] relative px-2">
-        <div className="flex gap-6 transition-transform duration-500 ease-in-out justify-center">
+      {/* Cards Section */}
+      <div className="w-full max-w-7xl overflow-hidden relative px-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:flex gap-6 justify-center transition-transform duration-500 ease-in-out">
           {cards.slice(index, index + itemsPerPage).map((card) => {
-  
             const encodedCategory = encodeURIComponent(selectedCategory);
             const detailPath = `/location/${encodedCategory}/${card.id}`;
 
             return (
               <Link to={detailPath} key={card.id}>
-                <div className="w-[270px] sm:w-72 h-80 border-1 rounded-2xl overflow-hidden bg-transparent transform transition-transform duration ease-in-out hover:scale-95 group relative cursor-pointer">
-                
+                <div className="w-full sm:w-[300px] md:w-[320px] h-80 rounded-2xl overflow-hidden bg-black/20 backdrop-blur-sm shadow-lg border border-gray-700 transform transition duration-300 ease-in-out hover:scale-[0.97] group relative cursor-pointer">
                   <img
                     src={card.img}
                     alt={card.title}
                     className="w-full h-full object-cover transition-transform duration-[2000ms] ease-in-out group-hover:scale-110"
                   />
 
-               
-                  <div className="absolute text-base sm:text-xl font-bold bg-gradient-to-t from-black/40 to-transparent bottom-0 left-0 w-full text-white text-start p-4">
-                    {card.title}
+                  <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent text-white px-4 py-3">
+                    <h2 className="text-lg sm:text-xl font-bold">{card.title}</h2>
                   </div>
                 </div>
               </Link>
@@ -314,19 +304,19 @@ const Location = () => {
         </div>
       </div>
 
-   
-      <div className="flex mt-6 gap-4">
+      {/* Navigation Buttons */}
+      <div className="flex mt-8 gap-4">
         <button
           onClick={prevSlide}
-          className="p-3 bg-gray-800 text-white rounded-full hover:bg-gray-600"
+          className="p-3 bg-gray-800 text-white rounded-full hover:bg-gray-700 transition"
         >
-          <IoIosArrowBack size={30} />
+          <IoIosArrowBack size={28} />
         </button>
         <button
           onClick={nextSlide}
-          className="p-3 bg-gray-800 text-white rounded-full hover:bg-gray-600"
+          className="p-3 bg-gray-800 text-white rounded-full hover:bg-gray-700 transition"
         >
-          <IoIosArrowForward size={30} />
+          <IoIosArrowForward size={28} />
         </button>
       </div>
     </motion.div>

@@ -1,5 +1,8 @@
-import React, { useState,useEffect} from "react";
+import React, { useState,useEffect,useRef} from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+
+import { motion } from "framer-motion";
+
 import "../app.css";
 
 
@@ -60,16 +63,16 @@ const people = [
     bestWork: "MS Dhoni: The Untold Story",
     imdb: "https://www.imdb.com/name/nm3818286/?ref_=ext_shr_lnk",
   },
-  {
+   {
     id: 6,
-    name: "Sanjay Mishra",
-    occupation: "Actor",
-    dob: "6 October 1963",
-    district: "Darbhangha",
-    img: "https://i.pinimg.com/564x/33/cf/5a/33cf5a9baf45e25e6b8ce5adc89f8b54.jpg",
-    description: "Celebrated for comic timing and strong character roles.",
-    bestWork: "Ankhon Dekhi",
-    imdb: "https://www.imdb.com/name/nm0592799/?ref_=ext_shr_lnk",
+    name: "Neetu Chandra",
+    occupation: "Actress",
+    dob: "20 June 1984",
+    district: "Patna",
+    img: "https://www.filmibeat.com/wimg/desktop/2019/08/neetu-chandra_10.jpg",
+    description: "Indian actress known for her roles in Hindi, Tamil, and Telugu cinema. ",
+    bestWork: "Garam Masala (2005), Traffic Signal (2007)",
+    imdb: "https://www.imdb.com/name/nm1911617/?ref_=ext_shr_lnk",
   },
   {
     id: 7,
@@ -82,6 +85,7 @@ const people = [
     bestWork: "Crook",
     imdb: "https://www.imdb.com/name/nm2777281/?ref_=ext_shr_lnk",
   },
+  
   {
     id: 8,
     name: "Gurmeet Choudhary",
@@ -93,8 +97,55 @@ const people = [
     bestWork: "Khamoshiyan",
     imdb: "https://www.imdb.com/name/nm3073211/?ref_=ext_shr_lnk",
   },
+ 
   {
     id: 9,
+    name: "Sanjay Mishra",
+    occupation: "Actor",
+    dob: "6 October 1963",
+    district: "Darbhangha",
+    img: "https://i.pinimg.com/564x/33/cf/5a/33cf5a9baf45e25e6b8ce5adc89f8b54.jpg",
+    description: "Celebrated for comic timing and strong character roles.",
+    bestWork: "Ankhon Dekhi",
+    imdb: "https://www.imdb.com/name/nm0592799/?ref_=ext_shr_lnk",
+  },
+  {
+    id: 10,
+    name: "Chandan Roy",
+    occupation: "Actor",
+    dob: "20 December 1995",
+    district: "Mahnar (Vaishali district)",
+    img: "https://images.filmibeat.com/img/popcorn/profile_photos/chandanroy-20240530112240-60861.jpg",
+    description: "Known for his warm, authentic portrayal of Vikas Shukla in ‘Panchayat’..",
+    bestWork: "Panchayat (web series)",
+    imdb: "https://www.imdb.com/name/nm0788686/?ref_=ext_shr_lnk",
+  },
+  {
+    id: 11,
+    name: "Ashok Yadav",
+    occupation: "Actor",
+    dob: "3 January 1985",
+    district: "Darveshpur, near Siwan",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbBuxF26RW4NAbH3bAhnym5oFJpbXEu4bfpw&s",
+    description: "Bihari-born actor who rose from selling cotton to winning hearts as 'Binod' in Panchayat.",
+    bestWork: "Panchayat (web series)",
+    imdb: "https://www.imdb.com/name/nm9859083/?ref_=ext_shr_lnk",
+  },
+  {
+    id: 12,
+    name: "Pankaj Jha",
+    occupation: "Actor, Painter, Writer, Director",
+    dob: "2 February 1970",
+    district: "Saharsa",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh1qXBXYNfRXOj44qO6zQ5A_S8XqZ9tuWDQw&s",
+    description: "Actor, painter, writer, and director, acclaimed for his grounded portrayal of MLA Chandu Singh in Panchayat",
+    bestWork: "Panchayat (web series)",
+    imdb: "https://www.imdb.com/name/nm13792834/?ref_=ext_shr_lnk",
+  },
+  
+  
+  {
+    id: 13,
     name: "Ustad Bismillah Khan",
     occupation: "Shehnai Maestro",
     dob: "21 March 1916",
@@ -105,7 +156,7 @@ const people = [
     imdb: "https://www.imdb.com/name/nm0451190/?ref_=ext_shr_lnk",
   },
   {
-    id: 10,
+    id: 14,
     name: "Sharda Sinha",
     occupation: "Folk Singer",
     dob: "1 October 1952",
@@ -116,7 +167,7 @@ const people = [
     imdb: "https://www.imdb.com/name/nm0788686/?ref_=ext_shr_lnk",
   },
   {
-    id: 11,
+    id: 15,
     name: "Maithili Thakur",
     occupation: "Folk/Classic Singer",
     dob: "25 July 2000",
@@ -127,7 +178,7 @@ const people = [
     imdb: "https://www.imdb.com/name/nm9859083/?ref_=ext_shr_lnk",
   },
   {
-    id: 12,
+    id: 16,
     name: "Chandan Tiwari",
     occupation: "Folk Singer",
     dob: "15 August 1985",
@@ -137,57 +188,13 @@ const people = [
     bestWork: "Live Performances & Albums",
     imdb: "https://www.imdb.com/name/nm13792834/?ref_=ext_shr_lnk",
   },
-  {
-    id: 13,
-    name: "Bhikhari Thakur",
-    occupation: "Bhojpuri Folk Dramatist",
-    dob: "18 December 1887",
-    district: "Saran",
-    img: "https://images.news18.com/ibnkhabar/uploads/2021/07/Bhikhari-Thakur-1.jpg?im=FitAndFill,width=1200,height=675",
-    description: "Called the Shakespeare of Bhojpuri theatre.",
-    bestWork: "Bidesiya (stage drama)",
-    imdb: "https://www.imdb.com/name/nm3098812/?ref_=ext_shr_lnk",
-  },
-  {
-    id: 14,
-    name: "Sita Devi",
-    occupation: "Madhubani Artist",
-    dob: "1914",
-    district: "Madhubani",
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSIz0LIxS_vCnv4_hKVG4Hm8pKwA5ewOlKFA&s",
-    description: "National award-winning Madhubani artist.",
-    bestWork: "Folk Art",
-    imdb: "https://www.imdb.com/name/nm12445508/",
-  },
-  {
-    id: 15,
-    name: "Shanti Devi",
-    occupation: "Godna Artist",
-    dob: "1941",
-    district: "Nawada",
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7c2MyynJnjoiUs8s0MGLHpgAoqfkDnrmHwA&s",
-    description: "Preserver of Godna tattoo art in Bihar.",
-    bestWork: "Folk Art",
-    imdb: "https://www.imdb.com/name/nm12445852/",
-  },
-  {
-    id: 16,
-    name: "Dulari Devi",
-    occupation: "Madhubani Artist",
-    dob: "1968",
-    district: "Madhubani",
-    img: "https://www.folkartopedia.com/wp-content/uploads/elementor/thumbs/Dularee-Devi_2-on0xbaf8s19wqch43hw4ynl4lf5ni64lavjlt2w41c.jpg",
-    description: "Internationally exhibited Madhubani artist and mentor.",
-    bestWork: "Folk Art",
-    imdb: "https://www.imdb.com/name/nm12445544/",
-  },
 ];
 
 
 const CarouselOfCelebs = () => {
   const [index, setIndex] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(4);
-  const [flippedCard, setFlippedCard] = useState(null);
+ 
   const total = people.length;
 
   useEffect(() => {
@@ -215,110 +222,128 @@ const CarouselOfCelebs = () => {
   const prevSlide = () => {
     setIndex((prev) => (prev - itemsPerPage < 0 ? total - itemsPerPage : prev - itemsPerPage));
   };
-
+  const scrollRef = useRef(null);
 return (
   <div className="w-full flex flex-col items-center justify-center bg-[#190108] py-10">
-    <h2 className="text-white playwrite-mx-guides-regular text-3xl sm:text-4xl md:text-5xl mb-10 pt-10 pb-8 text-center">
+    <h2 className="text-white text-3xl sm:text-4xl playwrite-mx-guides-regular md:text-5xl mb-10 pt-10 pb-8 text-center">
       Celebrities of Bihar
     </h2>
 
-    <div className="w-full flex justify-center px-4">
-      <div className="flex gap-4 sm:gap-6 transition-transform duration-500 ease-in-out flex-wrap justify-center">
-        {people.slice(index, index + itemsPerPage).map((person) => (
-          <div
+    <div className="relative mx-auto max-w-[1440px] px-4 sm:px-6 md:px-10">
+      {/* Edge fade overlays */}
+      <div className="pointer-events-none absolute left-0 top-0 h-full w-12 bg-gradient-to-r from-[#190108] to-transparent z-10" />
+      <div className="pointer-events-none absolute right-0 top-0 h-full w-12 bg-gradient-to-l from-[#190108] to-transparent z-10" />
+
+      {/* Scrollable card container */}
+      <div
+        ref={scrollRef}
+        className="flex gap-6 overflow-x-auto overflow-y-hidden scroll-smooth pb-4 no-scrollbar px-2"
+      >
+        {people.map((person) => (
+          <motion.div
             key={person.id}
-            className="w-64 sm:w-72 h-96 perspective"
-            onClick={() => setFlippedCard(flippedCard === person.id ? null : person.id)}
+            className="w-[240px] sm:w-[280px] md:w-[300px] lg:w-[320px] h-96 flex-shrink-0"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
           >
-            {/* Animated border wraps the whole card */}
-            <div className="card-animated-border w-full h-full">
-              {/* Flipping logic happens inside */}
-              <div
-                className={`relative w-full h-full transition-transform duration-700 transform-style preserve-3d ${
-                  flippedCard === person.id ? "rotate-y-180" : ""
-                }`}
-              >
-                {/* Front Side */}
-                <div className="absolute w-full h-full backface-hidden bg-white/40 backdrop-blur-3xl text-white rounded-2xl overflow-hidden border border-white/20">
-                  <img
-                    src={person.img}
-                    alt={person.name}
-                    className="w-full h-full object-cover rounded-2xl"
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/70 to-transparent z-10" />
-                  <div className="absolute bottom-4 left-4 z-20">
-                    <h3 className="text-xl font-semibold">{person.name}</h3>
-                    <p className="text-sm">{person.occupation}</p>
-                    <p className="text-sm">{person.address}</p>
+            <div className="w-full h-full perspective group">
+
+              <div className="card-animated-border w-full h-full">
+                <div
+                  className ="relative w-full h-full transition-transform duration-700 transform-style preserve-3d group-hover:rotate-y-180" >
+                  {/* Front Side */}
+                  <div className="absolute w-full h-full backface-hidden bg-white/40 backdrop-blur-3xl text-white rounded-2xl overflow-hidden">
+                    <img
+                      src={person.img}
+                      alt={person.name}
+                      className="w-full h-full object-cover rounded-2xl"
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/70 to-transparent z-10" />
+                    <div className="absolute bottom-4 left-4 z-20">
+                      <h3 className="text-xl font-semibold">{person.name}</h3>
+                      <p className="text-sm">{person.occupation}</p>
+                      <p className="text-sm">{person.address}</p>
+                    </div>
+                  </div>
+
+                  {/* Back Side */}
+                  <div className="absolute w-full h-full backface-hidden rotate-y-180 bg-[#0a1020] text-white rounded-2xl p-4 flex flex-col justify-start items-center text-left">
+                    <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-[132px] h-[132px] rounded-full bg-white/90 flex items-center justify-center shadow-md">
+                      <img
+                        src={person.img}
+                        alt={person.name}
+                        className="w-32 h-32 rounded-full object-cover"
+                      />
+                    </div>
+                    <div className="mt-40 w-full px-2">
+                      <p className="text-sm mb-1 italic">{person.occupation}</p>
+                      <p className="text-sm mb-1">Date of Birth: {person.dob}</p>
+                      <p className="text-sm mb-1">District: {person.district}</p>
+                      <p className="text-sm mb-2">{person.description}</p>
+                      <p className="text-sm font-semibold mb-1">
+                        Best Film: {person.bestWork}
+                      </p>
+                      <a
+                        href={person.imdb}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-2"
+                      >
+                        <img
+                          src="https://upload.wikimedia.org/wikipedia/commons/6/69/IMDB_Logo_2016.svg"
+                          alt="IMDb"
+                          className="w-16 h-auto mt-4"
+                        />
+                      </a>
+                    </div>
                   </div>
                 </div>
-
-                {/* Back Side */}
-
-
-{/* Back Side */}
-<div className="absolute w-full h-full backface-hidden rotate-y-180 bg-[#282828] text-white rounded-2xl p-4 flex flex-col justify-start items-center text-left border outline-2 outline-white ">
-
-  {/* Ultra-Thin Colored Ring */}
-  <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-[132px] h-[132px] rounded-full bg-white/90 flex items-center justify-center shadow-md">
-    <img
-      src={person.img}
-      alt={person.name}
-      className="w-32 h-32 rounded-full object-cover "
-    />
-  </div>
-
-  {/* Content starts below image */}
-  <div className="mt-40 w-full px-2">
-    
-    <p className="text-sm mb-1 italic">{person.occupation}</p>
-    <p className="text-sm mb-1">Date of Birth: {person.dob}</p>
-    <p className="text-sm mb-1">District: {person.district}</p>
-    <p className="text-sm mb-2">{person.description}</p>
-    <p className="text-sm font-semibold mb-1">Best Film: {person.bestWork}</p>
-    <a
-      href={person.imdb}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="mt-2"
-    >
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/6/69/IMDB_Logo_2016.svg"
-        alt="IMDb"
-        className="w-16 h-auto mt-4"
-      />
-    </a>
-  </div>
-</div>
-
-
-
-
-
-
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </div>
 
-    <div className="flex justify-center gap-4 mt-6">
-      <button
-        onClick={prevSlide}
-        className="p-3 bg-gray-800 text-white rounded-full hover:bg-gray-600"
-      >
-        <IoIosArrowBack size={30} />
-      </button>
-      <button
-        onClick={nextSlide}
-        className="p-3 bg-gray-800 text-white rounded-full hover:bg-gray-600"
-      >
-        <IoIosArrowForward size={30} />
-      </button>
+      {/* Scroll Buttons */}
+      <div className="absolute left-0 top-1/2 transform -translate-y-1/2 z-20">
+        <button
+          onClick={() => {
+            const scrollContainer = scrollRef.current;
+            const { scrollLeft, scrollWidth, clientWidth } = scrollContainer;
+
+            const isAtEnd = scrollLeft + clientWidth >= scrollWidth - 10;
+
+            if (isAtEnd) {
+              scrollContainer.scrollTo({ left: 0, behavior: "smooth" });
+            } else {
+              scrollContainer.scrollBy({ left: -320, behavior: "smooth" });
+            }
+          }}
+          className="p-3 bg-gray-800 text-white rounded-full hover:bg-gray-600"
+        >
+          <IoIosArrowBack size={30} />
+        </button>
+      </div>
+      <div className="absolute right-0 top-1/2 transform -translate-y-1/2 z-20">
+        <button
+          onClick={() =>
+            scrollRef.current.scrollBy({ left: 320, behavior: "smooth" })
+          }
+          className="p-3 bg-gray-800 text-white rounded-full hover:bg-gray-600"
+        >
+          <IoIosArrowForward size={30} />
+        </button>
+      </div>
     </div>
   </div>
 );
+
+
+
+
+
 
 
 

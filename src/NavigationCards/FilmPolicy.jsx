@@ -12,7 +12,7 @@ export default function FilmPolicyNOC() {
       {/* Header */}
       <div className="text-center mb-16">
         <h1 className="text-5xl font-extrabold text-white tracking-wide">
-          🎬 Film Policy & NOC
+           Film Policy & NOC
         </h1>
         <p className="text-gray-100 text-lg mt-4 max-w-2xl mx-auto">
           Discover the policies and subsidies powering Bihar's cinematic future — explore financial incentives and production support.

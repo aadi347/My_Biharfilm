@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FaShareAlt, FaTimesCircle, FaTimes } from 'react-icons/fa';
-
+import { IoMdDownload } from "react-icons/io";
 function Dashboardactivity() {
     const [selectedRow, setSelectedRow] = useState(null);
     const [showModal, setShowModal] = useState(false);
@@ -99,6 +99,11 @@ function Dashboardactivity() {
         </div>
     );
 
+
+
+
+
+
     return (
         <div className="relative">
             <div className="overflow-x-auto rounded-2xl border border-gray-200 min-h-96">
@@ -149,7 +154,9 @@ function Dashboardactivity() {
                         <div className="flex justify-between items-center mb-4">
                             <h2 className="text-xl font-bold">NOC Application Details</h2>
                             <div className="flex gap-4">
-                                <button onClick={() => alert('Download triggered!')} className="text-blue-600 text-sm underline hover:text-blue-800">Download</button>
+                                <button className="text-gray-500 hover:text-gray-700" onClick={() => alert("Download functionality not implemented")}>
+                                    <IoMdDownload className="text-2xl" />
+                                </button>
                                 <button onClick={closeModal}><FaTimesCircle className="text-red-500 text-2xl" /></button>
                             </div>
                         </div>

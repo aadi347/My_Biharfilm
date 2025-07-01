@@ -25,6 +25,12 @@ const videoList = [
   { high: VrvideoHQ4, low: VrvideoLQ4 },
   { high: VrvideoHQ5, low: VrvideoLQ5 },
   { high: VrvideoHQ6, low: VrvideoLQ6 },
+    { high: VrvideoHQ, low: VrvideoLQ },
+  { high: VrvideoHQ2, low: VrvideoLQ2 },
+  { high: VrvideoHQ3, low: VrvideoLQ3 },
+  { high: VrvideoHQ4, low: VrvideoLQ4 },
+  { high: VrvideoHQ5, low: VrvideoLQ5 },
+  { high: VrvideoHQ6, low: VrvideoLQ6 },
 ];
 
 function Vr() {
