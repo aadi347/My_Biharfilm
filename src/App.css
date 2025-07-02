@@ -153,3 +153,21 @@ no-scrollbar::-webkit-scrollbar {
   -ms-overflow-style: none;  /* IE & Edge */
   scrollbar-width: none;     /* Firefox */
 }
+
+
+@keyframes scrollImages {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scrollImages {
+  animation: scrollImages 30s linear infinite;
+}
+
+.group-hover\:pause-scroll:hover {
+  animation-play-state: paused;
+}

@@ -31,14 +31,14 @@ const bodyMembers = [
     description: "7482075777",
   },
   {
-    img: "https://i.filecdn.in/328vijethaias/sonikakumarai-1714804578768.jpg",
+    img: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
     name: "	Sonika Kumari",
     role: "Assistant Section Officer",
     description: "",
   },
   {
-    img: "https://pbs.twimg.com/profile_images/1265915625513324544/hEdFjW9L_400x400.jpg",
-    name: "Moniza Hafizee",
+    img: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
+    name: "Kumar gaurav",
     role: "Junior Consultant (Communication and Networking)",
     description: "",
   },

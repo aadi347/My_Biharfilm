@@ -24,6 +24,8 @@ import DistrictDashboard from "./Dashboard/DistrictDashboard";
 import CineSamvad from "./NavigationCards/pages/CineSamvad";
 import Notice from "./NavigationCards/Notice";
 import CoffeeWithFilm from "./NavigationCards/pages/CoffeeWithFilm";
+import Chatarpatar from "./NavigationCards/pages/Chatarpatar";
+import ShootingLocationPage from "./NavigationCards/ShootingLocationPage";
 // Home Page
 function Home() {
   return (
@@ -64,8 +66,9 @@ export default function App() {
 
       <Route path="/district/:districtName" element={<DistrictDashboardWrapper />} />
       <Route path="/filmclub/cine-samvad" element={<CineSamvad />} />
+      <Route path="/filmclub/chatarpatar" element={<Chatarpatar />} />
      <Route path="/filmclub/coffee-with-film" element={<CoffeeWithFilm />} />
-
+      <Route path="/shootinglocation" element={<ShootingLocationPage />} />
       <Route path="/notice" element={<Notice />} />
 
     </Routes>

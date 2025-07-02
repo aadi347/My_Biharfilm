@@ -3,216 +3,180 @@ import React, { useState } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 const categories = {
-  "Film Locations": [
+  "Hills & Caves": [
     {
       id: 1,
-      title: "Ghora Katora",
-      img: "https://tourism.bihar.gov.in/content/dam/bihar-tourism/images/category_a/nalanda/ghora_katora/ghora-katora.jpg/jcr:content/renditions/cq5dam.web.1280.765.jpeg",
-      description:
-        "Ghora Katora is a horseshoe-shaped freshwater lake in the West Champaran district...",
+      title: "Barabar Hills",
+      img: "https://film.bihar.gov.in/assets/Hills%20and%20Caves/Barabar%20Hills%20000.jpg",
+      description: "Barabar Hills, located in the Jehanabad district of Bihar, are home to the oldest surviving rock-cut caves in India, dating back to the Mauryan period.",
+      lat: 25.0076,
+      lng: 85.0653,
+      
     },
     {
       id: 2,
-      title: "Sabhyata Dwar",
-      img: "https://d34vm3j4h7f97z.cloudfront.net/original/4X/0/e/f/0eff8ccd6a5c2badce42ea5c330ff4a41449fd0f.jpeg",
-      description:
-        "“Sabhyata Dwar” is a monumental gate in Vaishali that celebrates the ancient heritage...",
+      title: "Gridhakut Hills",
+      img: "https://film.bihar.gov.in/assets/Hills%20and%20Caves/Gridhakut%20Hill3%20000.jpg",
+      description: "Gridhakut Hills, also known as Vulture Peak, is located near Rajgir in Bihar. It is a significant Buddhist pilgrimage site where Lord Buddha is said to have delivered many important sermons.",
+      lat: 25.0172,
+      lng: 85.4217
     },
     {
       id: 3,
-      title: "Waterfall",
-      img: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/06/a5/91/4c/amritdhara-water-fal.jpg?w=600&h=-1&s=1",
-      description: "A beautiful waterfall spot in Bihar, popular among tourists...",
+      title: "Grupa Hills Gaya",
+      img: "https://film.bihar.gov.in/assets/Hills%20and%20Caves/Gurpa%20Hill%20Gaya%20000.jpg",
+      description: "Grupa Hills (also known as Gurpa Hills) is a sacred Buddhist site located near Gaya in Bihar. .",
+      lat: 24.9251,
+      lng: 85.1522
     },
     {
       id: 4,
-      title: "Eco Park",
-      img: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/55/22/85/20171225-144241-largejpg.jpg?w=500&h=400&s=1",
-      description:
-        "Eco Park features sprawling green spaces, walking trails, and boating facilities...",
+      title: "Kaimur Hills",
+      img: "https://film.bihar.gov.in/assets/Hills%20and%20Caves/kaimur%20hills1%20000.jpg",
+     description: "Kaimur Hills are part of the Vindhya range in Bihar, known for scenic landscapes, waterfalls, and wildlife.",
+     lat: 24.6215,
+     lng: 83.5830
     },
     {
       id: 5,
-      title: "Buddha Smriti",
-      img: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0b/d4/7a/30/buddha-smriti-park.jpg?w=500&h=400&s=1",
-      description:
-        "Buddha Smriti is a beautifully landscaped park that commemorates the teachings of Buddha...",
-    },
-    {
-      id: 6,
-      title: "Glass Bridge",
-      img: "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202012/glsi_1200x768.jpeg?size=1200:675",
-      description: "A thrilling glass bridge offering panoramic views of the valley...",
-    },
-    {
-      id: 7,
       title: "Kakolat Waterfall",
-      img: "https://tourism.bihar.gov.in/content/dam/bihar-tourism/images/category_a/nawada/kakolat_waterfall/kakolat-waterfall-nawada.png/jcr:content/renditions/cq5dam.web.480.480.jpeg",
-      description:
-        "Kakolat Waterfall is a popular spot for picnics and trekking, known for its natural beauty...",
-    },
-    
-  ],
-  "Religious Places": [
-    {
-      id: 1,
-      title: "Kundalpur",
-      img: "https://tourism.bihar.gov.in/content/dam/bihar-tourism/images/category_a/nalanda/kundalpur/jainism_nalanda_a_kundalpur_pic_02.jpg/jcr:content/renditions/cq5dam.web.1280.765.jpeg",
-      description:
-        "Kundalpur is a famous Jain pilgrimage site in Nalanda district, known for its historic temple complex...",
-    },
-    {
-      id: 2,
-      title: "Mahabodhi",
-      img: "https://railrecipe.com/blog/wp-content/uploads/2021/03/Mahabodhi-Temple-Gaya.jpg",
-      description:
-        "Mahabodhi Temple in Gaya is the place where Buddha is said to have attained enlightenment...",
-    },
-    {
-      id: 3,
-      title: "Jal Mandir",
-      img: "https://tourism.bihar.gov.in/content/dam/bihar-tourism/images/category_a/nalanda/jal_mandir/jal_mandir_a7307011_edit.jpg/jcr:content/renditions/cq5dam.web.480.480.jpeg",
-      description:
-        "Jal Mandir is a temple built in the middle of a pond in Pawapuri, dedicated to Lord Mahavira...",
-    },
-    {
-      id: 4,
-      title: "Mundeshwari Temple",
-      img: "https://thetempleguru.com/wp-content/uploads/2024/08/Mundeshwari-temple-kaimur-bihar.jpg",
-      description:
-        "Mundeshwari Temple is one of the oldest functional temples in India, located on a hilltop in Kaimur district...",
-    },
-    {
-      id: 5,
-      title: "Pathar ki Masjid",
-      img: "https://image3.mouthshut.com/images/Restaurant/Photo/-62333_176796.jpg",
-      description:
-        "Pathar ki Masjid is an ancient mosque in Bihar, built entirely out of stone (pathar).",
+      img: "https://film.bihar.gov.in/assets/Hills%20and%20Caves/Kakolat%20Waterfalls%20000.jpg",
+      description: "Kakolat Waterfall is a scenic spot in Nawada district, famous for its clear waters and natural setting. It’s a popular picnic and shooting destination.",
+      lat: 24.7082,
+      lng: 85.5200
     },
     {
       id: 6,
-      title: "Jain temple",
-      img: "https://tourism.bihar.gov.in/content/dam/bihar-tourism/images/category_a/nalanda/kundalpur/jainism_nalanda_a_kundalpur_pic_02.jpg/jcr:content/renditions/cq5dam.web.480.480.jpeg",
-      description:
-        "Another Jain pilgrimage site—same as Kundalpur image above; replace if you like.",
+      title: "Telhar Kund Kaimur",
+      img: "https://film.bihar.gov.in/assets/Hills%20and%20Caves/Telhar%20Kund%20Kaimur%20000.jpg",
+      description: "Telhar Kund is a picturesque waterfall located in the Kaimur hills, surrounded by lush forests and rocky cliffs.",
+  lat: 24.6467,
+  lng: 83.4801
     },
     {
       id: 7,
-      title: "Shanti Stupa",
-      img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Viswasanthi_Stupa%2C_Wardha.JPG/1200px-Viswasanthi_Stupa%2C_Wardha.JPG",
-      description:
-        "Shanti Stupa is a Buddhist monument symbolizing peace; although the image is Wardha’s Stupa, replace if needed.",
+      title: "Tutla Bhawani Waterfall",
+      img: "https://film.bihar.gov.in/assets/Hills%20and%20Caves/tutla%20bhawani%20waterfall.jpeg",
+       description: "Tutla Bhawani Waterfall is a hidden gem in Rohtas, known for its serene environment and religious significance.",
+  lat: 24.9550,
+  lng: 84.0583
     },
+    {
+  id: 8,
+  title: "Vishwa Shanti Stupa",
+  img: "https://film.bihar.gov.in/assets/Hills%20and%20Caves/Vishwa%20Stanti%20Stupa%20Rajgir%20000.jpg",
+  description: "Vishwa Shanti Stupa in Rajgir is a symbol of world peace, perched on Ratnagiri Hill and accessible by a ropeway.",
+  lat: 25.0305,
+  lng: 85.4215
+},
+
     
   ],
-  "Wildlife": [
+  "Monuments & Museums": [
     {
       id: 1,
-      title: "Valmiki Reserve",
+      title: "Bihar Museum",
+      img: "https://film.bihar.gov.in/assets/Markets%20and%20Buildings/Bihar%20Museum1%20000.jpg",
+      description: "Bihar Museum in Patna showcases Bihar’s rich cultural heritage with modern exhibits and galleries.",
+  lat: 25.6071,
+  lng: 85.1234
+    },
+    {
+      id: 2,
+      title: "Dutch Building",
+      img: "https://film.bihar.gov.in/assets/Markets%20and%20Buildings/dutch%20building%20000.jpg",
+    description: "The Dutch Building in Patna is a historic colonial-era structure, known for its architectural significance.",
+  lat: 25.6102,
+  lng: 85.1408
+    },
+    {
+      id: 3,
+      title: "Gandhi Sangrahalay",
+      img: "https://film.bihar.gov.in/assets/Markets%20and%20Buildings/Gandhi%20Sangrahalaya%20000.jpg",
+      description: "Gandhi Sangrahalaya is a museum in Patna dedicated to the life and ideals of Mahatma Gandhi.",
+  lat: 25.6135,
+  lng: 85.1413
+    },
+    {
+      id: 4,
+      title: "Khuda baksh Oriental Library",
+      img: "https://film.bihar.gov.in/assets/Markets%20and%20Buildings/khuda%20baksh%20oriental%20library%200000.jpg",
+       description: "Khuda Bakhsh Oriental Library in Patna holds rare manuscripts and ancient texts, a treasure trove of history.",
+  lat: 25.6120,
+  lng: 85.1418
+    },
+    {
+      id: 5,
+      title: "Patna Museum",
+      img: "https://film.bihar.gov.in/assets/Markets%20and%20Buildings/patna%20museum%20000.jpg",
+       description: "Patna Museum in Patna showcases Bihar’s rich cultural heritage with modern exhibits and galleries.",
+  lat: 25.6071,
+  lng: 85.1234
+    },
+    {
+      id: 6,
+      title: "Planetarium Patna",
+      img: "https://film.bihar.gov.in/assets/Markets%20and%20Buildings/planetarium%20patna%20000.jpg",
+       description: "Patna Planetarium offers educational astronomy shows and exhibits for all ages.",
+  lat: 25.6139,
+  lng: 85.1442
+    },
+   
+    
+  ],
+  "Nature": [
+    {
+      id: 1,
+      title: "Valmiki Tiger Reserve",
       img: "https://hindi.cdn.zeenews.com/hindi/sites/default/files/2024/03/09/2681300-valmiki-tiger-reserve.jpg?im=Resize=(1200,900)",
-      description:
-        "Valmiki Tiger Reserve is home to Bengal tigers, Indian rhinoceros, and many other species...",
+       description: "Valmiki Tiger Reserve is Bihar’s only tiger reserve, rich in wildlife including tigers, elephants, and deer.",
+  lat: 27.4456,
+  lng: 84.9206
     },
     {
       id: 2,
       title: "Rajgir Zoo",
       img: "https://images.bhaskarassets.com/web2images/521/2021/03/10/orig_4_1615322925.jpg",
-      description:
-        "Rajgir Zoo, also called Vishwa Shanti Van, has a small but diverse collection of animals...",
+      description: "Rajgir Zoo (Vishwa Shanti Van) offers a small but diverse collection of animals amid scenic surroundings near Rajgir.",
+  lat: 25.0269,
+  lng: 85.4204
     },
     {
       id: 3,
       title: "Kaimur Wildlife",
       img: "https://pbs.twimg.com/profile_images/1288390076041277440/pP_qpOz9_400x400.jpg",
-      description: "Kaimur Wildlife Sanctuary has tigers, leopards, and a dense forest area...",
-    },
+      description: "Rajgir Zoo (Vishwa Shanti Van) offers a small but diverse collection of animals amid scenic   surroundings near Rajgir.",
+      lat: 25.0269,
+      lng: 85.4204    },
+    
+   
     {
       id: 4,
-      title: "Wildlife Sanctuary",
-      img: "https://d3sftlgbtusmnv.cloudfront.net/blog/wp-content/uploads/2024/09/Wildlife-Sanctuary-in-Bihar-Cover-Photo-840x425.jpg",
-      description:
-        "A general wildlife sanctuary image—replace with specific location if you like.",
+      title: "Bhimband wildlife Sanctuary",
+      img: "https://film.bihar.gov.in/assets/Forest%20and%20wildlife/Bhimband%20Sanctuary%20000.jpg",
+      description: "Bhimbandh Wildlife Sanctuary in Munger is known for its hot springs, forests, and a variety of wildlife.",
+  lat: 24.4535,
+  lng: 86.3286
     },
     {
       id: 5,
-      title: "Bison",
-      img: "https://storiesfromindiaswilds.wordpress.com/wp-content/uploads/2022/03/whatsapp-image-2022-03-10-at-11.32.38.jpeg?w=1024",
-      description: "Indian bison (gaur) in its natural habitat.",
-    },
-    {
-      id: 6,
-      title: "Bhimband Sanctuary",
-      img: "https://tourism.bihar.gov.in/content/dam/bihar-tourism/images/category_a/munger/bheembandh_sanctuary/nature_munger_category_a_bhimband_sanctuary_pic_01.jpg/jcr:content/renditions/cq5dam.web.480.480.jpeg",
-      description: "Bhimbandh Sanctuary is known for its crocodiles and dense forests.",
-    },
-    {
-      id: 7,
       title: "Patna Zoo",
       img: "https://thebusinesscluster.net/wp-content/uploads/2024/03/image-235.png",
-      description:
-        "Patna Zoo (Sanjay Gandhi Biological Park) has tigers, lions, elephants, and more.",
-    },
-    
+     description: "Patna Zoo houses a variety of animal species including tigers, lions, elephants, and offers educational exhibits in a park-like setting.",
+  lat: 25.6122,
+  lng: 85.1250
+    },    
   ],
-  "Historical Monuments": [
-    {
-      id: 1,
-      title: "Ashoka Pillar",
-      img: "https://media.istockphoto.com/id/1365993607/photo/ashoka-pillar-at-vaishali-in-bihar-india.jpg?s=612x612&w=0&k=20&c=E1VlOJI-ch4LduZy1xGLIHkqZcN1KcZiTt6hPn3T228=",
-      description:
-        "The Ashoka Pillar at Vaishali dates back to Emperor Ashoka’s reign (3rd century BCE)...",
-    },
-    {
-      id: 2,
-      title: "Gandikota",
-      img: "https://media.istockphoto.com/id/1246416146/photo/the-great-canyon-in-gandikota.jpg?s=612x612&w=0&k=20&c=pJia2qMx-mfip4-gC8dF-ksE6IYiiQlBoFnSw3uKAy8=",
-      description:
-        "Gandikota is known as the “Grand Canyon of India,” located in Andhra Pradesh (included here just as a placeholder)...",
-    },
-    {
-      id: 3,
-      title: "Lord Buddha",
-      img: "https://tourism.bihar.gov.in/content/dam/bihar-tourism/images/category_c/gaya/80_feet_buddha/buddhist_gaya_c_80_feet_buddha_pic_01.jpg/jcr:content/renditions/cq5dam.web.1280.765.jpeg",
-      description:
-        "The 80-feet Buddha statue at Bodh Gaya stands next to the Mahabodhi Temple...",
-    },
-    {
-      id: 4,
-      title: "Sujata Kuti",
-      img: "https://media.istockphoto.com/id/1128850714/photo/sujata-kuti-stupa-bodh-style-india.jpg?s=612x612&w=0&k=20&c=oRFORgJIgCbxu_cT-lm0nhLwPw1FbSmQZwQMmjUoZdA=",
-      description:
-        "Sujata Kuti marks the spot where Sujata offered rice pudding to Gautama Buddha...",
-    },
-    {
-      id: 5,
-      title: "Vaishali Stupa",
-      img: "https://media.istockphoto.com/id/937177718/photo/vaishali-ancient-stupa-in-india.jpg?s=612x612&w=0&k=20&c=F7E_NTGWlcUQvs2LO_NuBFFxXLs2TWRE_k1mnDzkVdM=",
-      description:
-        "Vaishali Stupa in Bihar is an ancient Buddhist relic that dates back to Ashoka’s time...",
-    },
-    {
-      id: 6,
-      title: "Kesariya Stupa",
-      img: "https://media.istockphoto.com/id/1128850736/photo/kesaria-stupa-champaran-district-of-bihar-india.jpg?s=612x612&w=0&k=20&c=7TV49EV6EiDZ6FJG9MD4xy11JA5WgRqHr8X5rEl0o3M=",
-      description:
-        "Kesaria Stupa is the world’s tallest Buddhist stupa, located in East Champaran district...",
-    },
-    {
-      id: 7,
-      title: "Mahabodhi",
-      img: "https://media.istockphoto.com/id/842997816/photo/mahabodhi-temple-bodhgaya.jpg?s=612x612&w=0&k=20&c=0_tRix2uyZG0V9DKmCGeEE0h2_Mn4pIAZyyVzP5UDGI=",
-      description:
-        "The Mahabodhi Temple Complex at Bodh Gaya is a UNESCO World Heritage site...",
-    },
-    
-  ],
+ 
 };
 
 const Location = () => {
-  const [selectedCategory, setSelectedCategory] = useState("Film Locations");
+  const navigate = useNavigate();
+  const [selectedCategory, setSelectedCategory] = useState("Hills & Caves");
   const [index, setIndex] = useState(0);
 
   const cards = categories[selectedCategory];
@@ -221,81 +185,106 @@ const Location = () => {
   const categoryList = Object.keys(categories);
 
   const nextSlide = () => {
-    if (index + itemsPerPage >= totalCards) {
-      const currentCategoryIndex = categoryList.indexOf(selectedCategory);
-      const nextCategoryIndex = (currentCategoryIndex + 1) % categoryList.length;
-      setSelectedCategory(categoryList[nextCategoryIndex]);
-      setIndex(0);
-    } else {
-      setIndex(index + itemsPerPage);
-    }
-  };
+  const cards = categories[selectedCategory];
+  const totalCards = cards.length;
 
-  const prevSlide = () => {
-    if (index - itemsPerPage < 0) {
-      const currentCategoryIndex = categoryList.indexOf(selectedCategory);
-      const prevCategoryIndex =
-        (currentCategoryIndex - 1 + categoryList.length) % categoryList.length;
+  if (index + itemsPerPage >= totalCards) {
+    // Move to next category
+    const currentCategoryIndex = categoryList.indexOf(selectedCategory);
+    const nextCategoryIndex = (currentCategoryIndex + 1) % categoryList.length;
+    setSelectedCategory(categoryList[nextCategoryIndex]);
+    setIndex(0);
+  } else {
+    setIndex(index + itemsPerPage);
+  }
+};
 
-      const newCategory = categoryList[prevCategoryIndex];
-      const newCards = categories[newCategory];
-      const newTotal = newCards.length;
-      const newIndex = Math.max(0, newTotal - itemsPerPage);
 
-      setSelectedCategory(newCategory);
-      setIndex(newIndex);
-    } else {
-      setIndex(index - itemsPerPage);
-    }
-  };
+ const prevSlide = () => {
+  if (index - itemsPerPage < 0) {
+    // Move to previous category
+    const currentCategoryIndex = categoryList.indexOf(selectedCategory);
+    const prevCategoryIndex =
+      (currentCategoryIndex - 1 + categoryList.length) % categoryList.length;
+
+    const newCategory = categoryList[prevCategoryIndex];
+    const newCards = categories[newCategory];
+    const newTotal = newCards.length;
+    const newIndex = Math.max(0, newTotal - itemsPerPage);
+
+    setSelectedCategory(newCategory);
+    setIndex(newIndex);
+  } else {
+    setIndex(index - itemsPerPage);
+  }
+};
+
 
   return (
     <motion.div
-      className="w-full min-h-screen flex flex-col items-center justify-center bg-[#190108] px-4 sm:px-6 md:px-12 lg:px-20 py-12"
+      className="w-full h-screen  flex flex-col items-center justify-center bg-[#190108] py-6 px-4 sm:px-8 md:px-12 lg:px-16 pb-20"
       id="Shooting-location"
+
     >
-      <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold mb-10 text-white text-center leading-tight">
+      
+      <h1 className="text-3xl sm:text-4xl font-bold mb-12 sm:mb-16 pt-24 text-white text-center">
         Top Shooting Locations
       </h1>
 
       {/* Filter Buttons */}
-      <div className="flex flex-wrap justify-center gap-3 mb-10 px-2">
-        {Object.keys(categories).map((category) => (
-          <button
-            key={category}
-            className={`px-4 py-2 rounded-full text-sm sm:text-base font-medium transition-all duration-300 ${
-              selectedCategory === category
-                ? "bg-red-600 text-white shadow-md"
-                : "bg-gray-700 text-gray-300 hover:bg-gray-600"
-            }`}
-            onClick={() => {
-              setSelectedCategory(category);
-              setIndex(0);
-            }}
-          >
-            {category}
-          </button>
-        ))}
-      </div>
+      import { useNavigate } from "react-router-dom"; // already imported
 
-      {/* Cards Section */}
-      <div className="w-full max-w-7xl overflow-hidden relative px-2">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:flex gap-6 justify-center transition-transform duration-500 ease-in-out">
+...
+
+<div className="flex flex-wrap justify-center gap-4 mb-6 px-2">
+  {Object.keys(categories).map((category) => (
+    <button
+      key={category}
+      className={`px-4 py-2 rounded-lg text-sm sm:text-base ${
+        selectedCategory === category
+          ? "bg-red-600 text-white"
+          : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+      }`}
+      onClick={() => {
+        setSelectedCategory(category);
+        setIndex(0);
+      }}
+    >
+      {category}
+    </button>
+  ))}
+
+  {/* Navigate Button */}
+  <button
+    onClick={() => navigate("/shootinglocation")}
+    className="px-4 py-2 rounded-lg text-sm sm:text-base bg-gray-700 text-gray-300 hover:bg-gray-600"
+  >
+    View All
+  </button>
+</div>
+
+
+  
+      <div className="overflow-hidden mt-4 w-full md:w-[90%] relative px-2">
+        <div className="flex gap-6 transition-transform duration-500 ease-in-out justify-center">
           {cards.slice(index, index + itemsPerPage).map((card) => {
+  
             const encodedCategory = encodeURIComponent(selectedCategory);
             const detailPath = `/location/${encodedCategory}/${card.id}`;
 
             return (
               <Link to={detailPath} key={card.id}>
-                <div className="w-full sm:w-[300px] md:w-[320px] h-80 rounded-2xl overflow-hidden bg-black/20 backdrop-blur-sm shadow-lg border border-gray-700 transform transition duration-300 ease-in-out hover:scale-[0.97] group relative cursor-pointer">
+                <div className="w-[270px] sm:w-72 h-80 border-1 rounded-2xl overflow-hidden bg-transparent transform transition-transform duration ease-in-out hover:scale-95 group relative cursor-pointer">
+                
                   <img
                     src={card.img}
                     alt={card.title}
                     className="w-full h-full object-cover transition-transform duration-[2000ms] ease-in-out group-hover:scale-110"
                   />
 
-                  <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent text-white px-4 py-3">
-                    <h2 className="text-lg sm:text-xl font-bold">{card.title}</h2>
+               
+                  <div className="absolute text-base sm:text-xl font-bold bg-gradient-to-t from-black/40 to-transparent bottom-0 left-0 w-full text-white text-start p-4">
+                    {card.title}
                   </div>
                 </div>
               </Link>
@@ -304,19 +293,19 @@ const Location = () => {
         </div>
       </div>
 
-      {/* Navigation Buttons */}
-      <div className="flex mt-8 gap-4">
+   
+      <div className="flex mt-6 gap-4">
         <button
           onClick={prevSlide}
-          className="p-3 bg-gray-800 text-white rounded-full hover:bg-gray-700 transition"
+          className="p-3 bg-gray-800 text-white rounded-full hover:bg-gray-600"
         >
-          <IoIosArrowBack size={28} />
+          <IoIosArrowBack size={30} />
         </button>
         <button
           onClick={nextSlide}
-          className="p-3 bg-gray-800 text-white rounded-full hover:bg-gray-700 transition"
+          className="p-3 bg-gray-800 text-white rounded-full hover:bg-gray-600"
         >
-          <IoIosArrowForward size={28} />
+          <IoIosArrowForward size={30} />
         </button>
       </div>
     </motion.div>

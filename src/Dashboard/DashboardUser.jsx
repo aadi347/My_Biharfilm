@@ -1,121 +1,94 @@
-
-
-import React from 'react';
+import React from "react";
 import "../app.css";
 import Logo1 from "/src/assets/Logo1.png";
-import UserAvatar from "/src/assets/UserAvtar.svg"; 
-import { IoIosLogOut } from "react-icons/io";
-import { IoIosAdd } from "react-icons/io";
+import UserAvatar from "/src/assets/UserAvtar.svg";
+import { IoIosLogOut, IoIosAdd } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 
 const UserDashboard = () => {
   const navigate = useNavigate();
 
+  const handleLogout = () => {
+    console.log("Logout triggered");
+    // Add actual logout logic here
+  };
+
   return (
-    <div className="flex h-screen bg-gray-50">
-    
-      <div className="w-64 bg-white shadow-md flex flex-col">
-        {/* Logo / Title */}
-        <div className="p-4 border-b border-gray-200">
-          <h1 className="text-2xl pl-2 font-bold text-gray-800">User Dashboard</h1>
+    <div className="flex h-screen bg-gray-50 font-sans">
+      {/* Sidebar */}
+      <div className="w-64 bg-white border-r border-gray-200 flex flex-col shadow-md">
+        {/* Logo Instead of Title */}
+        <div className="p-4 border-b ">
+          <img src={Logo1} alt="Logo" className="h-16" />
         </div>
 
-        {/* Menu Items */}
         <nav className="flex-1 p-4">
-          <ul className="space-y-4 font-semibold text-gray-700">
-            <li>
-              <button
-                onClick={() => /* filter logic for “Applied NOC” */ {}}
-                className="flex items-center w-full p-2 rounded-lg hover:bg-gray-100"
-              >
-                <span className="ml-4">Applied NOC</span>
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => /* filter logic for “Pending NOC” */ {}}
-                className="flex items-center w-full p-2 rounded-lg hover:bg-gray-100"
-              >
-                <span className="ml-4">Pending NOC</span>
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => /* filter logic for “Success NOC” */ {}}
-                className="flex items-center w-full p-2 rounded-lg hover:bg-gray-100"
-              >
-                <span className="ml-4">Success NOC</span>
-              </button>
-            </li>
+          <ul className="space-y-3">
+            {["Applied NOC", "Pending NOC", "Success NOC"].map((item) => (
+              <li key={item}>
+                <button className="w-full px-4 py-2 flex items-center text-sm font-semibold text-gray-700 hover:bg-[#f4e4e8] hover:text-[#a92b43] rounded-lg transition-all duration-200">
+                  {item}
+                </button>
+              </li>
+            ))}
           </ul>
         </nav>
-
-        {/* Logout Button at Bottom */}
-        <div className="p-4 mb-3 pl-13 border-gray-200">
-          <button className="w-35 bg-[#a92b43] flex items-center justify-center gap-2 text-white py-3 font-semibold rounded-lg hover:bg-[#802d44] transition-colors">
-            <IoIosLogOut className="text-xl" />
-            Logout
-          </button>
-        </div>
       </div>
 
-      {/* ─── MAIN CONTENT ──────────────────────────────────────────────────── */}
-      <div className="relative flex-1 flex flex-col">
+      {/* Main Content */}
+      <div className="flex-1 flex flex-col relative">
         {/* Top Navbar */}
-        <div className="w-full flex items-center justify-between px-8 py-2 bg-white shadow-sm">
-          {/* Left: Logo */}
-          <div className="flex items-center gap-2">
-            <img src={Logo1} alt="logo" className="h-12 w-auto" />
-            
-          </div>
+        <div className="flex items-center justify-between px-6 py-3 bg-white border-b shadow-sm">
+          <img src={Logo1} alt="Logo" className="h-12" />
 
-          {/* Right: User Info */}
-          <div className="flex items-center space-x-4">
-            <span className="text-gray-600 text-sm">User</span>
+          <div className="flex items-center gap-2">
+            <span className="text-sm text-gray-600">User</span>
             <img
               src={UserAvatar}
               alt="User Avatar"
-              className="w-10 h-10 rounded-full object-cover border-2 border-[#a92b43]"
+              className="w-10 h-10 rounded-full border-2 border-[#a92b43] object-cover"
             />
+
+            {/* Logout Button */}
+            <button
+              className="group flex items-center justify-start w-9 h-9 bg-[#e7000b] rounded-full cursor-pointer relative overflow-hidden transition-all duration-200 shadow-lg hover:w-32 hover:rounded-full active:translate-x-1 active:translate-y-1"
+              onClick={handleLogout}
+            >
+              <div className="flex items-center justify-center w-full transition-all duration-300 group-hover:justify-start group-hover:px-3">
+                <svg className="w-4 h-4" viewBox="0 0 512 512" fill="white">
+                  <path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z" />
+                </svg>
+              </div>
+              <div className="absolute right-5 transform translate-x-full opacity-0 text-white text-lg font-semibold transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
+                Logout
+              </div>
+            </button>
           </div>
         </div>
 
-        {/* Header / Page Title */}
-        <header className="px-8 mt-16 mb-6">
-          <h2 className="text-3xl font-semibold text-gray-800"></h2>
-          <p className="text-gray-500 mt-1"></p>
-        </header>
+        {/* Header */}
+        <div className="px-8 pt-8">
+          <h2 className="text-xl font-bold text-gray-800 mb-2">
+            Welcome to Your Dashboard
+          </h2>
+          <p className="text-sm text-gray-500">
+            View and manage your NOC applications
+          </p>
+        </div>
 
-        {/* Placeholder for “Applied / Pending / Success” Lists */}
-        <div className="px-8 flex-1 overflow-auto">
-          {/* 
-            ── Here you could render a table or cards depending on which filter 
-            is active. For simplicity, we’ll leave this as a placeholder div.
-          */}
+        {/* Content Area */}
+        <div className="flex-1 px-8 mt-6 overflow-auto">
           <div className="h-full flex items-center justify-center text-gray-400 italic">
-            {/* e.g. “Select a category from the sidebar” */}
-            Apply For NOC to see your applications here.
+            Apply for NOC to see your applications here.
           </div>
         </div>
 
-        {/* Centered “+” Button to Apply for New NOC */}
+        {/* Floating Apply Button */}
         <button
           onClick={() => navigate("/apply-noc")}
-          className="
-            absolute 
-            bottom-10 
-            left-1/2 
-            transform -translate-x-1/2 
-            bg-[#a92b43] 
-            hover:bg-[#802d44] 
-            text-white 
-            rounded-full 
-            p-4 
-            shadow-lg 
-            flex items-center justify-center
-          "
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 bg-[#a92b43] hover:bg-[#911d38] text-white rounded-full p-4 shadow-lg hover:scale-105 transition-transform duration-300"
         >
-          <IoIosAdd className="text-3xl" />
+          <IoIosAdd className="text-3xl animate-pulse" />
         </button>
       </div>
     </div>

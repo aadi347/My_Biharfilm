@@ -21,257 +21,175 @@ L.Icon.Default.mergeOptions({
 
 
 const categories = {
-  "Film Locations": [
+  "Hills & Caves": [
     {
       id: 1,
-      title: "Ghora Katora",
-      img: "https://tourism.bihar.gov.in/content/dam/bihar-tourism/images/category_a/nalanda/ghora_katora/ghora-katora.jpg/jcr:content/renditions/cq5dam.web.1280.765.jpeg",
-      description: "Ghora Katora, meaning 'Horse Bowl' is a serene lake near Rajgir...",
-      lat: 25.0085,
-      lng: 85.4201
+      title: "Barabar Hills",
+      img: "https://film.bihar.gov.in/assets/Hills%20and%20Caves/Barabar%20Hills%20000.jpg",
+      description: "Barabar Hills, located in the Jehanabad district of Bihar, are home to the oldest surviving rock-cut caves in India, dating back to the Mauryan period.",
+      lat: 25.0076,
+      lng: 85.0653,
+      
     },
     {
       id: 2,
-      title: "Sabhyata Dwar",
-      img: "https://d34vm3j4h7f97z.cloudfront.net/original/4X/0/e/f/0eff8ccd6a5c2badce42ea5c330ff4a41449fd0f.jpeg",
-      description: "Sabhyata Dwar, or the Civilization Gate, stands tall in Patna...",
-      lat: 25.6120,
-      lng: 85.1430
+      title: "Gridhakut Hills",
+      img: "https://film.bihar.gov.in/assets/Hills%20and%20Caves/Gridhakut%20Hill3%20000.jpg",
+      description: "Gridhakut Hills, also known as Vulture Peak, is located near Rajgir in Bihar. It is a significant Buddhist pilgrimage site where Lord Buddha is said to have delivered many important sermons.",
+      lat: 25.0172,
+      lng: 85.4217
     },
     {
       id: 3,
-      title: "Amritdhara Waterfall",
-      img: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/06/a5/91/4c/amritdhara-water-fal.jpg?w=600&h=-1&s=1",
-      description: "Amrit Dhara is a natural waterfall located in Chhattisgarh...",
-      lat: 23.2108,
-      lng: 82.2935
+      title: "Grupa Hills Gaya",
+      img: "https://film.bihar.gov.in/assets/Hills%20and%20Caves/Gurpa%20Hill%20Gaya%20000.jpg",
+      description: "Grupa Hills (also known as Gurpa Hills) is a sacred Buddhist site located near Gaya in Bihar. .",
+      lat: 24.9251,
+      lng: 85.1522
     },
     {
       id: 4,
-      title: "Eco Park",
-      img: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/55/22/85/20171225-144241-largejpg.jpg?w=500&h=400&s=1",
-      desctiption: "Eco Park, also known as Rajdhani Vatika, is a green space in Patna...",
-      lat: 25.6156,
-      lng: 85.1078
+      title: "Kaimur Hills",
+      img: "https://film.bihar.gov.in/assets/Hills%20and%20Caves/kaimur%20hills1%20000.jpg",
+     description: "Kaimur Hills are part of the Vindhya range in Bihar, known for scenic landscapes, waterfalls, and wildlife.",
+     lat: 24.6215,
+     lng: 83.5830
     },
     {
       id: 5,
-      title: "Buddha Smriti",
-      img: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0b/d4/7a/30/buddha-smriti-park.jpg?w=500&h=400&s=1",
-      description: "Located near Patna Junction, Buddha Smriti Park is an urban oasis...",
-      lat: 25.6090,
-      lng: 85.1376
-    },
-    {
-      id: 6,
-      title: "Glass Bridge",
-      img: "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202012/glsi_1200x768.jpeg?size=1200:675",
-      description: "The Rajgir Glass Bridge offers a thrilling experience...",
-      lat: 25.0044,
-      lng: 85.4212
-    },
-    {
-      id: 7,
       title: "Kakolat Waterfall",
-      img: "https://tourism.bihar.gov.in/content/dam/bihar-tourism/images/category_a/nawada/kakolat_waterfall/kakolat-waterfall-nawada.png/jcr:content/renditions/cq5dam.web.480.480.jpeg",
-      desctiption: "Kakolat Waterfall, cascading from a height of approx. 160 feet...",
-      lat: 24.6367,
-      lng: 85.4035
-    }
-  ],
-
-  "Religious Places": [
-    {
-      id: 1,
-      title: "Kundalpur",
-      img: "https://tourism.bihar.gov.in/content/dam/bihar-tourism/images/category_a/nalanda/kundalpur/jainism_nalanda_a_kundalpur_pic_02.jpg/jcr:content/renditions/cq5dam.web.1280.765.jpeg",
-      description: "Kundalpur is revered as the birthplace of Lord Mahavira...",
-      lat: 25.0284,
-      lng: 85.4405
-    },
-    {
-      id: 2,
-      title: "Mahabodhi",
-      img: "https://railrecipe.com/blog/wp-content/uploads/2021/03/Mahabodhi-Temple-Gaya.jpg",
-      description: "The Mahabodhi Temple in Bodh Gaya is a UNESCO World Heritage site...",
-      lat: 24.6950,
-      lng: 84.9912
-    },
-    {
-      id: 3,
-      title: "Jal Mandir",
-      img: "https://tourism.bihar.gov.in/content/dam/bihar-tourism/images/category_a/nalanda/jal_mandir/jal_mandir_a7307011_edit.jpg/jcr:content/renditions/cq5dam.web.480.480.jpeg",
-      description: "Jal Mandir, situated in Pawapuri, is a temple built in the middle of a lotus-filled lake...",
-      lat: 25.0173,
-      lng: 85.4386
-    },
-    {
-      id: 4,
-      title: "Mundeshwari Temple",
-      img: "https://thetempleguru.com/wp-content/uploads/2024/08/Mundeshwari-temple-kaimur-bihar.jpg",
-      description: "Mundeshwari Temple, one of the oldest functional temples in India...",
-      lat: 25.0410,
-      lng: 83.6116
-    },
-    {
-      id: 5,
-      title: "Pathar ki Masjid",
-      img: "https://image3.mouthshut.com/images/Restaurant/Photo/-62333_176796.jpg",
-      description: "Pathar ki Masjid, located on the banks of the Ganges in Patna...",
-      lat: 25.6156,
-      lng: 85.1373
+      img: "https://film.bihar.gov.in/assets/Hills%20and%20Caves/Kakolat%20Waterfalls%20000.jpg",
+      description: "Kakolat Waterfall is a scenic spot in Nawada district, famous for its clear waters and natural setting. It’s a popular picnic and shooting destination.",
+      lat: 24.7082,
+      lng: 85.5200
     },
     {
       id: 6,
-      title: "Jain Temple",
-      img: "https://tourism.bihar.gov.in/content/dam/bihar-tourism/images/category_a/nalanda/kundalpur/jainism_nalanda_a_kundalpur_pic_02.jpg/jcr:content/renditions/cq5dam.web.480.480.jpeg",
-      description: "The Jain temples in Kundalpur, with their intricate carvings...",
-      lat: 25.0284,
-      lng: 85.4405
+      title: "Telhar Kund Kaimur",
+      img: "https://film.bihar.gov.in/assets/Hills%20and%20Caves/Telhar%20Kund%20Kaimur%20000.jpg",
+      description: "Telhar Kund is a picturesque waterfall located in the Kaimur hills, surrounded by lush forests and rocky cliffs.",
+  lat: 24.6467,
+  lng: 83.4801
     },
     {
       id: 7,
-      title: "Shanti Stupa",
-      img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Viswasanthi_Stupa%2C_Wardha.JPG/1200px-Viswasanthi_Stupa%2C_Wardha.JPG",
-      description: "Shanti Stupa in Rajgir is a white-domed structure symbolizing peace and harmony...",
-      lat: 25.0176,
-      lng: 85.4239
+      title: "Tutla Bhawani Waterfall",
+      img: "https://film.bihar.gov.in/assets/Hills%20and%20Caves/tutla%20bhawani%20waterfall.jpeg",
+       description: "Tutla Bhawani Waterfall is a hidden gem in Rohtas, known for its serene environment and religious significance.",
+  lat: 24.9550,
+  lng: 84.0583
     },
     {
-      id: 8,
-      title: "Mundeshwari",
-      img: "https://tourism.bihar.gov.in/content/dam/bihar-tourism/images/category_a/kaimur/mundeshwari_devi_temple/mundishwaridevi-tn.png/jcr:content/renditions/cq5dam.web.1280.765.jpeg",
-      description: "Mundeshwari Temple, one of the oldest functional temples in India...",
-      lat: 25.0410,
-      lng: 83.6116
-    }
+  id: 8,
+  title: "Vishwa Shanti Stupa",
+  img: "https://film.bihar.gov.in/assets/Hills%20and%20Caves/Vishwa%20Stanti%20Stupa%20Rajgir%20000.jpg",
+  description: "Vishwa Shanti Stupa in Rajgir is a symbol of world peace, perched on Ratnagiri Hill and accessible by a ropeway.",
+  lat: 25.0305,
+  lng: 85.4215
+},
+
+    
   ],
 
-  "Wildlife": [
+   "Monuments & Museums": [
     {
       id: 1,
-      title: "Valmiki Reserve",
+      title: "Bihar Museum",
+      img: "https://film.bihar.gov.in/assets/Markets%20and%20Buildings/Bihar%20Museum1%20000.jpg",
+      description: "Bihar Museum in Patna showcases Bihar’s rich cultural heritage with modern exhibits and galleries.",
+  lat: 25.6071,
+  lng: 85.1234
+    },
+    {
+      id: 2,
+      title: "Dutch Building",
+      img: "https://film.bihar.gov.in/assets/Markets%20and%20Buildings/dutch%20building%20000.jpg",
+    description: "The Dutch Building in Patna is a historic colonial-era structure, known for its architectural significance.",
+  lat: 25.6102,
+  lng: 85.1408
+    },
+    {
+      id: 3,
+      title: "Gandhi Sangrahalay",
+      img: "https://film.bihar.gov.in/assets/Markets%20and%20Buildings/Gandhi%20Sangrahalaya%20000.jpg",
+      description: "Gandhi Sangrahalaya is a museum in Patna dedicated to the life and ideals of Mahatma Gandhi.",
+  lat: 25.6135,
+  lng: 85.1413
+    },
+    {
+      id: 4,
+      title: "Khuda baksh Oriental Library",
+      img: "https://film.bihar.gov.in/assets/Markets%20and%20Buildings/khuda%20baksh%20oriental%20library%200000.jpg",
+       description: "Khuda Bakhsh Oriental Library in Patna holds rare manuscripts and ancient texts, a treasure trove of history.",
+  lat: 25.6120,
+  lng: 85.1418
+    },
+    {
+      id: 5,
+      title: "Patna Museum",
+      img: "https://film.bihar.gov.in/assets/Markets%20and%20Buildings/patna%20museum%20000.jpg",
+       description: "Patna Museum in Patna showcases Bihar’s rich cultural heritage with modern exhibits and galleries.",
+  lat: 25.6071,
+  lng: 85.1234
+    },
+    {
+      id: 6,
+      title: "Planetarium Patna",
+      img: "https://film.bihar.gov.in/assets/Markets%20and%20Buildings/planetarium%20patna%20000.jpg",
+       description: "Patna Planetarium offers educational astronomy shows and exhibits for all ages.",
+  lat: 25.6139,
+  lng: 85.1442
+    },
+   
+    
+  ],
+
+  "Nature":
+   [
+    {
+      id: 1,
+      title: "Valmiki Tiger Reserve",
       img: "https://hindi.cdn.zeenews.com/hindi/sites/default/files/2024/03/09/2681300-valmiki-tiger-reserve.jpg?im=Resize=(1200,900)",
-      description: "Valmiki Tiger Reserve, located in the West Champaran district, is home to diverse flora and fauna, including the majestic Bengal tiger...",
-      lat: 27.0780,
-      lng: 84.5750
+       description: "Valmiki Tiger Reserve is Bihar’s only tiger reserve, rich in wildlife including tigers, elephants, and deer.",
+  lat: 27.4456,
+  lng: 84.9206
     },
     {
       id: 2,
       title: "Rajgir Zoo",
       img: "https://images.bhaskarassets.com/web2images/521/2021/03/10/orig_4_1615322925.jpg",
-      description: "Rajgir Zoo Safari provides a unique experience of observing animals in their natural habitats...",
-      lat: 25.0176,
-      lng: 85.4239
+      description: "Rajgir Zoo (Vishwa Shanti Van) offers a small but diverse collection of animals amid scenic surroundings near Rajgir.",
+  lat: 25.0269,
+  lng: 85.4204
     },
     {
       id: 3,
-      title: "Kaimur",
+      title: "Kaimur Wildlife",
       img: "https://pbs.twimg.com/profile_images/1288390076041277440/pP_qpOz9_400x400.jpg",
-      description: "Kaimur Wildlife Sanctuary, spread across the Kaimur district, encompasses hills, forests, and waterfalls...",
-      lat: 25.0410,
-      lng: 83.6116
-    },
+      description: "Rajgir Zoo (Vishwa Shanti Van) offers a small but diverse collection of animals amid scenic   surroundings near Rajgir.",
+      lat: 25.0269,
+      lng: 85.4204    },
+    
+   
     {
       id: 4,
-      title: "Wildlife Century",
-      img: "https://d3sftlgbtusmnv.cloudfront.net/blog/wp-content/uploads/2024/09/Wildlife-Sanctuary-in-Bihar-Cover-Photo-840x425.jpg",
-      description: "Wildlife Century is a protected area in Bihar, known for its rich biodiversity and conservation efforts...",
-      lat: 25.6156,
-      lng: 85.1373 // Assuming this refers to Patna region's wildlife areas
+      title: "Bhimband wildlife Sanctuary",
+      img: "https://film.bihar.gov.in/assets/Forest%20and%20wildlife/Bhimband%20Sanctuary%20000.jpg",
+      description: "Bhimbandh Wildlife Sanctuary in Munger is known for its hot springs, forests, and a variety of wildlife.",
+  lat: 24.4535,
+  lng: 86.3286
     },
     {
       id: 5,
-      title: "Bison",
-      img: "https://storiesfromindiaswilds.wordpress.com/wp-content/uploads/2022/03/whatsapp-image-2022-03-10-at-11.32.38.jpeg?w=1024",
-      description: "Bison sightings occur in some parts of Bihar's sanctuaries like Valmiki and Kaimur. This location can be contextualized as part of broader forest reserves.",
-      lat: 27.0780,
-      lng: 84.5750 // Referencing Valmiki region again for Bison habitat
-    },
-    {
-      id: 6,
-      title: "Bhimbandh Sanctuary",
-      img: "https://tourism.bihar.gov.in/content/dam/bihar-tourism/images/category_a/munger/bheembandh_sanctuary/nature_munger_category_a_bhimband_sanctuary_pic_01.jpg/jcr:content/renditions/cq5dam.web.480.480.jpeg",
-      description: "Bhimbandh Sanctuary in Munger is known for its hot springs and rich biodiversity...",
-      lat: 24.8333,
-      lng: 86.4167
-    },
-    {
-      id: 7,
       title: "Patna Zoo",
       img: "https://thebusinesscluster.net/wp-content/uploads/2024/03/image-235.png",
-      description: "Patna Zoo houses a variety of animal species and lush greenery...",
-      lat: 25.6122,
-      lng: 85.1250
-    },
-    {
-      id: 8,
-      title: "Unnamed Wildlife",
-      img: "https://static.toiimg.com/photo/msid-106921990,width-96,height-65.cms",
-      description: "A general reference to wildlife presence and preservation in Bihar. Can be used as a generic card or replaced with a more specific sanctuary.",
-      lat: 25.5941,
-      lng: 85.1376 // Patna center fallback
-    }
-  ]
-  ,
-  "Historical Monuments": [
-    {
-      id: 1,
-      title: "Ashoka Pillar",
-      img: "https://media.istockphoto.com/id/1365993607/photo/ashoka-pillar-at-vaishali-in-bihar-india.jpg?s=612x612&w=0&k=20&c=E1VlOJI-ch4LduZy1xGLIHkqZcN1KcZiTt6hPn3T228=",
-      description: "The Ashoka Pillar in Vaishali stands as a testament to Emperor Ashoka's embrace of Buddhism...",
-      lat: 26.0158,
-      lng: 85.0845
-    },
-    {
-      id: 2,
-      title: "Gandikota",
-      img: "https://media.istockphoto.com/id/1246416146/photo/the-great-canyon-in-gandikota.jpg?s=612x612&w=0&k=20&c=pJia2qMx-mfip4-gC8dF-ksE6IYiiQlBoFnSw3uKAy8=",
-      description: "Gandikota, often referred to as the 'Grand Canyon of India' features a gorge formed by the Pennar River...",
-      lat: 14.8156,
-      lng: 78.2824 // Note: Not in Bihar, this is in Andhra Pradesh
-    },
-    {
-      id: 3,
-      title: "Lord Buddha Statue",
-      img: "https://tourism.bihar.gov.in/content/dam/bihar-tourism/images/category_c/gaya/80_feet_buddha/buddhist_gaya_c_80_feet_buddha_pic_01.jpg/jcr:content/renditions/cq5dam.web.1280.765.jpeg",
-      description: "The towering 80-feet Buddha statue in Bodh Gaya is an iconic symbol of peace and enlightenment...",
-      lat: 24.6959,
-      lng: 84.9911
-    },
-    {
-      id: 4,
-      title: "Sujata Kuti",
-      img: "https://media.istockphoto.com/id/1128850714/photo/sujata-kuti-stupa-bodh-style-india.jpg?s=612x612&w=0&k=20&c=oRFORgJIgCbxu_cT-lm0nhLwPw1FbSmQZwQMmjUoZdA=",
-      description: "Sujata Kuti is a stupa commemorating Sujata's offering of kheer to Buddha before his enlightenment...",
-      lat: 24.6911,
-      lng: 84.9997
-    },
-    {
-      id: 5,
-      title: "Vaishali Stupa",
-      img: "https://media.istockphoto.com/id/937177718/photo/vaishali-ancient-stupa-in-india.jpg?s=612x612&w=0&k=20&c=F7E_NTGWlcUQvs2LO_NuBFFxXLs2TWRE_k1mnDzkVdM=",
-      description: "Vaishali Stupa is an ancient Buddhist monument marking the site of significant events in Buddha's life...",
-      lat: 26.0154,
-      lng: 85.0833
-    },
-    {
-      id: 6,
-      title: "Kesariya Stupa",
-      img: "https://media.istockphoto.com/id/1128850736/photo/kesaria-stupa-champaran-district-of-bihar-india.jpg?s=612x612&w=0&k=20&c=7TV49EV6EiDZ6FJG9MD4xy11JA5WgRqHr8X5rEl0o3M=",
-      description: "Kesariya Stupa, one of the tallest Buddhist stupas in the world, is located in East Champaran...",
-      lat: 26.3773,
-      lng: 84.4342
-    },
-    {
-      id: 7,
-      title: "Mahabodhi Temple",
-      img: "https://media.istockphoto.com/id/842997816/photo/mahabodhi-temple-bodhgaya.jpg?s=612x612&w=0&k=20&c=0_tRix2uyZG0V9DKmCGeEE0h2_Mn4pIAZyyVzP5UDGI=",
-      description: "The Mahabodhi Temple in Bodh Gaya is a UNESCO World Heritage site marking the location where Buddha attained enlightenment...",
-      lat: 24.6950,
-      lng: 84.9912
-    }
+     description: "Patna Zoo houses a variety of animal species including tigers, lions, elephants, and offers educational exhibits in a park-like setting.",
+  lat: 25.6122,
+  lng: 85.1250
+    },    
   ],
+  
+ 
 
 };
 
