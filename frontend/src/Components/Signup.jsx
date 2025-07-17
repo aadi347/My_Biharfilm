@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Signupimg from "../assets/Signupimg.svg";
-
 import Adminsvgg from "../assets/Adminsvgg.svg";
-
 import { MdEmail } from "react-icons/md";
 import { IoIosLock } from "react-icons/io";
-import { FaEye } from "react-icons/fa";
 
 const SignupPage = () => {
   const navigate = useNavigate();
@@ -29,28 +26,29 @@ const SignupPage = () => {
       return;
     }
 
-    // Store data
-    localStorage.setItem("userEmail", email);
-    localStorage.setItem("userPassword", password);
-    localStorage.setItem("userRole", selectedRole);
+    // Store user details in localStorage
+    const newUser = {
+      email,
+      password,
+      role: selectedRole,
+    };
 
-    if (selectedRole === "User") {
-      navigate("/dashboard-user");
-    } else {
-      alert("Signup successful!");
-      navigate("/");
-    }
+    localStorage.setItem("userData", JSON.stringify(newUser));
+    localStorage.setItem("authToken", `${selectedRole}_token`);
+
+    navigate("/dashboard-user"); // All go to common dashboard
   };
 
   return (
     <div className="flex h-screen w-full items-center justify-center px-4 relative">
-  <img
-    src="/Bgg.svg"
-    alt="Background"
-    className="fixed inset-0 w-full h-full object-cover opacity-60 z-[-1]"
-  />
+      <img
+        src="/Bgg.svg"
+        alt="Background"
+        className="fixed inset-0 w-full h-full object-cover opacity-60 z-[-1]"
+      />
 
       <div className="flex max-w-5xl w-full h-[39rem] rounded-3xl bg-white shadow-2xl overflow-hidden">
+        {/* Left Graphic */}
         <div className="hidden w-1/2 bg-zinc-100 p-10 md:flex items-center justify-center">
           <img
             src={selectedRole === "Admin" ? Adminsvgg : Signupimg}
@@ -59,6 +57,7 @@ const SignupPage = () => {
           />
         </div>
 
+        {/* Right Form */}
         <div className="w-full md:w-1/2 p-8 md:p-14">
           <div className="flex justify-between items-center mb-4">
             <span className="text-sm font-medium text-gray-700">Signup</span>
@@ -91,6 +90,7 @@ const SignupPage = () => {
               ))}
             </div>
 
+            {/* Email Field */}
             <div className="mb-4">
               <label htmlFor="email" className="text-sm font-medium text-gray-700">
                 Email
@@ -110,6 +110,7 @@ const SignupPage = () => {
               </div>
             </div>
 
+            {/* Password Field */}
             <div className="mb-4">
               <label htmlFor="password" className="text-sm font-medium text-gray-700">
                 Password
@@ -129,6 +130,7 @@ const SignupPage = () => {
               </div>
             </div>
 
+            {/* Confirm Password Field */}
             <div className="mb-6">
               <label htmlFor="confirmPassword" className="text-sm font-medium text-gray-700">
                 Confirm Password
@@ -148,6 +150,7 @@ const SignupPage = () => {
               </div>
             </div>
 
+            {/* Submit Button */}
             <button
               type="submit"
               className="mb-4 w-full rounded-full bg-[#a92b43] py-2 font-semibold text-white shadow-[0_4px_8px_#802d44] hover:bg-[#891737]"

@@ -1,6 +1,8 @@
 import React, { useState,useEffect,useRef} from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
+
+
 import { motion } from "framer-motion";
 
 import "../app.css";
@@ -30,17 +32,19 @@ const people = [
    bestWork: "Mirzapur",
     imdb: "https://www.imdb.com/name/nm2690647/?ref_=ext_shr_lnk",
   },
+  
   {
     id: 3,
-    name: "Sonakshi Sinha",
-    occupation: "Actress",
-    dob: "2 June 1987",
-    district: "Patna",
-    img: "https://static.toiimg.com/photo/105058466/105058466.jpg",
-    description: "Bollywood actress known for impactful roles in commercial films.",
-    bestWork: "Lootera",
-    imdb: "https://www.imdb.com/name/nm3848064/?ref_=ext_shr_lnk",
+    name: "Prakash Jha",
+    occupation: "Producer & Actor",
+    dob: "27 February 1952",
+    district: "Bettiah, West Champaran",
+    img: "https://m.media-amazon.com/images/M/MV5BMTc1NjMwNDE4Ml5BMl5BanBnXkFtZTgwODA1ODA0OTE@._V1_.jpg",
+    description: "Renowned filmmaker known for his political and socio-political films like Raajneeti, Gangaajal and Apaharan.",
+    bestWork: "Crook",
+    imdb: "https://www.imdb.com/name/nm2777281/?ref_=ext_shr_lnk",
   },
+  
   {
     id: 4,
     name: "Shatrughan Sinha",
@@ -52,6 +56,7 @@ const people = [
     bestWork: "Kalicharan",
     imdb: "https://www.imdb.com/name/nm0802374/?ref_=ext_shr_lnk",
   },
+   
   {
     id: 5,
     name: "Sushant Singh Rajput",
@@ -63,19 +68,9 @@ const people = [
     bestWork: "MS Dhoni: The Untold Story",
     imdb: "https://www.imdb.com/name/nm3818286/?ref_=ext_shr_lnk",
   },
-   {
-    id: 6,
-    name: "Neetu Chandra",
-    occupation: "Actress",
-    dob: "20 June 1984",
-    district: "Patna",
-    img: "https://www.filmibeat.com/wimg/desktop/2019/08/neetu-chandra_10.jpg",
-    description: "Indian actress known for her roles in Hindi, Tamil, and Telugu cinema. ",
-    bestWork: "Garam Masala (2005), Traffic Signal (2007)",
-    imdb: "https://www.imdb.com/name/nm1911617/?ref_=ext_shr_lnk",
-  },
+
   {
-    id: 7,
+    id: 6,
     name: "Neha Sharma",
     occupation: "Actress",
     dob: "21 November 1987",
@@ -86,8 +81,56 @@ const people = [
     imdb: "https://www.imdb.com/name/nm2777281/?ref_=ext_shr_lnk",
   },
   
+
   {
-    id: 8,
+    id: 7,
+    name: "Neetu Chandra",
+    occupation: "Actress",
+    dob: "20 June 1984",
+    district: "Patna",
+    img: "https://www.filmibeat.com/wimg/desktop/2019/08/neetu-chandra_10.jpg",
+    description: "Indian actress known for her roles in Hindi, Tamil, and Telugu cinema. ",
+    bestWork: "Garam Masala (2005), Traffic Signal (2007)",
+    imdb: "https://www.imdb.com/name/nm1911617/?ref_=ext_shr_lnk",
+  },
+  {
+     id:8,
+     name: "Imtiaz Ali",
+     occupation: "Film Director & Writer",
+     dob: "16 June 1971",
+     district: "Jamshedpur (then Bihar, now Jharkhand)",
+    img: "https://m.media-amazon.com/images/M/MV5BMTYwOTUwMTk3MF5BMl5BanBnXkFtZTgwMjA1NDEzMTE@._V1_.jpg",
+     description: "Renowned Indian film director, producer, and writer known for his work on romantic dramas with emotional depth.",
+     bestWork: "Jab We Met",
+    imdb: "https://www.imdb.com/name/nm2777281/?ref_=ext_shr_lnk",
+  },
+  
+  
+  {
+    id:9,
+    name: "Sanjay Mishra",
+    occupation: "Actor",
+    dob: "6 October 1963",
+    district: "Darbhangha",
+    img: "https://i.pinimg.com/564x/33/cf/5a/33cf5a9baf45e25e6b8ce5adc89f8b54.jpg",
+    description: "Celebrated for comic timing and strong character roles.",
+    bestWork: "Ankhon Dekhi",
+    imdb: "https://www.imdb.com/name/nm0592799/?ref_=ext_shr_lnk",
+  },
+   {
+    id: 10,
+    name: "Arunabh Kumar",
+    occupation: "Entrepreneur, Producer, Director, Actor",
+    dob: "26 November 1982",
+    district: "Muzaffarpur",
+    img: "https://www.iwmbuzz.com/wp-content/uploads/2025/06/arunabh-kumar-shares-a-heartfelt-note-on-his-wedding-anniversary-15.jpg",
+    description: "Founder of The Viral Fever (TVF), known for popular web series like 'Permanent Roommates' and 'Pitchers'.",
+    bestWork: "TVF Pitchers",
+    imdb: "https://www.imdb.com/name/nm2837311/?ref_=ext_shr_lnk",
+  },
+
+  {
+    id:11,
     name: "Gurmeet Choudhary",
     occupation: "Actor",
     dob: "22 February 1984",
@@ -99,18 +142,7 @@ const people = [
   },
  
   {
-    id: 9,
-    name: "Sanjay Mishra",
-    occupation: "Actor",
-    dob: "6 October 1963",
-    district: "Darbhangha",
-    img: "https://i.pinimg.com/564x/33/cf/5a/33cf5a9baf45e25e6b8ce5adc89f8b54.jpg",
-    description: "Celebrated for comic timing and strong character roles.",
-    bestWork: "Ankhon Dekhi",
-    imdb: "https://www.imdb.com/name/nm0592799/?ref_=ext_shr_lnk",
-  },
-  {
-    id: 10,
+    id:12,
     name: "Chandan Roy",
     occupation: "Actor",
     dob: "20 December 1995",
@@ -121,7 +153,7 @@ const people = [
     imdb: "https://www.imdb.com/name/nm0788686/?ref_=ext_shr_lnk",
   },
   {
-    id: 11,
+    id: 13,
     name: "Ashok Yadav",
     occupation: "Actor",
     dob: "3 January 1985",
@@ -132,7 +164,7 @@ const people = [
     imdb: "https://www.imdb.com/name/nm9859083/?ref_=ext_shr_lnk",
   },
   {
-    id: 12,
+    id: 14,
     name: "Pankaj Jha",
     occupation: "Actor, Painter, Writer, Director",
     dob: "2 February 1970",
@@ -142,10 +174,35 @@ const people = [
     bestWork: "Panchayat (web series)",
     imdb: "https://www.imdb.com/name/nm13792834/?ref_=ext_shr_lnk",
   },
-  
+   {
+    id: 15,
+    name: "Durgesh Kumar",
+    occupation: "Actor",
+    dob: "21 October 1984",
+    district: "Darbhanga, Bihar",
+    img: "https://static.toiimg.com/thumb/msid-110440378,width-400,resizemode-4/110440378.jpg",
+   
+    description: "Actor known for playing Bhushan in Panchayat; originally from Darbhanga, Bihar.",
+
+    bestWork: "Panchayat (web series)",
+    imdb: "https://www.imdb.com/name/nm6294201/?ref_=ext_shr_lnk",
+  },
+
+  {
+    id: 16,
+    name: "Bulloo Kumar",
+    occupation: "Actor",
+    dob: "5 February 1986",
+    district: "Nawada",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtnRcu4PHPQgiqJxR60fwzozDEYf76VJm3w&s",
+    description: "Actor and farmer’s son from Bihar, known for his comical role as Madhav in Seasons 2–3 of Panchayat.",
+
+    bestWork: "Panchayat (web series)",
+    imdb: "https://www.imdb.com/name/nm12872303/?ref_=ext_shr_lnk",
+  },
   
   {
-    id: 13,
+    id: 17,
     name: "Ustad Bismillah Khan",
     occupation: "Shehnai Maestro",
     dob: "21 March 1916",
@@ -156,7 +213,7 @@ const people = [
     imdb: "https://www.imdb.com/name/nm0451190/?ref_=ext_shr_lnk",
   },
   {
-    id: 14,
+    id: 18,
     name: "Sharda Sinha",
     occupation: "Folk Singer",
     dob: "1 October 1952",
@@ -167,7 +224,7 @@ const people = [
     imdb: "https://www.imdb.com/name/nm0788686/?ref_=ext_shr_lnk",
   },
   {
-    id: 15,
+    id: 19,
     name: "Maithili Thakur",
     occupation: "Folk/Classic Singer",
     dob: "25 July 2000",
@@ -178,7 +235,7 @@ const people = [
     imdb: "https://www.imdb.com/name/nm9859083/?ref_=ext_shr_lnk",
   },
   {
-    id: 16,
+    id: 20,
     name: "Chandan Tiwari",
     occupation: "Folk Singer",
     dob: "15 August 1985",
@@ -219,10 +276,11 @@ const CarouselOfCelebs = () => {
     setIndex((prev) => (prev + itemsPerPage >= total ? 0 : prev + itemsPerPage));
   };
 
-  const prevSlide = () => {
+ const prevSlide = () => {
     setIndex((prev) => (prev - itemsPerPage < 0 ? total - itemsPerPage : prev - itemsPerPage));
   };
-  const scrollRef = useRef(null);
+
+  const scrollRef = useRef(null); 
 return (
   <div className="w-full flex flex-col items-center justify-center bg-[#190108] py-10">
     <h2 className="text-white text-3xl sm:text-4xl playwrite-mx-guides-regular md:text-5xl mb-10 pt-10 pb-8 text-center">
@@ -309,18 +367,9 @@ return (
       {/* Scroll Buttons */}
       <div className="absolute left-0 top-1/2 transform -translate-y-1/2 z-20">
         <button
-          onClick={() => {
-            const scrollContainer = scrollRef.current;
-            const { scrollLeft, scrollWidth, clientWidth } = scrollContainer;
-
-            const isAtEnd = scrollLeft + clientWidth >= scrollWidth - 10;
-
-            if (isAtEnd) {
-              scrollContainer.scrollTo({ left: 0, behavior: "smooth" });
-            } else {
-              scrollContainer.scrollBy({ left: -320, behavior: "smooth" });
-            }
-          }}
+          onClick={() =>
+            scrollRef.current.scrollBy({ left: -340, behavior: "smooth" })
+          }
           className="p-3 bg-gray-800 text-white rounded-full hover:bg-gray-600"
         >
           <IoIosArrowBack size={30} />
@@ -329,7 +378,7 @@ return (
       <div className="absolute right-0 top-1/2 transform -translate-y-1/2 z-20">
         <button
           onClick={() =>
-            scrollRef.current.scrollBy({ left: 320, behavior: "smooth" })
+            scrollRef.current.scrollBy({ left: 340, behavior: "smooth" })
           }
           className="p-3 bg-gray-800 text-white rounded-full hover:bg-gray-600"
         >

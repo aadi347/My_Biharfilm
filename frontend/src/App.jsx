@@ -25,6 +25,8 @@ import Chatarpatar from "./NavigationCards/Pages/Chatarpatar";
 import CoffeeWithFilm from "./NavigationCards/Pages/CoffeeWithFilm";
 import Notice from "./NavigationCards/Notice";
 import ShootingLocationPage from "./NavigationCards/ShootingLocationPage";
+import ArtistForm from "../src/NavigationCards/ArtistForm";
+import VendorForm from "../src/NavigationCards/VendorForm ";
 // Home Page
 function Home() {
   return (
@@ -61,6 +63,8 @@ export default function App() {
       <Route path="/apply-noc" element={<ShootingPermissionForm />} />
       <Route path="/dashboard" element={<DashboardMM />} />
       <Route path="/dashboard-user" element={<DasboardUser />} />
+          <Route path="/register-artist" element={<ArtistForm />} />
+        <Route path="/register-vendor" element={<VendorForm />} />
       {/* <Route path="/districts" element={<DistrictList />} /> */}
 
       <Route path="/district/:districtName" element={<DistrictDashboardWrapper />} />
