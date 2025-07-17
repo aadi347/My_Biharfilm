@@ -498,7 +498,7 @@ return (
   <MapContainer
   center={[mainImage.lat, mainImage.lng]}
   zoom={9}
-  className="w-full h-full"
+  className="w-full h-full -z-[-10]"
 >
   <TileLayer
     attribution='&copy; OpenStreetMap contributors'
