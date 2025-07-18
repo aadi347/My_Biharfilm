@@ -1,5 +1,8 @@
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"
+import Navbar from "../Components/Navbar"
+
+
 
 const notifications = [
   { title: "New Film Policy Launched", date: "2025-06-01", description: "The government has introduced a new policy for film makers." },
@@ -27,11 +30,12 @@ const Notifications = () => {
 
   return (
     <div className="min-h-screen bg-[#190108] px-4 sm:px-10 lg:px-20 py-10 text-white font-[Poppins] animate-fade">
+    <Navbar/>
       {/* Back Button */}
-      <div className="mb-10">
+      <div className="mb-10 mt-18">
         <button
           onClick={() => navigate("/")}
-          className="bg-white text-[#891737] font-semibold px-4 py-2 rounded shadow hover:bg-gray-200 transition duration-300"
+          className="bg-white text-[#891737]  font-semibold px-4 py-2 rounded shadow hover:bg-gray-200 transition duration-300"
         >
           ← Back to Home
         </button>
@@ -88,6 +92,7 @@ const Notifications = () => {
                 <th className="px-4 py-3 text-left">Title</th>
                 <th className="px-4 py-3 text-left">Date</th>
                 <th className="px-4 py-3 text-left">Description</th>
+                 <th className="px-4 py-3 text-left">Download</th>
               </tr>
             </thead>
             <tbody>
@@ -97,6 +102,11 @@ const Notifications = () => {
                   <td className="px-4 py-3 font-medium">{item.title}</td>
                   <td className="px-4 py-3 text-sm text-gray-600">{item.date}</td>
                   <td className="px-4 py-3 text-sm text-gray-700">{item.description}</td>
+                  <td className="px-4 py-3">
+                    <button className="text-[#891737] border border-[#891737] px-3 py-1 rounded hover:bg-[#891737] hover:text-white text-sm font-semibold transition duration-300">
+                      ⬇ PDF
+                    </button>
+                  </td>
                 </tr>
               ))}
             </tbody>

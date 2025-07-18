@@ -15,6 +15,11 @@ const tabData = {
       title: "IFFI Awards",
       description: "Showcasing award-winning entries from Bihar.",
     },
+     {
+      src: "",
+      title: "IFFI Awards",
+      description: "Showcasing award-winning entries from Bihar.",
+    },
   ],
   "Children Film Festival": [
     {
@@ -27,6 +32,11 @@ const tabData = {
       title: "Young Talents",
       description: "Screenings of children's films made by school students.",
     },
+     {
+      src: "",
+      title: "Young Talents",
+      description: "Screenings of children's films made by school students.",
+    },
   ],
   "Women Film Festival": [
     {
@@ -35,6 +45,11 @@ const tabData = {
       description: "Celebrating women behind the camera in Bihar.",
     },
     {
+      src: "",
+      title: "Voices of Women",
+      description: "Films highlighting women-centric narratives.",
+    },
+      {
       src: "",
       title: "Voices of Women",
       description: "Films highlighting women-centric narratives.",
@@ -76,7 +91,7 @@ const Chatarpatar = () => {
 
         {/* Title */}
         <h1 className="text-4xl md:text-5xl font-extrabold text-center mb-12 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 bg-clip-text text-transparent tracking-wide drop-shadow-md">
-          Chatarpatar
+          Film Festival
         </h1>
 
         {/* Tabs */}

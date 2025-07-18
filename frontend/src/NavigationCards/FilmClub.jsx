@@ -23,7 +23,7 @@ const FilmClubUI = () => {
       slug: "cine-samvad",
     },
     {
-      title: "Chatarpatar",
+      title: "Film Festival",
       description: "Let's have a brief discussion over movies with resource like powerpoint presentation with embedded clip and worksheets.",
       icon: <RiMovie2Line className="text-white text-3xl" />,
       slug: "chatarpatar",
@@ -47,11 +47,12 @@ const FilmClubUI = () => {
 
       {/* Header */}
       <div className="absolute top-10 text-center text-white z-10 px-4">
-      
-        <h1 className="text-3xl sm:text-4xl md:text-9xl great-vibes-regular mt-8">
+
+        <h1 className="text-6xl sm:text-5xl md:text-7xl lg:text-9xl great-vibes-regular mt-8">
           FilmClub
         </h1>
-        
+
+
         <p className=" text-sm sm:text-base max-w-xl mx-auto">
           Discover and explore amazing films with us.
         </p>

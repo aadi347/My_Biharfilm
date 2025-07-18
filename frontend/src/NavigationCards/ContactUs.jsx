@@ -75,10 +75,10 @@ const Footer = () => {
           
 
           <div className="w-full md:w-1/3">
-            <h4 className="text-lg font-semibold mb-3">Newsletter</h4>
+            <h4 className="text-lg font-semibold mb-3">Register Yourself</h4>
             <button className="flex items-center space-x-2 bg-red-500 text-white text-sm sm:text-base font-medium py-2 px-4 sm:px-6 rounded-full hover:bg-red-600 transition">
               <CiMail className="text-xl" />
-              <span>film's Actor regestration</span>
+              <span>film's Actor registration</span>
             </button>
           </div>
 

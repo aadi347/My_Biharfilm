@@ -35,7 +35,7 @@ const DistrictDashboard = ({ districtName = "Patna", activityOne = "Forwarded NO
             {/* Sidebar */}
             <div className="w-64 bg-white shadow-md flex flex-col py-6 justify-between">
                 <div>
-                    <div className="px-6 pb-2 border-b border-gray-200">
+                    <div className="px-6 pb-2 border-b border-gray-200 ">
                         <img src={Logo1} alt="Logo" className="h-16" />
                     </div>
                     <nav className="px-4 pt-6 space-y-1 text-sm font-semibold text-gray-700">
@@ -92,14 +92,6 @@ const DistrictDashboard = ({ districtName = "Patna", activityOne = "Forwarded NO
                         <h2 className="text-3xl font-bold text-gray-800">{districtName} District Dashboard</h2>
                         <p className="text-sm text-gray-500">Welcome back! Here's the latest NOC data for {districtName} district.</p>
                     </header>
-
-                    {/* Metrics */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <MetricCard title="Total NOC" value="256" change="+12.5%" />
-                        <MetricCard title="New Users" value="58" change="+3.2%" />
-                        <MetricCard title="Completed NOC" value="28" change="+8.7%" />
-                        <MetricCard title="Pending NOC" value="4" change="-2.1%" />
-                    </div>
 
                     {/* District Activities */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -164,22 +156,6 @@ const SidebarItem = ({ icon, label, active }) => (
     </a>
 );
 
-const MetricCard = ({ title, value, change }) => {
-    const isPositive = change.startsWith('+');
-    return (
-        <div className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
-            <div className="flex justify-between items-start">
-                <div>
-                    <p className="text-sm font-medium text-gray-500">{title}</p>
-                    <p className="text-2xl font-semibold text-gray-800 mt-1">{value}</p>
-                    <p className={`text-sm mt-2 ${isPositive ? 'text-green-600' : 'text-red-600'}`}>
-                        {change} from last week
-                    </p>
-                </div>
-                <span className="text-2xl text-[#a92b43]">📊</span>
-            </div>
-        </div>
-    );
-};
+
 
 export default DistrictDashboard;

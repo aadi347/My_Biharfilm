@@ -1,13 +1,7 @@
-import React, { useState,useEffect,useRef} from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-
-
-
 import { motion } from "framer-motion";
-
 import "../app.css";
-
-
 
 const people = [
   {
@@ -247,11 +241,9 @@ const people = [
   },
 ];
 
-
 const CarouselOfCelebs = () => {
   const [index, setIndex] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(4);
- 
   const total = people.length;
 
   useEffect(() => {
@@ -276,128 +268,108 @@ const CarouselOfCelebs = () => {
     setIndex((prev) => (prev + itemsPerPage >= total ? 0 : prev + itemsPerPage));
   };
 
- const prevSlide = () => {
+  const prevSlide = () => {
     setIndex((prev) => (prev - itemsPerPage < 0 ? total - itemsPerPage : prev - itemsPerPage));
   };
 
-  const scrollRef = useRef(null); 
-return (
-  <div className="w-full flex flex-col items-center justify-center bg-[#190108] py-10">
-    <h2 className="text-white text-3xl sm:text-4xl playwrite-mx-guides-regular md:text-5xl mb-10 pt-10 pb-8 text-center">
-      Celebrities of Bihar
-    </h2>
+  const scrollRef = useRef(null);
 
-    <div className="relative mx-auto max-w-[1440px] px-4 sm:px-6 md:px-10">
-      {/* Edge fade overlays */}
-      <div className="pointer-events-none absolute left-0 top-0 h-full w-12 bg-gradient-to-r from-[#190108] to-transparent z-10" />
-      <div className="pointer-events-none absolute right-0 top-0 h-full w-12 bg-gradient-to-l from-[#190108] to-transparent z-10" />
+  return (
+    <div className="w-full flex flex-col items-center justify-center bg-[#190108] py-10">
+      <h2 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl playwrite-mx-guides-regular mb-10 pt-10 pb-8 text-center">
+        Celebrities of Bihar
+      </h2>
 
-      {/* Scrollable card container */}
-      <div
-        ref={scrollRef}
-        className="flex gap-6 overflow-x-auto overflow-y-hidden scroll-smooth pb-4 no-scrollbar px-2"
-      >
-        {people.map((person) => (
-          <motion.div
-            key={person.id}
-            className="w-[240px] sm:w-[280px] md:w-[300px] lg:w-[320px] h-96 flex-shrink-0"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-          >
-            <div className="w-full h-full perspective group">
+      <div className="relative mx-auto max-w-full px-4 sm:px-6 md:px-8 lg:px-10">
+        <div className="pointer-events-none absolute left-0 top-0 h-full w-8 sm:w-12 bg-gradient-to-r from-[#190108] to-transparent z-10" />
+        <div className="pointer-events-none absolute right-0 top-0 h-full w-8 sm:w-12 bg-gradient-to-l from-[#190108] to-transparent z-10" />
 
-              <div className="card-animated-border w-full h-full">
-                <div
-                  className ="relative w-full h-full transition-transform duration-700 transform-style preserve-3d group-hover:rotate-y-180" >
-                  {/* Front Side */}
-                  <div className="absolute w-full h-full backface-hidden bg-white/40 backdrop-blur-3xl text-white rounded-2xl overflow-hidden">
-                    <img
-                      src={person.img}
-                      alt={person.name}
-                      className="w-full h-full object-cover rounded-2xl"
-                    />
-                    <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/70 to-transparent z-10" />
-                    <div className="absolute bottom-4 left-4 z-20">
-                      <h3 className="text-xl font-semibold">{person.name}</h3>
-                      <p className="text-sm">{person.occupation}</p>
-                      <p className="text-sm">{person.address}</p>
-                    </div>
-                  </div>
-
-                  {/* Back Side */}
-                  <div className="absolute w-full h-full backface-hidden rotate-y-180 bg-[#0a1020] text-white rounded-2xl p-4 flex flex-col justify-start items-center text-left">
-                    <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-[132px] h-[132px] rounded-full bg-white/90 flex items-center justify-center shadow-md">
+        <div
+          ref={scrollRef}
+          className="flex gap-4 sm:gap-6 overflow-x-auto overflow-y-hidden scroll-smooth pb-4 no-scrollbar px-4 sm:px-6 md:px-8"
+        >
+          {people.map((person) => (
+            <motion.div
+              key={person.id}
+              className="w-[220px] sm:w-[240px] md:w-[280px] lg:w-[300px] xl:w-[320px] h-80 sm:h-96 flex-shrink-0"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+            >
+              <div className="w-full h-full perspective group">
+                <div className="card-animated-border w-full h-full">
+                  <div className="relative w-full h-full transition-transform duration-700 transform-style preserve-3d group-hover:rotate-y-180">
+                    <div className="absolute w-full h-full backface-hidden bg-white/40 backdrop-blur-3xl text-white rounded-2xl overflow-hidden">
                       <img
                         src={person.img}
                         alt={person.name}
-                        className="w-32 h-32 rounded-full object-cover"
+                        className="w-full h-full object-cover rounded-2xl"
                       />
+                      <div className="absolute bottom-0 left-0 right-0 h-20 sm:h-24 bg-gradient-to-t from-black/70 to-transparent z-10" />
+                      <div className="absolute bottom-3 left-3 z-20 text-xs sm:text-sm">
+                        <h3 className="font-semibold">{person.name}</h3>
+                        <p>{person.occupation}</p>
+                      </div>
                     </div>
-                    <div className="mt-40 w-full px-2">
-                      <p className="text-sm mb-1 italic">{person.occupation}</p>
-                      <p className="text-sm mb-1">Date of Birth: {person.dob}</p>
-                      <p className="text-sm mb-1">District: {person.district}</p>
-                      <p className="text-sm mb-2">{person.description}</p>
-                      <p className="text-sm font-semibold mb-1">
-                        Best Film: {person.bestWork}
-                      </p>
-                      <a
-                        href={person.imdb}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-2"
-                      >
+
+                    <div className="absolute w-full h-full backface-hidden rotate-y-180 bg-[#0a1020] text-white rounded-2xl p-2 sm:p-4 flex flex-col justify-start items-center text-left text-xs sm:text-sm">
+                      <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-[96px] sm:w-[132px] h-[96px] sm:h-[132px] rounded-full bg-white/90 flex items-center justify-center shadow-md">
                         <img
-                          src="https://upload.wikimedia.org/wikipedia/commons/6/69/IMDB_Logo_2016.svg"
-                          alt="IMDb"
-                          className="w-16 h-auto mt-4"
+                          src={person.img}
+                          alt={person.name}
+                          className="w-[88px] sm:w-32 h-[88px] sm:h-32 rounded-full object-cover"
                         />
-                      </a>
+                      </div>
+                      <div className="mt-28 sm:mt-40 w-full px-1 sm:px-2">
+                        <p className="mb-1 italic">{person.occupation}</p>
+                        <p className="mb-1">Date of Birth: {person.dob}</p>
+                        <p className="mb-1">District: {person.district}</p>
+                        <p className="mb-1">{person.description}</p>
+                        <p className="font-semibold mb-1">
+                          Best Film: {person.bestWork}
+                        </p>
+                        <a
+                          href={person.imdb}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-2 inline-block"
+                        >
+                          <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/6/69/IMDB_Logo_2016.svg"
+                            alt="IMDb"
+                            className="w-12 sm:w-16 h-auto mt-2 sm:mt-4"
+                          />
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
+            </motion.div>
+          ))}
+        </div>
 
-      {/* Scroll Buttons */}
-      <div className="absolute left-0 top-1/2 transform -translate-y-1/2 z-20">
-        <button
-          onClick={() =>
-            scrollRef.current.scrollBy({ left: -340, behavior: "smooth" })
-          }
-          className="p-3 bg-gray-800 text-white rounded-full hover:bg-gray-600"
-        >
-          <IoIosArrowBack size={30} />
-        </button>
-      </div>
-      <div className="absolute right-0 top-1/2 transform -translate-y-1/2 z-20">
-        <button
-          onClick={() =>
-            scrollRef.current.scrollBy({ left: 340, behavior: "smooth" })
-          }
-          className="p-3 bg-gray-800 text-white rounded-full hover:bg-gray-600"
-        >
-          <IoIosArrowForward size={30} />
-        </button>
+        <div className="absolute left-1 sm:left-2 top-1/2 transform -translate-y-1/2 z-20">
+          <button
+            onClick={() => scrollRef.current.scrollBy({ left: -340, behavior: "smooth" })}
+            className="p-2 sm:p-3 bg-gray-800 text-white rounded-full hover:bg-gray-600"
+          >
+            <IoIosArrowBack size={24} />
+          </button>
+        </div>
+
+        <div className="absolute right-1 sm:right-2 top-1/2 transform -translate-y-1/2 z-20">
+          <button
+            onClick={() => scrollRef.current.scrollBy({ left: 340, behavior: "smooth" })}
+            className="p-2 sm:p-3 bg-gray-800 text-white rounded-full hover:bg-gray-600"
+          >
+            <IoIosArrowForward size={24} />
+          </button>
+        </div>
       </div>
     </div>
-  </div>
-);
-
-
-
-
-
-
-
-
-
- 
+  );
 };
 
 export default CarouselOfCelebs;
