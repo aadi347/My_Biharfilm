@@ -1,9 +1,10 @@
+// src/NavigationCards/Vr.jsx
 import React, { useState } from "react";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { motion } from "framer-motion";
-import "../app.css";
+import { useNavigate } from "react-router-dom";
 
-// High & Low Quality Imports
+// Video imports
 import VrvideoHQ from "/VrvideoHQ.mp4";
 import VrvideoLQ from "/VrvideoLQ.mp4";
 import VrvideoHQ2 from "/VrvideoHQ2.mp4";
@@ -17,7 +18,7 @@ import VrvideoLQ5 from "/VrvideoLQ5.mp4";
 import VrvideoHQ6 from "/VrvideoHQ6.mp4";
 import VrvideoLQ6 from "/VrvideoLQ6.mp4";
 
-// Structured video list
+// Video list
 const videoList = [
   {
     high: VrvideoHQ,
@@ -60,7 +61,7 @@ const videoList = [
     title: "Hiuen Tsang Memorial Hall, Nalanda",
     description:
       "Travel back in time to the ancient seat of learning through the Hiuen Tsang Memorial Hall in Nalanda. This VR journey narrates the story of the legendary Chinese traveler and scholar who spent years absorbing the teachings of Nalanda University. Walk through intricately carved corridors, ancient manuscripts, and statues that reflect Indo-Chinese cultural synergy. A tribute to knowledge and global exchange, this memorial is both artistic and intellectually enriching.",
-  },{
+  }, {
     high: VrvideoHQ,
     low: VrvideoLQ,
     title: "Glass Bridge, Rajgir",
@@ -104,43 +105,44 @@ const videoList = [
   },
 ];
 
-
-
 function Vr() {
   const [mainVideo, setMainVideo] = useState(videoList[0].high);
-  const [mainIndex, setMainIndex] = useState(0); // Track main video's index
+  const [mainIndex, setMainIndex] = useState(0);
+  const navigate = useNavigate();
 
-  const handleVideoClick = (clickedVideo, index) => {
-    // Swap main and clicked
-    const updatedOthers = [...videoList];
-    const newMainVideo = clickedVideo.high;
-
-    // Update state
-    setMainVideo(newMainVideo);
+  const handleVideoClick = (video, index) => {
+    setMainVideo(video.high);
     setMainIndex(index);
   };
 
   return (
     <div id="Vr" className="bg-[#190108] pt-16 px-4 md:px-10 pb-24">
-      {/* Heading */}
-      <h2 className="text-white text-5xl pl-22 archivo-black-regular">Virtual Reality (VR)</h2>
+      <h2 className="text-white text-5xl archivo-black-regular pl-4 md:pl-24">
+        Virtual Reality (VR)
+      </h2>
 
-      {/* Text + Main Video */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 items-center mb-12">
-       <div>
-  <p className="text-white text-base leading-relaxed px-4 md:px-24 text-justify">
-    <strong className="text-base">Experience {videoList[mainIndex].title} in Virtual Reality (VR):</strong>
-    <br />
-    {videoList[mainIndex].description}
-  </p>
-  <div className="flex items-center mt-2 mb-8 pl-18">
-    <p className="text-white text-lg pl-6 font-semibold">Learn more</p>
-    <IoIosArrowRoundForward className="text-[#a92b4e] text-4xl ml-2 scale-x-150" />
-  </div>
-</div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center mt-10 mb-12">
+        {/* Text Section */}
+        <div>
+          <p className="text-white text-base leading-relaxed px-4 md:px-24 text-justify">
+            <strong>Experience {videoList[mainIndex].title} in Virtual Reality (VR):</strong>
+            <br />
+            {videoList[mainIndex].description}
+          </p>
 
+          <button
+            type="button"
+            onClick={() => navigate("/vrpage")}
+            className="group ml-24 mt-6 text-white text-sm md:text-base font-medium relative transition-transform duration-300 hover:scale-105"
+          >
+            <span className="inline-block pb-0.5 border-b-2 border-transparent group-hover:border-white transition-all duration-300">
+              Learn more
+            </span>
+            <IoIosArrowRoundForward className="inline-block text-[#a92b4e] text-2xl ml-1 align-middle transition-transform duration-300 group-hover:translate-x-1" />
+          </button>
+        </div>
 
-        {/* Main video player */}
+        {/* Main Video Section */}
         <motion.div
           initial={{ opacity: 0.8, scale: 0.95 }}
           whileInView={{
@@ -162,11 +164,11 @@ function Vr() {
         </motion.div>
       </div>
 
-      {/* Video Thumbnails in low quality */}
+      {/* Scrolling Thumbnails */}
       <div className="overflow-hidden group mt-8 px-4">
         <div className="flex w-max space-x-4 animate-scrollVideos group-hover:pause-scroll">
           {videoList.map((vid, index) =>
-            index !== mainIndex ? ( // skip currently playing main video
+            index !== mainIndex && (
               <motion.div
                 key={index}
                 whileHover={{ scale: 1.03 }}
@@ -181,7 +183,7 @@ function Vr() {
                   autoPlay
                 />
               </motion.div>
-            ) : null
+            )
           )}
         </div>
       </div>

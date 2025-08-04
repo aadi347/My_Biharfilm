@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Logo1 from "/src/assets/Logo1.png";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const Navbar = () => {
@@ -9,6 +9,7 @@ const Navbar = () => {
   const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
   const [navbarVisible, setNavbarVisible] = useState(true);
   const [hasScrolled, setHasScrolled] = useState(false);
+  const [isNoticeDropdownOpen, setIsNoticeDropdownOpen] = useState(false);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -40,7 +41,7 @@ const Navbar = () => {
 
   const handleLocationClick = (id) => {
     if (id === "notice") {
-      navigate("/notice");
+      return; // Do nothing since dropdown is used
     } else {
       const section = document.getElementById(id);
       if (section) {
@@ -62,7 +63,7 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    setTimeout(() => setShowNavbar(true), 2000);
+    setTimeout(() => setShowNavbar(true), 1000);
 
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset;
@@ -90,7 +91,6 @@ const Navbar = () => {
     { id: "Shooting-location", label: "Shooting Location" },
     { id: "GoverningBody", label: "Governing Body" },
     { id: "FilmPolicy", label: "Film Policy" },
-    { id: "notice", label: "Notice" },
   ];
 
   return (
@@ -104,11 +104,9 @@ const Navbar = () => {
           navbarVisible && hasScrolled ? "bg-white" : "bg-transparent"
         }`}
       >
-        {/* Transparent hover overlay */}
         <div className="absolute top-0 left-0 w-full h-full bg-white opacity-0 group-hover:opacity-100 z-0 pointer-events-none transition-opacity duration-300"></div>
 
         <div className="flex justify-between items-center relative z-10">
-          {/* Logo */}
           <div className="flex items-center">
             <img src={Logo1} alt="logo" className="h-16 w-24" />
           </div>
@@ -129,7 +127,36 @@ const Navbar = () => {
               </li>
             ))}
 
-            {/* Apply NOC - as text */}
+            {/* Notice Dropdown */}
+            <li
+              className="relative cursor-pointer hover:text-red-600 font-semibold transition flex items-center"
+              onMouseEnter={() => setIsNoticeDropdownOpen(true)}
+              onMouseLeave={() => setIsNoticeDropdownOpen(false)}
+            >
+              Notification <ChevronDown size={16} className="ml-1" />
+              {isNoticeDropdownOpen && (
+                <ul className="absolute top-full left-0  w-40 bg-white text-black shadow-lg rounded-md overflow-hidden z-50">
+                  <li
+                    onClick={() => {navigate("/notification");
+                    setIsMobileMenuOpen(false);
+                  }}
+                    className="px-4 py-2 hover:bg-gray-200 hover:text-red-600"
+                  >
+                    Notifications
+                  </li>
+                  <li
+                    onClick={() => {navigate("/tender");
+                    setIsMobileMenuOpen(false);
+                  }}
+
+                    className="px-4 py-2 hover:bg-gray-200 hover:text-red-600"
+                  >
+                    Tenders
+                  </li>
+                </ul>
+              )}
+            </li>
+
             <li
               onClick={handleApplyClick}
               className="cursor-pointer hover:text-red-600 font-semibold transition"
@@ -138,7 +165,7 @@ const Navbar = () => {
             </li>
           </ul>
 
-          {/* Mobile Toggle Button */}
+          {/* Mobile Toggle */}
           <div className="md:hidden absolute top-5 right-5 z-[9999]">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -164,10 +191,32 @@ const Navbar = () => {
               </li>
             ))}
 
-            {/* Apply for NOC - Mobile as text */}
+            {/* Notice Dropdown in Mobile */}
+            <li className="font-semibold mt-2">Notice</li>
+            <ul className="ml-4">
+              <li
+                onClick={() => { navigate("/notification");
+                setIsMobileMenuOpen(false);
+              }}
+
+                className="cursor-pointer hover:text-red-600 font-semibold transition"
+              >
+                Notifications
+              </li>
+              <li
+               onClick={() => {navigate("/tender");
+               setIsMobileMenuOpen(false);
+              }}
+
+                className="cursor-pointer hover:text-red-600 font-semibold transition"
+              >
+                Tenders
+              </li>
+            </ul>
+
             <li
               onClick={handleApplyClick}
-              className="cursor-pointer hover:text-red-600 font-semibold transition"
+              className="cursor-pointer hover:text-red-600 font-semibold transition mt-2"
             >
               Apply for NOC
             </li>

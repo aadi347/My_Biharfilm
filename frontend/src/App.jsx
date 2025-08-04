@@ -27,6 +27,9 @@ import Notice from "./NavigationCards/Notice";
 import ShootingLocationPage from "./NavigationCards/ShootingLocationPage";
 import ArtistForm from "../src/NavigationCards/ArtistForm";
 import VendorForm from "../src/NavigationCards/VendorForm ";
+import Notification from "./NavigationCards/Notification";
+import Tender from "./NavigationCards/Tender";
+import Vrpage from "../src/NavigationCards/pages/Vrpage";
 // Home Page
 function Home() {
   return (
@@ -69,9 +72,15 @@ export default function App() {
 
       <Route path="/district/:districtName" element={<DistrictDashboardWrapper />} />
       <Route path="/filmclub/cine-samvad" element={<CineSamvad />} />
-      <Route path="/notice" element={<Notice />} />
+      <Route path="/notification" element={<Notification />} />
+      <Route path="/tender" element={<Tender />} />
+   
       <Route path="/filmclub/chatarpatar" element={<Chatarpatar />} />
       <Route path="/filmclub/coffee-with-film" element={<CoffeeWithFilm />} />
+      <Route path="/vrpage" element={<Vrpage />} />
+
+
+
     </Routes>
   );
 }
