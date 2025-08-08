@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../app.css";
+import "../App.css";
 import Logo1 from "/src/assets/Logo1.png";
 import Adminmam from "/src/assets/Adminmam.svg";
 import { IoIosLogOut } from "react-icons/io";

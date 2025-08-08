@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../app.css";
+import "../App.css";
 import Logo1 from "/src/assets/Logo1.png";
 import UserAvatar from "/src/assets/UserAvtar.svg";
 import { IoIosLogOut } from "react-icons/io";

@@ -1,5 +1,5 @@
 import React from 'react';
-import "../app.css";
+import "../App.css";
 import Logo1 from "../assets/Logo1.png";
 import Adminmam from "../assets/Adminmam.svg";
 import { IoIosLogOut } from "react-icons/io";
