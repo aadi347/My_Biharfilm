@@ -21,11 +21,11 @@ import DasboardUser from "./Dashboard/DashboardUser";
 import DistrictDashboard from "./Dashboard/DistrictDashboard";
 // import DistrictList from "./Dashboard/DistrictList"
 import CineSamvad from "./NavigationCards/pages/CineSamvad";
-import Chatarpatar from "./NavigationCards/Pages/Chatarpatar";
+
 import CoffeeWithFilm from "./NavigationCards/Pages/CoffeeWithFilm";
 import Notice from "./NavigationCards/Notice";
 import ShootingLocationPage from "./NavigationCards/ShootingLocationPage";
-import ArtistForm from "../src/NavigationCards/ArtistForm";
+
 import VendorForm from "../src/NavigationCards/VendorForm ";
 import Notification from "./NavigationCards/Notification";
 import Tender from "./NavigationCards/Tender";
@@ -66,7 +66,6 @@ export default function App() {
       <Route path="/apply-noc" element={<ShootingPermissionForm />} />
       <Route path="/dashboard" element={<DashboardMM />} />
       <Route path="/dashboard-user" element={<DasboardUser />} />
-          <Route path="/register-artist" element={<ArtistForm />} />
         <Route path="/register-vendor" element={<VendorForm />} />
       {/* <Route path="/districts" element={<DistrictList />} /> */}
 

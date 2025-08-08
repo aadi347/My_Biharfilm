@@ -5,7 +5,7 @@ import UserAvatar from "/src/assets/UserAvtar.svg";
 import { IoIosLogOut } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import ApplyNOCForm from "../NavigationCards/ShootingPermissionFoam"; // Custom form components
-import ArtistRegistrationForm from "../NavigationCards/ArtistForm";
+import ArtistRegistrationForm from "../NavigationCards/AddArtistForm"; // Custom form components
 import VendorRegistrationForm from "../NavigationCards/VendorForm ";
 
 const UserDashboard = () => {
@@ -37,6 +37,12 @@ const UserDashboard = () => {
     setNocList(updated);
     localStorage.setItem("nocApplications", JSON.stringify(updated));
     setActiveSection("Overview");
+  };
+
+  // 👇 Added only this function for artist click
+  const handleArtistClick = () => {
+    console.log("Artist Registration Clicked");
+    setActiveSection("Artist Registration");
   };
 
   const sidebarItems = {
@@ -116,7 +122,11 @@ const UserDashboard = () => {
                         ? "text-[#a92b43] bg-[#f4e4e8]"
                         : "text-gray-700 hover:bg-gray-100"
                     }`}
-                    onClick={() => setActiveSection(item)}
+                    onClick={
+                      item === "Artist Registration"
+                        ? handleArtistClick
+                        : () => setActiveSection(item)
+                    }
                   >
                     {item}
                   </button>

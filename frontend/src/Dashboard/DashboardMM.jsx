@@ -1,18 +1,55 @@
-import React from "react";
+import React, { useState } from "react";
 import "../app.css";
 import Logo1 from "/src/assets/Logo1.png";
 import Adminmam from "/src/assets/Adminmam.svg";
 import { IoIosLogOut } from "react-icons/io";
-import Dashboardactivity from "./dashboardactivity";
 import { IoMdSettings } from "react-icons/io";
 import { LuCircleArrowOutUpRight, LuShare2, LuTrash2 } from "react-icons/lu";
 import { MdSpaceDashboard } from "react-icons/md";
-import { FaRegHeart } from "react-icons/fa";
+import { FaRegHeart, FaRegUser } from "react-icons/fa";
+import Dashboardactivity from "./dashboardactivity";
+import Artist from "../NavigationCards/Artist";
 
 const Dashboard = () => {
+  const [activeSection, setActiveSection] = useState("Overview");
+
   const handleLogout = () => {
     console.log("Logout triggered");
     // Add actual logout logic here
+  };
+
+  const renderSection = () => {
+    switch (activeSection) {
+      case "Overview":
+        return (
+          <>
+            {/* Metrics Cards */}
+            <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+              <MetricCard title="Total NOC" value="256" change="+12.5%" />
+              <MetricCard title="New Users" value="58" change="+3.2%" />
+              <MetricCard title="Completed NOC" value="28" change="+8.7%" />
+              <MetricCard title="Pending NOC" value="4" change="-2.1%" />
+            </section>
+
+            {/* Activity section */}
+            <Dashboardactivity />
+          </>
+        );
+      case "Artist":
+        return <Artist />;
+      case "Recent":
+      case "Shared":
+      case "Favorites":
+      case "Settings":
+      case "Deleted":
+        return (
+          <div className="text-gray-600 text-lg">
+            🚧 <strong>{activeSection}</strong> section is under construction.
+          </div>
+        );
+      default:
+        return <p>Invalid section selected</p>;
+    }
   };
 
   return (
@@ -24,18 +61,40 @@ const Dashboard = () => {
             <img src={Logo1} alt="Logo" className="h-16" />
           </div>
 
+          {/* Top Sidebar Navigation */}
           <nav className="mt-6 px-4 space-y-1 text-sm font-medium">
-            <SidebarItem icon={<MdSpaceDashboard />} label="Overview" active />
-            <SidebarItem icon={<LuCircleArrowOutUpRight />} label="Recent" />
-            <SidebarItem icon={<LuShare2 />} label="Shared" />
-            <SidebarItem icon={<FaRegHeart />} label="Favorites" />
+            {[
+              { label: "Overview", icon: <MdSpaceDashboard /> },
+              { label: "Recent", icon: <LuCircleArrowOutUpRight /> },
+              { label: "Shared", icon: <LuShare2 /> },
+              { label: "Favorites", icon: <FaRegHeart /> },
+              { label: "Artist", icon: <FaRegUser /> },
+            ].map((item) => (
+              <SidebarItem
+                key={item.label}
+                icon={item.icon}
+                label={item.label}
+                active={activeSection === item.label}
+                onClick={() => setActiveSection(item.label)}
+              />
+            ))}
           </nav>
         </div>
 
-        {/* Bottom: Settings and Deleted */}
+        {/* Bottom Sidebar Navigation */}
         <div className="flex flex-col gap-2 px-4 pt-4 text-sm font-medium">
-          <SidebarItem icon={<IoMdSettings />} label="Settings" />
-          <SidebarItem icon={<LuTrash2 />} label="Deleted" />
+          {[
+            { label: "Settings", icon: <IoMdSettings /> },
+            { label: "Deleted", icon: <LuTrash2 /> },
+          ].map((item) => (
+            <SidebarItem
+              key={item.label}
+              icon={item.icon}
+              label={item.label}
+              active={activeSection === item.label}
+              onClick={() => setActiveSection(item.label)}
+            />
+          ))}
         </div>
       </aside>
 
@@ -44,8 +103,14 @@ const Dashboard = () => {
         {/* Header */}
         <header className="flex justify-between items-center mb-6">
           <div>
-            <h1 className="text-xl font-semibold">Overview</h1>
-            <p className="text-sm text-gray-400">Monday, 6th March</p>
+            <h1 className="text-xl font-semibold">{activeSection}</h1>
+            <p className="text-sm text-gray-400">
+              {new Date().toLocaleDateString("en-US", {
+                weekday: "long",
+                day: "numeric",
+                month: "long",
+              })}
+            </p>
           </div>
 
           <div className="flex items-center gap-4">
@@ -75,26 +140,19 @@ const Dashboard = () => {
           </div>
         </header>
 
-        {/* Metrics Cards */}
-        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-          <MetricCard title="Total NOC" value="256" change="+12.5%" />
-          <MetricCard title="New Users" value="58" change="+3.2%" />
-          <MetricCard title="Completed NOC" value="28" change="+8.7%" />
-          <MetricCard title="Pending NOC" value="4" change="-2.1%" />
-        </section>
-
-        {/* Activity section */}
-        <Dashboardactivity />
+        {/* Section Rendering */}
+        <div>{renderSection()}</div>
       </main>
     </div>
   );
 };
 
-const SidebarItem = ({ icon, label, active }) => (
+const SidebarItem = ({ icon, label, active, onClick }) => (
   <div
     className={`flex items-center gap-3 px-3 py-2 rounded-md cursor-pointer transition-colors ${
       active ? "bg-[#e4d7dc] text-[#a92b43]" : "hover:bg-gray-100"
     }`}
+    onClick={onClick}
   >
     <span className="text-lg">{icon}</span>
     <span className="text-sm font-medium">{label}</span>

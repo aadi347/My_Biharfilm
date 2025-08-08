@@ -42,9 +42,9 @@ export default function FilmPolicyNOC() {
 
       {/* Mobile Friendly Summary */}
       <div className="mt-10 w-full max-w-4xl">
-        <div className="bg-white shadow-md rounded-2xl p-4 sm:p-6 border-l-4 border-[#a92b4e]">
+        <div className="bg-white shadow-xl rounded-2xl p-4 sm:p-6 border-l-4 border-[#a92b4e] transition hover:scale-[1.01] hover:shadow-[#a92b4e] duration-300">
           <h2 className="text-lg sm:text-xl font-medium text-[#891737] mb-4">
-             Film Subsidy Details (Mobile Summary)
+            Film Subsidy Details (Mobile Summary)
           </h2>
           <FilmSubsidy />
         </div>
