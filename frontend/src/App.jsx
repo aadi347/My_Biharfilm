@@ -21,7 +21,7 @@ import DasboardUser from "./Dashboard/DashboardUser";
 import DistrictDashboard from "./Dashboard/DistrictDashboard";
 // import DistrictList from "./Dashboard/DistrictList"
 import CineSamvad from "./NavigationCards/pages/CineSamvad";
-
+import Chatarpatar from "./NavigationCards/Pages/Chatarpatar";
 import CoffeeWithFilm from "./NavigationCards/Pages/CoffeeWithFilm";
 import Notice from "./NavigationCards/Notice";
 import ShootingLocationPage from "./NavigationCards/ShootingLocationPage";
