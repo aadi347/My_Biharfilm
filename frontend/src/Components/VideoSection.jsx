@@ -7,7 +7,7 @@ import Mountain from "/mountain.mp4";
 import Watertemp from "/watertemp.mp4";
 import Vrvideo from "/Vrvideo.mp4";
 import { motion } from "framer-motion";
-import "../app.css";
+import "../App.css";
 
 const videos = [Snowtrain, Snow, Watertemp, Mountain, Vrvideo];
 
