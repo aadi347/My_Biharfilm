@@ -25,6 +25,7 @@ import Chatarpatar from "./NavigationCards/Pages/Chatarpatar";
 
 import CoffeeWithFilm from "./NavigationCards/pages/CoffeeWithFilm.jsx";
 
+
 import Notice from "./NavigationCards/Notice";
 import ShootingLocationPage from "./NavigationCards/ShootingLocationPage";
 
