@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios"; // ✅ axios import
 import Bgpatter from "../assets/Bgpatter.svg";
-
 import Adminsvgg from "../assets/Adminsvgg.svg";
 import { MdEmail } from "react-icons/md";
 import { IoIosLock } from "react-icons/io";
@@ -12,73 +12,53 @@ const LoginPage = () => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
-  const districtAccounts = [
-    { email: "patna@gmail.com", password: "patna", district: "Patna" },
-    { email: "gaya@gmail.com", password: "gaya", district: "Gaya" },
-    { email: "bhagalpur@gmail.com", password: "bhagalpur", district: "Bhagalpur" },
-    { email: "muzaffarpur@gmail.com", password: "muzaffarpur", district: "Muzaffarpur" },
-  ];
-
-  const userAccounts = [
-    { email: "user@gmail.com", password: "user", role: "User" },
-    { email: "artist@gmail.com", password: "artist", role: "Artist" },
-    { email: "wender@gmail.com", password: "wender", role: "Wender" },
-  ];
-
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    if (isAdmin) {
-      // Admin Login
-      if (email === "admin@gmail.com" && password === "admin") {
-        localStorage.setItem("authToken", "adminToken123");
-        navigate("/dashboard");
-        return;
-      }
+    try {
+      // ✅ API call to backend
+      const res = await axios.post("https://biharfilmbackend-production.up.railway.app/api/auth/login", {
+        email,
+        password,
+      });
 
-      // District Login
-      const districtUser = districtAccounts.find(
-        (acc) => acc.email === email && acc.password === password
-      );
+      if (res.data.success) {
+        const user = res.data.user;
 
-      if (districtUser) {
-        localStorage.setItem("authToken", `${districtUser.district}_token`);
-        navigate(`/district/${districtUser.district.toLowerCase()}`);
-        return;
-      }
+        // Save token or flag (you can store JWT from res if available)
+        localStorage.setItem("authToken", user.id);
+        localStorage.setItem("userRole", user.role);
 
-      alert("Invalid admin or district credentials");
-    } else {
-      // User, Artist, Wender Login
-      const user = userAccounts.find(
-        (u) => u.email === email && u.password === password
-      );
-
-      if (user) {
-        localStorage.setItem("authToken", `${user.role}_token`);
-        if (user.role === "User") {
+        // Redirecting users based on there role
+        if (user.role === "filmmaker") {
           navigate("/dashboard-user");
+        } else if (user.role === "artist") {
+          navigate("/dashboard-artist");
+        } else if (user.role === "vendor") {
+          navigate("/dashboard-vendor");
+        } else if (user.role === "admin") {
+          navigate("/dashboard");
+        } else if (user.role === "district_admin") {
+          navigate(`/district/${user.district?.toLowerCase() || "default"}`);
         } else {
-          alert("Login successful");
-          navigate("/");
+          navigate("/login");
         }
-        return;
       }
-
-      alert("Invalid user credentials");
+    } catch (err) {
+      console.error("Login failed:", err.response?.data || err.message);
+      alert(err.response?.data?.message || "Invalid credentials");
     }
   };
 
   return (
     <div className="flex h-screen w-full items-center justify-center px-4 relative">
-    <img
-    src="/Bgg.svg"
-    alt="Background"
-    className="fixed inset-0 w-full h-full object-cover opacity-60 z-[-1]"
-  />
-
+      <img
+        src="/Bgg.svg"
+        alt="Background"
+        className="fixed inset-0 w-full h-full object-cover opacity-60 z-[-1]"
+      />
       <div className="flex max-w-5xl w-full h-[39rem] rounded-3xl bg-white shadow-2xl overflow-hidden">
         {/* Left Graphic */}
         <div className="hidden w-1/2 bg-zinc-100 p-10 md:flex items-center justify-center">
@@ -93,7 +73,7 @@ const LoginPage = () => {
         <div className="w-full md:w-1/2 p-8 md:p-14">
           <div className="flex justify-between items-center mb-4">
             <span className="text-sm font-medium text-gray-700">
-              {isAdmin ? "Admin/District" : "User/Artist/Wender"} Login
+              {isAdmin ? "Admin/District" : "User/Artist/Vendor"} Login
             </span>
             <button
               type="button"
@@ -107,8 +87,8 @@ const LoginPage = () => {
           <h2 className="text-2xl font-bold text-gray-800">Welcome back!</h2>
           <p className="mb-6 text-gray-500">Enter your email and password</p>
 
+          {/* ✅ Form uses handleLogin */}
           <form onSubmit={handleLogin}>
-            {/* Email Field */}
             <div className="mb-4">
               <label htmlFor="email" className="text-sm font-medium text-gray-700">
                 Email
@@ -128,7 +108,6 @@ const LoginPage = () => {
               </div>
             </div>
 
-            {/* Password Field */}
             <div className="mb-6">
               <label htmlFor="password" className="text-sm font-medium text-gray-700">
                 Password
@@ -154,7 +133,6 @@ const LoginPage = () => {
               </div>
             </div>
 
-            {/* Submit */}
             <button
               type="submit"
               className="mb-6 w-full rounded-full bg-[#a92b43] py-2 shadow-[0_4px_8px_#802d44] font-semibold text-white hover:bg-[#891737]"
@@ -162,7 +140,6 @@ const LoginPage = () => {
               Login
             </button>
 
-            {/* Footer Link */}
             <p className="text-center text-sm text-gray-600">
               Don't have an account?{" "}
               <Link to="/signup" className="text-[#802d44] hover:underline">

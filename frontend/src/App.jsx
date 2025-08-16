@@ -21,18 +21,20 @@ import DasboardUser from "./Dashboard/DashboardUser";
 import DistrictDashboard from "./Dashboard/DistrictDashboard";
 // import DistrictList from "./Dashboard/DistrictList"
 import CineSamvad from "./NavigationCards/pages/CineSamvad";
-import Chatarpatar from "./NavigationCards/pages/Chatarpatar";
-
-import CoffeeWithFilm from "./NavigationCards/pages/CoffeeWithFilm.jsx";
-
-
-import Notice from "./NavigationCards/Notice";
+import Chatarpatar from "./NavigationCards/Pages/Chatarpatar";
+import CoffeeWithFilm from "./NavigationCards/Pages/CoffeeWithFilm";
+// import Notice from "./NavigationCards/Notice";
 import ShootingLocationPage from "./NavigationCards/ShootingLocationPage";
+import ArtistForm from "../src/NavigationCards/AddArtistForm";
+import VendorForm from "./NavigationCards/VendorForm ";
 
-import VendorForm from "../src/NavigationCards/VendorForm ";
 import Notification from "./NavigationCards/Notification";
 import Tender from "./NavigationCards/Tender";
-import Vrpage from "../src/NavigationCards/pages/Vrpage";
+import Vrpage from "./NavigationCards/pages/Vrpage";
+import ProtectedRoute from './Components/ProtectedRoute';;
+
+
+import Artist from "../src/NavigationCards/Artist";
 // Home Page
 function Home() {
   return (
@@ -68,7 +70,16 @@ export default function App() {
       <Route path="/signup" element={<SignupPage />} />
       <Route path="/apply-noc" element={<ShootingPermissionForm />} />
       <Route path="/dashboard" element={<DashboardMM />} />
-      <Route path="/dashboard-user" element={<DasboardUser />} />
+
+      <Route path="/dashboard-user" 
+      element={
+      <ProtectedRoute allowedRole="filmmaker">
+      <DasboardUser />
+      </ProtectedRoute>
+      }
+      />
+
+          <Route path="/register-artist" element={<ArtistForm />} />
         <Route path="/register-vendor" element={<VendorForm />} />
       {/* <Route path="/districts" element={<DistrictList />} /> */}
 
@@ -79,9 +90,10 @@ export default function App() {
    
       <Route path="/filmclub/chatarpatar" element={<Chatarpatar />} />
       <Route path="/filmclub/coffee-with-film" element={<CoffeeWithFilm />} />
+
       <Route path="/vrpage" element={<Vrpage />} />
 
-
+      <Route path="artist" element={<Artist />} />
 
     </Routes>
   );
