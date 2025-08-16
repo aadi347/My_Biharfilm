@@ -46,14 +46,14 @@ const UserDashboard = () => {
   };
 
   const sidebarItems = {
-    User: ["Overview", "Apply NOC"],
+    filmmaker: ["Overview", "Apply NOC"],
     Artist: ["Overview", "Artist Registration"],
     Vendor: ["Overview", "Vendor Registration"],
   };
 
   const renderSection = () => {
     if (activeSection === "Overview") {
-      if (userRole === "User") {
+      if (userRole === "filmmaker") {
         return (
           <>
             <p className="text-gray-700 text-lg mb-4">📋 Your Applied NOCs</p>

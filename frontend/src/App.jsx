@@ -79,6 +79,7 @@ export default function App() {
       }
       />
 
+          
           <Route path="/register-artist" element={<ArtistForm />} />
         <Route path="/register-vendor" element={<VendorForm />} />
       {/* <Route path="/districts" element={<DistrictList />} /> */}
