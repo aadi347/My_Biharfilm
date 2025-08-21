@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import ApplyNOCForm from "../NavigationCards/ShootingPermissionFoam"; // Custom form components
 import ArtistRegistrationForm from "../NavigationCards/AddArtistForm"; // Custom form components
 import VendorRegistrationForm from "../NavigationCards/VendorForm ";
+import ArtistProfile from "./ArtistProfile"
 
 const UserDashboard = () => {
   const [userRole, setUserRole] = useState(null);
@@ -47,8 +48,8 @@ const UserDashboard = () => {
 
   const sidebarItems = {
     filmmaker: ["Overview", "Apply NOC"],
-    Artist: ["Overview", "Artist Registration"],
-    Vendor: ["Overview", "Vendor Registration"],
+    artist: ["Overview", "Artist Registration"],
+    vendor: ["Overview", "Vendor Registration"],
   };
 
   const renderSection = () => {
@@ -81,9 +82,9 @@ const UserDashboard = () => {
             )}
           </>
         );
-      } else if (userRole === "Artist") {
-        return <p className="text-gray-700 text-lg">🎨 View your artist status and submissions.</p>;
-      } else if (userRole === "Vendor") {
+      } else if (userRole === "artist") {
+        return <ArtistProfile />;
+      } else if (userRole === "vendor") {
         return <p className="text-gray-700 text-lg">🛍️ Manage your vendor submissions and supplies.</p>;
       }
     }

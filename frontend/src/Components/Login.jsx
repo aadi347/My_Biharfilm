@@ -35,9 +35,9 @@ const LoginPage = () => {
         if (user.role === "filmmaker") {
           navigate("/dashboard-user");
         } else if (user.role === "artist") {
-          navigate("/dashboard-artist");
+          navigate("/dashboard-user");
         } else if (user.role === "vendor") {
-          navigate("/dashboard-vendor");
+          navigate("/dashboard-user");
         } else if (user.role === "admin") {
           navigate("/dashboard");
         } else if (user.role === "district_admin") {
